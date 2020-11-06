@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+.pointer {
+  cursor: pointer;
+}
+
+.navbar {
+  padding-bottom: 18px;
+}
+
+#mainNav .navbar-nav>li.nav-item>a {
+  margin-top: 12px;
+}
+
+input.form-control,
+textarea.form-control {
+  border-radius: 0;
+}

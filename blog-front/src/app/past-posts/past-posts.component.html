@@ -1,0 +1,21 @@
+<app-loading *ngIf="loading"></app-loading>
+<div class="row" *ngIf="!loading">
+  <div class="col-lg-8 col-md-10 mx-auto">
+    <h1 style="text-align: center; margin-bottom: 12px; color: lightslategray;">All Posts</h1>
+    <br />
+    <div *ngFor="let post of posts">
+      <app-preview-post [post]="post"></app-preview-post>
+      <hr>
+    </div>
+    <!-- Pager -->
+
+    <!-- Home Button -->
+    <div>
+      <br />
+      <div class="clearfix text-center mx-auto">
+        <a class="btn btn-secondary pointer" routerLink="/home">Home</a>
+      </div>
+      <br />
+    </div>
+  </div>
+</div>
