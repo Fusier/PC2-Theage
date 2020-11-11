@@ -37,7 +37,7 @@ export class ApiService {
       .pipe(catchError(this.handleError));
   }
 
-  //handle any error encounted while sending http request
+  //handle any error encountered while sending http request
   private handleError(error: Response | any) {
     console.error("ApiService::handleError", error);
     return throwError(error);
