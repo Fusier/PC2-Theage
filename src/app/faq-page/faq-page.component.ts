@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import faqData from '../../assets/json/faqData.json';
 
-
 interface Item {
   title: String;
   questions: String[];
@@ -19,5 +18,4 @@ export class FaqComponent implements OnInit {
   ngOnInit() {}
 
   items: Item[] = faqData;
-  
 }
