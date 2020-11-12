@@ -1,7 +1,7 @@
-<app-navbar></app-navbar>
-<app-masthead></app-masthead>
+<app-navbar *ngIf="!(this.router.url==='/start-page')"></app-navbar>
+<app-masthead *ngIf="!(this.router.url==='/start-page')"></app-masthead>
 <div class="container">
   <router-outlet></router-outlet>
 </div>
-<hr>
-<app-footer></app-footer>
+<hr *ngIf="!(this.router.url==='/start-page')">
+<app-footer *ngIf="!(this.router.url==='/start-page')"></app-footer>
