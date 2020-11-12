@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "src/app/home/home.component";
 import { AboutComponent } from "src/app/about/about.component";
-import { FaqComponent } from "src/app/faq/faq.component";
+import { FaqComponent } from "src/app/faq-page/faq-page.component";
 import { ContactComponent } from "src/app/contact/contact.component";
 import { PastPostsComponent } from "src/app/past-posts/past-posts.component";
 import { AuthorPostComponent } from "src/app/author-post/author-post.component";

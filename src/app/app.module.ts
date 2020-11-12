@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
-import { FaqComponent } from "./faq/faq.component";
+import { FaqComponent } from "./faq-page/faq-page.component";
 import { ContactComponent } from "./contact/contact.component";
 import { PastPostsComponent } from "./past-posts/past-posts.component";
 import { ViewPostComponent } from "./view-post/view-post.component";
