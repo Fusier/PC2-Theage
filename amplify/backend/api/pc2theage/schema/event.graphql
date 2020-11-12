@@ -1,0 +1,12 @@
+type Event @model {
+  id: ID!
+  name: String!
+  headline: String!
+  description: String!
+  actors: String!
+  genre: String!
+  venue: String!
+  startDate: String!
+  endDate: String!
+}
+

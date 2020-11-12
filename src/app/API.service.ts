@@ -9,18 +9,30 @@ export interface SubscriptionResponse<T> {
   value: GraphQLResult<T>;
 }
 
-export type CreateTodoInput = {
+export type CreateEventInput = {
   id?: string | null;
   name: string;
-  description?: string | null;
+  headline: string;
+  description: string;
+  actors: string;
+  genre: string;
+  venue: string;
+  startDate: string;
+  endDate: string;
 };
 
-export type ModelTodoConditionInput = {
+export type ModelEventConditionInput = {
   name?: ModelStringInput | null;
+  headline?: ModelStringInput | null;
   description?: ModelStringInput | null;
-  and?: Array<ModelTodoConditionInput | null> | null;
-  or?: Array<ModelTodoConditionInput | null> | null;
-  not?: ModelTodoConditionInput | null;
+  actors?: ModelStringInput | null;
+  genre?: ModelStringInput | null;
+  venue?: ModelStringInput | null;
+  startDate?: ModelStringInput | null;
+  endDate?: ModelStringInput | null;
+  and?: Array<ModelEventConditionInput | null> | null;
+  or?: Array<ModelEventConditionInput | null> | null;
+  not?: ModelEventConditionInput | null;
 };
 
 export type ModelStringInput = {
@@ -62,23 +74,35 @@ export type ModelSizeInput = {
   between?: Array<number | null> | null;
 };
 
-export type UpdateTodoInput = {
+export type UpdateEventInput = {
   id: string;
   name?: string | null;
+  headline?: string | null;
   description?: string | null;
+  actors?: string | null;
+  genre?: string | null;
+  venue?: string | null;
+  startDate?: string | null;
+  endDate?: string | null;
 };
 
-export type DeleteTodoInput = {
+export type DeleteEventInput = {
   id?: string | null;
 };
 
-export type ModelTodoFilterInput = {
+export type ModelEventFilterInput = {
   id?: ModelIDInput | null;
   name?: ModelStringInput | null;
+  headline?: ModelStringInput | null;
   description?: ModelStringInput | null;
-  and?: Array<ModelTodoFilterInput | null> | null;
-  or?: Array<ModelTodoFilterInput | null> | null;
-  not?: ModelTodoFilterInput | null;
+  actors?: ModelStringInput | null;
+  genre?: ModelStringInput | null;
+  venue?: ModelStringInput | null;
+  startDate?: ModelStringInput | null;
+  endDate?: ModelStringInput | null;
+  and?: Array<ModelEventFilterInput | null> | null;
+  or?: Array<ModelEventFilterInput | null> | null;
+  not?: ModelEventFilterInput | null;
 };
 
 export type ModelIDInput = {
@@ -97,78 +121,126 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null;
 };
 
-export type CreateTodoMutation = {
-  __typename: "Todo";
+export type CreateEventMutation = {
+  __typename: "Event";
   id: string;
   name: string;
-  description: string | null;
+  headline: string;
+  description: string;
+  actors: string;
+  genre: string;
+  venue: string;
+  startDate: string;
+  endDate: string;
   createdAt: string;
   updatedAt: string;
 };
 
-export type UpdateTodoMutation = {
-  __typename: "Todo";
+export type UpdateEventMutation = {
+  __typename: "Event";
   id: string;
   name: string;
-  description: string | null;
+  headline: string;
+  description: string;
+  actors: string;
+  genre: string;
+  venue: string;
+  startDate: string;
+  endDate: string;
   createdAt: string;
   updatedAt: string;
 };
 
-export type DeleteTodoMutation = {
-  __typename: "Todo";
+export type DeleteEventMutation = {
+  __typename: "Event";
   id: string;
   name: string;
-  description: string | null;
+  headline: string;
+  description: string;
+  actors: string;
+  genre: string;
+  venue: string;
+  startDate: string;
+  endDate: string;
   createdAt: string;
   updatedAt: string;
 };
 
-export type GetTodoQuery = {
-  __typename: "Todo";
+export type GetEventQuery = {
+  __typename: "Event";
   id: string;
   name: string;
-  description: string | null;
+  headline: string;
+  description: string;
+  actors: string;
+  genre: string;
+  venue: string;
+  startDate: string;
+  endDate: string;
   createdAt: string;
   updatedAt: string;
 };
 
-export type ListTodosQuery = {
-  __typename: "ModelTodoConnection";
+export type ListEventsQuery = {
+  __typename: "ModelEventConnection";
   items: Array<{
-    __typename: "Todo";
+    __typename: "Event";
     id: string;
     name: string;
-    description: string | null;
+    headline: string;
+    description: string;
+    actors: string;
+    genre: string;
+    venue: string;
+    startDate: string;
+    endDate: string;
     createdAt: string;
     updatedAt: string;
   } | null> | null;
   nextToken: string | null;
 };
 
-export type OnCreateTodoSubscription = {
-  __typename: "Todo";
+export type OnCreateEventSubscription = {
+  __typename: "Event";
   id: string;
   name: string;
-  description: string | null;
+  headline: string;
+  description: string;
+  actors: string;
+  genre: string;
+  venue: string;
+  startDate: string;
+  endDate: string;
   createdAt: string;
   updatedAt: string;
 };
 
-export type OnUpdateTodoSubscription = {
-  __typename: "Todo";
+export type OnUpdateEventSubscription = {
+  __typename: "Event";
   id: string;
   name: string;
-  description: string | null;
+  headline: string;
+  description: string;
+  actors: string;
+  genre: string;
+  venue: string;
+  startDate: string;
+  endDate: string;
   createdAt: string;
   updatedAt: string;
 };
 
-export type OnDeleteTodoSubscription = {
-  __typename: "Todo";
+export type OnDeleteEventSubscription = {
+  __typename: "Event";
   id: string;
   name: string;
-  description: string | null;
+  headline: string;
+  description: string;
+  actors: string;
+  genre: string;
+  venue: string;
+  startDate: string;
+  endDate: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -177,16 +249,22 @@ export type OnDeleteTodoSubscription = {
   providedIn: "root"
 })
 export class APIService {
-  async CreateTodo(
-    input: CreateTodoInput,
-    condition?: ModelTodoConditionInput
-  ): Promise<CreateTodoMutation> {
-    const statement = `mutation CreateTodo($input: CreateTodoInput!, $condition: ModelTodoConditionInput) {
-        createTodo(input: $input, condition: $condition) {
+  async CreateEvent(
+    input: CreateEventInput,
+    condition?: ModelEventConditionInput
+  ): Promise<CreateEventMutation> {
+    const statement = `mutation CreateEvent($input: CreateEventInput!, $condition: ModelEventConditionInput) {
+        createEvent(input: $input, condition: $condition) {
           __typename
           id
           name
+          headline
           description
+          actors
+          genre
+          venue
+          startDate
+          endDate
           createdAt
           updatedAt
         }
@@ -200,18 +278,24 @@ export class APIService {
     const response = (await API.graphql(
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
-    return <CreateTodoMutation>response.data.createTodo;
+    return <CreateEventMutation>response.data.createEvent;
   }
-  async UpdateTodo(
-    input: UpdateTodoInput,
-    condition?: ModelTodoConditionInput
-  ): Promise<UpdateTodoMutation> {
-    const statement = `mutation UpdateTodo($input: UpdateTodoInput!, $condition: ModelTodoConditionInput) {
-        updateTodo(input: $input, condition: $condition) {
+  async UpdateEvent(
+    input: UpdateEventInput,
+    condition?: ModelEventConditionInput
+  ): Promise<UpdateEventMutation> {
+    const statement = `mutation UpdateEvent($input: UpdateEventInput!, $condition: ModelEventConditionInput) {
+        updateEvent(input: $input, condition: $condition) {
           __typename
           id
           name
+          headline
           description
+          actors
+          genre
+          venue
+          startDate
+          endDate
           createdAt
           updatedAt
         }
@@ -225,18 +309,24 @@ export class APIService {
     const response = (await API.graphql(
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
-    return <UpdateTodoMutation>response.data.updateTodo;
+    return <UpdateEventMutation>response.data.updateEvent;
   }
-  async DeleteTodo(
-    input: DeleteTodoInput,
-    condition?: ModelTodoConditionInput
-  ): Promise<DeleteTodoMutation> {
-    const statement = `mutation DeleteTodo($input: DeleteTodoInput!, $condition: ModelTodoConditionInput) {
-        deleteTodo(input: $input, condition: $condition) {
+  async DeleteEvent(
+    input: DeleteEventInput,
+    condition?: ModelEventConditionInput
+  ): Promise<DeleteEventMutation> {
+    const statement = `mutation DeleteEvent($input: DeleteEventInput!, $condition: ModelEventConditionInput) {
+        deleteEvent(input: $input, condition: $condition) {
           __typename
           id
           name
+          headline
           description
+          actors
+          genre
+          venue
+          startDate
+          endDate
           createdAt
           updatedAt
         }
@@ -250,15 +340,21 @@ export class APIService {
     const response = (await API.graphql(
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
-    return <DeleteTodoMutation>response.data.deleteTodo;
+    return <DeleteEventMutation>response.data.deleteEvent;
   }
-  async GetTodo(id: string): Promise<GetTodoQuery> {
-    const statement = `query GetTodo($id: ID!) {
-        getTodo(id: $id) {
+  async GetEvent(id: string): Promise<GetEventQuery> {
+    const statement = `query GetEvent($id: ID!) {
+        getEvent(id: $id) {
           __typename
           id
           name
+          headline
           description
+          actors
+          genre
+          venue
+          startDate
+          endDate
           createdAt
           updatedAt
         }
@@ -269,21 +365,27 @@ export class APIService {
     const response = (await API.graphql(
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
-    return <GetTodoQuery>response.data.getTodo;
+    return <GetEventQuery>response.data.getEvent;
   }
-  async ListTodos(
-    filter?: ModelTodoFilterInput,
+  async ListEvents(
+    filter?: ModelEventFilterInput,
     limit?: number,
     nextToken?: string
-  ): Promise<ListTodosQuery> {
-    const statement = `query ListTodos($filter: ModelTodoFilterInput, $limit: Int, $nextToken: String) {
-        listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  ): Promise<ListEventsQuery> {
+    const statement = `query ListEvents($filter: ModelEventFilterInput, $limit: Int, $nextToken: String) {
+        listEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {
           __typename
           items {
             __typename
             id
             name
+            headline
             description
+            actors
+            genre
+            venue
+            startDate
+            endDate
             createdAt
             updatedAt
           }
@@ -303,56 +405,74 @@ export class APIService {
     const response = (await API.graphql(
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
-    return <ListTodosQuery>response.data.listTodos;
+    return <ListEventsQuery>response.data.listEvents;
   }
-  OnCreateTodoListener: Observable<
-    SubscriptionResponse<OnCreateTodoSubscription>
+  OnCreateEventListener: Observable<
+    SubscriptionResponse<OnCreateEventSubscription>
   > = API.graphql(
     graphqlOperation(
-      `subscription OnCreateTodo {
-        onCreateTodo {
+      `subscription OnCreateEvent {
+        onCreateEvent {
           __typename
           id
           name
+          headline
           description
+          actors
+          genre
+          venue
+          startDate
+          endDate
           createdAt
           updatedAt
         }
       }`
     )
-  ) as Observable<SubscriptionResponse<OnCreateTodoSubscription>>;
+  ) as Observable<SubscriptionResponse<OnCreateEventSubscription>>;
 
-  OnUpdateTodoListener: Observable<
-    SubscriptionResponse<OnUpdateTodoSubscription>
+  OnUpdateEventListener: Observable<
+    SubscriptionResponse<OnUpdateEventSubscription>
   > = API.graphql(
     graphqlOperation(
-      `subscription OnUpdateTodo {
-        onUpdateTodo {
+      `subscription OnUpdateEvent {
+        onUpdateEvent {
           __typename
           id
           name
+          headline
           description
+          actors
+          genre
+          venue
+          startDate
+          endDate
           createdAt
           updatedAt
         }
       }`
     )
-  ) as Observable<SubscriptionResponse<OnUpdateTodoSubscription>>;
+  ) as Observable<SubscriptionResponse<OnUpdateEventSubscription>>;
 
-  OnDeleteTodoListener: Observable<
-    SubscriptionResponse<OnDeleteTodoSubscription>
+  OnDeleteEventListener: Observable<
+    SubscriptionResponse<OnDeleteEventSubscription>
   > = API.graphql(
     graphqlOperation(
-      `subscription OnDeleteTodo {
-        onDeleteTodo {
+      `subscription OnDeleteEvent {
+        onDeleteEvent {
           __typename
           id
           name
+          headline
           description
+          actors
+          genre
+          venue
+          startDate
+          endDate
           createdAt
           updatedAt
         }
       }`
     )
-  ) as Observable<SubscriptionResponse<OnDeleteTodoSubscription>>;
+  ) as Observable<SubscriptionResponse<OnDeleteEventSubscription>>;
 }

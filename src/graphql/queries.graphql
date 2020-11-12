@@ -1,23 +1,35 @@
 # this is an auto generated file. This will be overwritten
-query GetTodo($id: ID!) {
-  getTodo(id: $id) {
+query GetEvent($id: ID!) {
+  getEvent(id: $id) {
     id
     name
+    headline
     description
+    actors
+    genre
+    venue
+    startDate
+    endDate
     createdAt
     updatedAt
   }
 }
-query ListTodos(
-  $filter: ModelTodoFilterInput
+query ListEvents(
+  $filter: ModelEventFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       name
+      headline
       description
+      actors
+      genre
+      venue
+      startDate
+      endDate
       createdAt
       updatedAt
     }
