@@ -1,5 +1,6 @@
-{
-    "General Information": {
+[
+    {
+        "title" : "Geberal Information",
         "questions": [
             "What does the Theatergemeinde München do?",
             "What advantages does the community platform offer me?",
@@ -15,8 +16,9 @@
             "Is my data secure?",
             "The platform handles members' personal data confidentially in accordance with the basic data protection regulation (Regulation (EU) 2016/679)."
         ]
-    },
-    "Membership / Customer Account": {
+    }, 
+    {
+        "title" : "Membership / Customer Account",
         "questions": [
             "How much does the TheaGe offer cost me?",
             "How do I register?",
@@ -36,7 +38,8 @@
             "In the \"Blog\" and \"Forum\" section you can exchange information with other members and discuss cultural experiences and opinions. In addition, the \"Blog\" section provides you with information about events and all the news about cultural life in and around Munich."
         ]
     },
-    "Events & activities": {
+    {
+        "title" : "Events & activities",
         "questions": [
             "On what basis are the cultural recommendations made?",
             "Which events can I see?",
@@ -50,7 +53,8 @@
             "The Top 50 events are selected monthly by TheaGe employees according to the criteria of ticket demand and event size."
         ]
     },
-    "Tickets": {
+    {
+        "title" : "Tickets",
         "questions": [
             "How do I get tickets via the Community Platform?",
             "How do I get my tickets?",
@@ -62,6 +66,4 @@
             "Corona's staff is available for you until further notice from Tue-Thu from 8:30 - 12 o'clock and 13 - 17 o'clock via live chat or on the phone. You can also contact TheaGe outside opening hours at the following e-mail address: info@theage-muenchen.de"
         ]
     }
-    
-    
-}
+]
