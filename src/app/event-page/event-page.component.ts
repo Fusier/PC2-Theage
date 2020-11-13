@@ -14,7 +14,6 @@ export class EventPageComponent implements OnInit {
   async ngOnInit() {
     this.api.ListEvents().then(event => {
       this.events = event.items;
-      console.log(this.events);
     });
   }
 }
