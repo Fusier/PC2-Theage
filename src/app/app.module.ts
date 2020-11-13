@@ -19,6 +19,7 @@ import { PreviewPostComponent } from "./preview-post/preview-post.component";
 import { AuthorPostComponent } from "./author-post/author-post.component";
 import { LoadingComponent } from "./loading/loading.component";
 import { EventPageComponent } from "./event-page/event-page.component";
+import { StartPageComponent } from "./start-page/start-page.component";
 
 @NgModule({
   declarations: [

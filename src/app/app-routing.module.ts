@@ -8,9 +8,10 @@ import { PastPostsComponent } from "src/app/past-posts/past-posts.component";
 import { AuthorPostComponent } from "src/app/author-post/author-post.component";
 import { ViewPostComponent } from "src/app/view-post/view-post.component";
 import { EventPageComponent } from "./event-page/event-page.component";
+import { StartPageComponent} from "src/app/start-page/start-page.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "/home", pathMatch: "full" }, //default route
+  { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "home", component: HomeComponent },
   { path: "about", component: AboutComponent },
   { path: "faq", component: FaqComponent },
@@ -19,6 +20,8 @@ const routes: Routes = [
   { path: "post/:id", component: ViewPostComponent },
   { path: "author-post", component: AuthorPostComponent },
   { path: "event-page", component: EventPageComponent }
+  { path: "author-post", component: AuthorPostComponent },
+  { path: "start-page", component: StartPageComponent }
 ];
 
 @NgModule({
