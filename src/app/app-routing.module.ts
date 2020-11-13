@@ -6,6 +6,7 @@ import { ContactComponent } from "src/app/contact/contact.component";
 import { PastPostsComponent } from "src/app/past-posts/past-posts.component";
 import { AuthorPostComponent } from "src/app/author-post/author-post.component";
 import { ViewPostComponent } from "src/app/view-post/view-post.component";
+import { EventPageComponent } from "./event-page/event-page.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" }, //default route
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: "contact", component: ContactComponent },
   { path: "posts", component: PastPostsComponent },
   { path: "post/:id", component: ViewPostComponent },
-  { path: "author-post", component: AuthorPostComponent }
+  { path: "author-post", component: AuthorPostComponent },
+  { path: "event-page", component: EventPageComponent }
 ];
 
 @NgModule({
