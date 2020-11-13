@@ -1,4 +1,5 @@
-import {Component, OnInit, Output} from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { Event } from "../../types/event";
 
 @Component({
   selector: 'app-event',
@@ -6,6 +7,7 @@ import {Component, OnInit, Output} from '@angular/core';
   styleUrls: ['./event-page.component.css']
 })
 export class EventPageComponent {
+  events: Event[];
   constructor() {}
 
 }
