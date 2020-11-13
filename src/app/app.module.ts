@@ -36,7 +36,8 @@ import { StartPageComponent } from "./start-page/start-page.component";
     PreviewPostComponent,
     AuthorPostComponent,
     LoadingComponent,
-    EventPageComponent
+    EventPageComponent,
+    StartPageComponent
   ],
   imports: [
     BrowserModule,

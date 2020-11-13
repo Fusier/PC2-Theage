@@ -19,8 +19,7 @@ const routes: Routes = [
   { path: "posts", component: PastPostsComponent },
   { path: "post/:id", component: ViewPostComponent },
   { path: "author-post", component: AuthorPostComponent },
-  { path: "event-page", component: EventPageComponent }
-  { path: "author-post", component: AuthorPostComponent },
+  { path: "event-page", component: EventPageComponent },
   { path: "start-page", component: StartPageComponent }
 ];
 
