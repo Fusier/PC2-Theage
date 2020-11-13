@@ -13,4 +13,8 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
     this.year = new Date().getFullYear().toString();
   }
+
+  scroll() {
+    window.scrollTo(0,0);
+  }
 }

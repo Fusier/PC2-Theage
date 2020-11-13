@@ -128,3 +128,7 @@ ul li:hover:nth-child(5) a:before{
 ul li:hover:nth-child(5) a:after{
   background: linear-gradient(#400080, transparent), linear-gradient(200deg, #d047d1, #ff0000, #ffff00);
 }
+
+div{
+  text-align: center;
+}
