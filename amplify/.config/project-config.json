@@ -1,5 +1,8 @@
 {
-  "projectName": "pc2theage",
+  "providers": [
+    "awscloudformation"
+  ],
+  "projectName": "PC2-Theage",
   "version": "3.0",
   "frontend": "javascript",
   "javascript": {
@@ -10,8 +13,5 @@
       "BuildCommand": "npm.cmd run-script build",
       "StartCommand": "ng serve"
     }
-  },
-  "providers": [
-    "awscloudformation"
-  ]
+  }
 }
