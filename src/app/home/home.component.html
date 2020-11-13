@@ -1,12 +1,63 @@
+<div class="buttonSection" id="">
+  <h5>Sections</h5>
+  <button (click)="scroll('#events')">Events</button>
+  <button (click)="scroll('#culture')">Cultural trips</button>
+  <button (click)="scroll('#community')">Community</button>
+  <button (click)="scroll('#helpdesk')">Helpdesk</button>
+</div>
+
+<hr>
+
+<div class="buttonSection" id="#events">
+  <h5>Events</h5>
+  <a class href="">I'm a button</a>
+  <a class href="">I'm a button</a>
+  <a class href="">I'm a button</a>
+  <a class href="">I'm a button</a>
+</div>
+
+<hr>
+
+<div class="buttonSection" id="#culture">
+  <h5>Cultural trips</h5>
+  <a class href="">I'm a button</a>
+  <a class href="">I'm a button</a>
+  <a class href="">I'm a button</a>
+  <a class href="">I'm a button</a>
+</div>
+
+<hr>
+
+<div class="buttonSection" id="#community">
+  <h5>Community</h5>
+  <a class href="">I'm a button</a>
+  <a class href="">I'm a button</a>
+  <a class href="">I'm a button</a>
+  <a class href="">I'm a button</a>
+</div>
+
+<hr>
+
+<div class="buttonSection" id="#helpdesk">
+  <h5>Customer Support?</h5>
+  <a class href="">I'm a button</a>
+  <a class href="">I'm a button</a>
+  <a class href="">I'm a button</a>
+  <a class href="">I'm a button</a>
+</div>
+
+
+    <!--       html for recent posts
+
 <h1 style="text-align: center; margin-bottom: 12px; color: lightslategray;">Recent Posts</h1>
 <app-loading *ngIf="loading"></app-loading>
 <div class="row" *ngIf="!loading">
   <div class="col-lg-8 col-md-10 mx-auto">
+
     <div *ngFor="let post of posts">
       <app-preview-post [post]="post"></app-preview-post>
       <hr>
     </div>
-
     <div class="clearfix">
       <a class="btn btn-secondary float-left pointer" routerLink="/author-post">
         New Post
@@ -15,5 +66,7 @@
         All Posts &rarr;
       </a>
     </div>
+    
   </div>
 </div>
+-->
