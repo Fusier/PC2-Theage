@@ -7,6 +7,7 @@ import { ContactComponent } from "src/app/contact/contact.component";
 import { PastPostsComponent } from "src/app/past-posts/past-posts.component";
 import { AuthorPostComponent } from "src/app/author-post/author-post.component";
 import { ViewPostComponent } from "src/app/view-post/view-post.component";
+import { EventPageComponent } from "./event-page/event-page.component";
 import { StartPageComponent} from "src/app/start-page/start-page.component";
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: "posts", component: PastPostsComponent },
   { path: "post/:id", component: ViewPostComponent },
   { path: "author-post", component: AuthorPostComponent },
+  { path: "event-page", component: EventPageComponent },
   { path: "start-page", component: StartPageComponent }
 ];
 
