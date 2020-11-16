@@ -1,3 +1,23 @@
 div {
   font:600 16px/18px 'Open Sans',sans-serif;
 }
+
+img {
+  object-fit: cover;
+  width: 300px;
+  height: 200px;
+  border-style: solid;
+}
+.column {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+h5 {
+  height: 60px;
+
+}
+
+.sideNav {
+  border-style: solid;
+}
