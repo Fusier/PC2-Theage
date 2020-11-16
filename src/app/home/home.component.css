@@ -26,7 +26,7 @@ h1,h2,h3,h4, p {
     padding: 0px;
     float: left;
     z-index: 4;
-    width: 23.7vw;
+    width: 23.4vw;
     height: 75vh;
     object-fit: cover;
 }
@@ -35,7 +35,7 @@ h1,h2,h3,h4, p {
     margin: 0px;
     padding: 0px;
     z-index: 6;
-    width: 23.7vw;
+    width: 23.4vw;
     height: 75vh;
     position: absolute;
 }
@@ -44,7 +44,7 @@ h1,h2,h3,h4, p {
     margin: 0px;
     padding: 0px;
     background-color: rgba(0,0,0,0.55);
-    width: 23.7vw;
+    width: 23.4vw;
     height: 75vh;
     z-index: 5;
     position: absolute;

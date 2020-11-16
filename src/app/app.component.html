@@ -1,6 +1,6 @@
 <app-navbar *ngIf="!(this.router.url==='/start-page')"></app-navbar>
 <app-masthead *ngIf="!(this.router.url==='/start-page')"></app-masthead>
-<div>
+<div [ngClass]="{'container' : !(this.router.url==='/home')}">
   <router-outlet></router-outlet>
 </div>
 <hr *ngIf="!(this.router.url==='/start-page')">
