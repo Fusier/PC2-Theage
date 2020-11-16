@@ -132,3 +132,27 @@ ul li:hover:nth-child(5) a:after{
 div{
   text-align: center;
 }
+
+
+
+.returnButton {
+  border-style: solid;
+  border-color: black;
+  margin: 5px;
+  width: 150px;
+  height: 40px;
+  outline: none;
+  cursor: pointer;
+  background: none;
+  transition: .3s;
+  border-radius: 5px;
+  font-family: "Lato",sans-serif;
+  background-color: white;
+  color: red;
+
+}
+
+.returnButton:hover {
+  color:  white;
+  background-color: red;
+}
