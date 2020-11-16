@@ -34,3 +34,30 @@ html {
     transform:scale(1.03);
     background-color: white;
 }
+
+
+.returnButton {
+    border-style: solid;
+    border-color: black;
+    margin: 5px;
+    width: 150px;
+    height: 40px;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    transition: .3s;
+    border-radius: 5px;
+    font-family: "Lato",sans-serif;
+    background-color: white;
+    color: red;
+  
+  }
+  
+  .return{
+    text-align: center;
+  }
+
+  .returnButton:hover {
+    color:  white;
+    background-color: red;
+  }
