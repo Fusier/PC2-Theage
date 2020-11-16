@@ -26,8 +26,4 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  scroll(id: string) {
-    let el = document.getElementById(id);
-    el.scrollIntoView();
-  }
 }
