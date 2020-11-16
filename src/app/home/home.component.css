@@ -32,15 +32,6 @@ h1,h2,h3,h4, p {
     object-fit: cover;
 }
 
-.caption-style-1 a {
-    margin: 0px;
-    padding: 0px;
-    z-index: 6;
-    width: 23.4vw;
-    height: 75vh;
-    position: absolute;
-}
-
 .caption-style-1 .blur {
     margin: 0px;
     padding: 0px;
