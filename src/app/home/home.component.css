@@ -1,0 +1,19 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.buttonSection {
+    text-align: center;
+    height: 300px;
+}
+
+.buttonSection > h5 {
+    margin-top: 75px;
+    margin-bottom: 75px;
+}
+
+.buttonSection > a {
+    height: 25%;
+    width: 49%;
+    padding: 5%;
+}
