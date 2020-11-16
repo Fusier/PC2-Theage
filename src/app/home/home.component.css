@@ -17,6 +17,7 @@ h1,h2,h3,h4, p {
 .caption-style-1 > li{
     float: left;
     padding: 0px;
+    margin: 0;
     position: relative;
     overflow: hidden;
 }
@@ -57,13 +58,15 @@ h1,h2,h3,h4, p {
 .caption-style-1 .caption-text {
     margin: 0px;
     padding: 0px;
-    z-index: 10;
+    padding-top: 100px;
+    z-index: 7;
     color: #fff;
     position: absolute;
-    width: 100%;
-    height: 500px;
+    width: 23.7vw;
+    height: 75vh;
     text-align: center;
-    top: 100px;
+    vertical-align: middle;
+
 }
 
 .container-a1 {

@@ -10,7 +10,7 @@ import { BlogPost } from "../models/blog-post";
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-  //loading: boolean = true;
+  loading: boolean = true;
   posts: BlogPost[];
 
   constructor(private postService: BlogPostService, private router: Router) {}
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   private getElements(): void {
     this.postService.GetPosts().subscribe(posts => {
       this.posts = posts;
-      //this.loading = false;
+      this.loading = false;
     });
   }
 
