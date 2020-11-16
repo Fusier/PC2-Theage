@@ -3,13 +3,13 @@ query GetEvent($id: ID!) {
   getEvent(id: $id) {
     id
     name
-    headline
     description
     actors
     genre
     venue
     startDate
     endDate
+    time
     createdAt
     updatedAt
   }
@@ -23,13 +23,13 @@ query ListEvents(
     items {
       id
       name
-      headline
       description
       actors
       genre
       venue
       startDate
       endDate
+      time
       createdAt
       updatedAt
     }

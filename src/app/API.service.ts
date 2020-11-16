@@ -12,24 +12,24 @@ export interface SubscriptionResponse<T> {
 export type CreateEventInput = {
   id?: string | null;
   name: string;
-  headline: string;
   description: string;
   actors: string;
   genre: string;
   venue: string;
   startDate: string;
   endDate: string;
+  time: string;
 };
 
 export type ModelEventConditionInput = {
   name?: ModelStringInput | null;
-  headline?: ModelStringInput | null;
   description?: ModelStringInput | null;
   actors?: ModelStringInput | null;
   genre?: ModelStringInput | null;
   venue?: ModelStringInput | null;
   startDate?: ModelStringInput | null;
   endDate?: ModelStringInput | null;
+  time?: ModelStringInput | null;
   and?: Array<ModelEventConditionInput | null> | null;
   or?: Array<ModelEventConditionInput | null> | null;
   not?: ModelEventConditionInput | null;
@@ -77,13 +77,13 @@ export type ModelSizeInput = {
 export type UpdateEventInput = {
   id: string;
   name?: string | null;
-  headline?: string | null;
   description?: string | null;
   actors?: string | null;
   genre?: string | null;
   venue?: string | null;
   startDate?: string | null;
   endDate?: string | null;
+  time?: string | null;
 };
 
 export type DeleteEventInput = {
@@ -93,13 +93,13 @@ export type DeleteEventInput = {
 export type ModelEventFilterInput = {
   id?: ModelIDInput | null;
   name?: ModelStringInput | null;
-  headline?: ModelStringInput | null;
   description?: ModelStringInput | null;
   actors?: ModelStringInput | null;
   genre?: ModelStringInput | null;
   venue?: ModelStringInput | null;
   startDate?: ModelStringInput | null;
   endDate?: ModelStringInput | null;
+  time?: ModelStringInput | null;
   and?: Array<ModelEventFilterInput | null> | null;
   or?: Array<ModelEventFilterInput | null> | null;
   not?: ModelEventFilterInput | null;
@@ -125,13 +125,13 @@ export type CreateEventMutation = {
   __typename: "Event";
   id: string;
   name: string;
-  headline: string;
   description: string;
   actors: string;
   genre: string;
   venue: string;
   startDate: string;
   endDate: string;
+  time: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -140,13 +140,13 @@ export type UpdateEventMutation = {
   __typename: "Event";
   id: string;
   name: string;
-  headline: string;
   description: string;
   actors: string;
   genre: string;
   venue: string;
   startDate: string;
   endDate: string;
+  time: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -155,13 +155,13 @@ export type DeleteEventMutation = {
   __typename: "Event";
   id: string;
   name: string;
-  headline: string;
   description: string;
   actors: string;
   genre: string;
   venue: string;
   startDate: string;
   endDate: string;
+  time: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -170,13 +170,13 @@ export type GetEventQuery = {
   __typename: "Event";
   id: string;
   name: string;
-  headline: string;
   description: string;
   actors: string;
   genre: string;
   venue: string;
   startDate: string;
   endDate: string;
+  time: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -187,13 +187,13 @@ export type ListEventsQuery = {
     __typename: "Event";
     id: string;
     name: string;
-    headline: string;
     description: string;
     actors: string;
     genre: string;
     venue: string;
     startDate: string;
     endDate: string;
+    time: string;
     createdAt: string;
     updatedAt: string;
   } | null> | null;
@@ -204,13 +204,13 @@ export type OnCreateEventSubscription = {
   __typename: "Event";
   id: string;
   name: string;
-  headline: string;
   description: string;
   actors: string;
   genre: string;
   venue: string;
   startDate: string;
   endDate: string;
+  time: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -219,13 +219,13 @@ export type OnUpdateEventSubscription = {
   __typename: "Event";
   id: string;
   name: string;
-  headline: string;
   description: string;
   actors: string;
   genre: string;
   venue: string;
   startDate: string;
   endDate: string;
+  time: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -234,13 +234,13 @@ export type OnDeleteEventSubscription = {
   __typename: "Event";
   id: string;
   name: string;
-  headline: string;
   description: string;
   actors: string;
   genre: string;
   venue: string;
   startDate: string;
   endDate: string;
+  time: string;
   createdAt: string;
   updatedAt: string;
 };
@@ -258,13 +258,13 @@ export class APIService {
           __typename
           id
           name
-          headline
           description
           actors
           genre
           venue
           startDate
           endDate
+          time
           createdAt
           updatedAt
         }
@@ -289,13 +289,13 @@ export class APIService {
           __typename
           id
           name
-          headline
           description
           actors
           genre
           venue
           startDate
           endDate
+          time
           createdAt
           updatedAt
         }
@@ -320,13 +320,13 @@ export class APIService {
           __typename
           id
           name
-          headline
           description
           actors
           genre
           venue
           startDate
           endDate
+          time
           createdAt
           updatedAt
         }
@@ -348,13 +348,13 @@ export class APIService {
           __typename
           id
           name
-          headline
           description
           actors
           genre
           venue
           startDate
           endDate
+          time
           createdAt
           updatedAt
         }
@@ -379,13 +379,13 @@ export class APIService {
             __typename
             id
             name
-            headline
             description
             actors
             genre
             venue
             startDate
             endDate
+            time
             createdAt
             updatedAt
           }
@@ -416,13 +416,13 @@ export class APIService {
           __typename
           id
           name
-          headline
           description
           actors
           genre
           venue
           startDate
           endDate
+          time
           createdAt
           updatedAt
         }
@@ -439,13 +439,13 @@ export class APIService {
           __typename
           id
           name
-          headline
           description
           actors
           genre
           venue
           startDate
           endDate
+          time
           createdAt
           updatedAt
         }
@@ -462,13 +462,13 @@ export class APIService {
           __typename
           id
           name
-          headline
           description
           actors
           genre
           venue
           startDate
           endDate
+          time
           createdAt
           updatedAt
         }
