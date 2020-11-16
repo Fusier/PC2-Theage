@@ -6,13 +6,13 @@ mutation CreateEvent(
   createEvent(input: $input, condition: $condition) {
     id
     name
-    headline
     description
     actors
     genre
     venue
     startDate
     endDate
+    time
     createdAt
     updatedAt
   }
@@ -24,13 +24,13 @@ mutation UpdateEvent(
   updateEvent(input: $input, condition: $condition) {
     id
     name
-    headline
     description
     actors
     genre
     venue
     startDate
     endDate
+    time
     createdAt
     updatedAt
   }
@@ -42,13 +42,13 @@ mutation DeleteEvent(
   deleteEvent(input: $input, condition: $condition) {
     id
     name
-    headline
     description
     actors
     genre
     venue
     startDate
     endDate
+    time
     createdAt
     updatedAt
   }
