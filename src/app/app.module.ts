@@ -20,6 +20,7 @@ import { AuthorPostComponent } from "./author-post/author-post.component";
 import { LoadingComponent } from "./loading/loading.component";
 import { EventPageComponent } from "./event-page/event-page.component";
 import { StartPageComponent } from "./start-page/start-page.component";
+import { ForumComponent } from './forum-page/forum-page.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { StartPageComponent } from "./start-page/start-page.component";
     AuthorPostComponent,
     LoadingComponent,
     EventPageComponent,
-    StartPageComponent
+    StartPageComponent,
+    ForumComponent
   ],
   imports: [
     BrowserModule,
