@@ -1,0 +1,27 @@
+.content > div {
+    float: left;
+    height: 50vh;
+    border-color: black;
+    border-style: solid;
+}
+.content ::after {
+    float: none;
+}
+
+h1, h2, h3, h4 {
+    text-align: center;
+    border-color: black;
+    border-style: solid;
+    width: 100%;
+}
+
+div {
+    font:600 16px/18px 'Open Sans',sans-serif;
+    width: 100%;
+    height: auto;
+    padding-bottom: 50%;
+}
+
+div > p {
+    height: auto;
+}
