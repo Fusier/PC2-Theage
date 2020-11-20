@@ -1,13 +1,38 @@
-<div class="content">
-    <h2>Forum post</h2>
-    <div class="col-lg-12 col-md-12 col-mx-12">
-        <h4>Replies</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit,
-        fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto
-        error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas
-        voluptatibus, minus!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque
-        esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p>
+<div class="container">
+  <div class="row">
+    <div class="post-head">
+      <h2 class="post-title">{{title}}</h2>
+      
+      <div class="card">
+          <div class="image">Profile</div>
+          <div class="card-body">
+            <p>forum post author</p>
+          </div>
+        </div>
+
+      <div class="text">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit,
+            fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto
+            error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas
+            voluptatibus, minus!</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque
+            esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p>
+      </div>
     </div>
+
+    <div class="post-comment" *ngFor="let comment of comments">
+      <div class="profile">
+        <div class="image">Profile</div>
+        <p>forum comment author</p>
+      </div>
+
+      <div class="text">
+        <p>{{comment.content}}</p>
+      </div>
+    </div>
+
+    
+
+  </div>
 </div>

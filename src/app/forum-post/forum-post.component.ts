@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Comment } from '../../types/comment';
 
 @Component({
   selector: 'app-forum-post',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForumPostComponent implements OnInit {
 
-  constructor() { }
 
+  constructor() { }
+  
   ngOnInit(): void {
   }
 
+  post: String = "am a post";
+  text: String = "am a text";
+  title: String = "am a title";
+  comments: Comment[] = [{
+    id: "jaa",
+    content: "I am content"
+  }];
 }

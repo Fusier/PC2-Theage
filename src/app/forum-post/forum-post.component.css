@@ -1,0 +1,52 @@
+.content {
+  border-color: black;
+  border-style: solid;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+.post-head, .post-comment{
+  border-color: black;
+  border-style: solid;
+  border-radius: 7px;
+  margin: 5px;
+  padding: 5px;
+
+  min-height: 300px;
+}
+
+.card {
+  float: left;
+  border-style: solid;
+  border-color: black;
+  text-align: center;
+  min-height: 40vh;
+  min-width: 30vh;
+}
+
+.profile p {
+  min-width: 30vh;
+}
+
+.text p {
+  padding: 10px;
+}
+
+.image {
+  float: left;
+  height: 30vh;
+  width: 30vh;
+  border-color: black;
+  border-style: solid;
+  text-align: center;
+}
+
+.post-title {
+  border-color: black;
+  border-style: solid;
+  padding: 3px;
+}
+
+div {
+  font:600 16px/18px 'Open Sans',sans-serif;
+}
