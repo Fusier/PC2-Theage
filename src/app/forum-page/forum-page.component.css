@@ -3,6 +3,7 @@
     height: 50vh;
     border-color: black;
     border-style: solid;
+
 }
 .content ::after {
     float: none;
@@ -19,7 +20,6 @@ div {
     font:600 16px/18px 'Open Sans',sans-serif;
     width: 100%;
     height: auto;
-    padding-bottom: 50%;
 }
 
 div > p {
