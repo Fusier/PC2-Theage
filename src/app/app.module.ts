@@ -21,6 +21,8 @@ import { LoadingComponent } from "./loading/loading.component";
 import { EventPageComponent } from "./event-page/event-page.component";
 import { StartPageComponent } from "./start-page/start-page.component";
 import { ForumComponent } from './forum-page/forum-page.component';
+import { ForumSubPageComponent } from './forum-sub-page/forum-sub-page.component';
+import { ForumPostComponent } from './forum-post/forum-post.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { ForumComponent } from './forum-page/forum-page.component';
     LoadingComponent,
     EventPageComponent,
     StartPageComponent,
-    ForumComponent
+    ForumComponent,
+    ForumSubPageComponent,
+    ForumPostComponent
   ],
   imports: [
     BrowserModule,
