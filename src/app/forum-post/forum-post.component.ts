@@ -14,11 +14,11 @@ export class ForumPostComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  post: String = "am a post";
-  text: String = "am a text";
-  title: String = "am a title";
+  post: String = "I am a sample post";
+  text: String = "I am a sample text";
+  title: String = "I am a sample title";
   comments: Comment[] = [{
     id: "jaa",
-    content: "I am content"
+    content: "Don't mind me, I am just some sample content"
   }];
 }

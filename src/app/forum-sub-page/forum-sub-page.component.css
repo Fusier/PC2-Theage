@@ -1,0 +1,15 @@
+div {
+  font:600 16px/18px 'Open Sans',sans-serif;
+}
+
+.buttons {
+  margin: 5px;
+}
+
+.post {
+  border-color: black;
+  border-style: solid;
+  border-radius: 7px;
+  margin: 5px;
+  padding: 1vh;
+}
