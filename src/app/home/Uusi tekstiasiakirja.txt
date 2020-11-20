@@ -1,1 +1,0 @@
- [ngClass]="{'container' : !(this.router.url==='/home')}"
