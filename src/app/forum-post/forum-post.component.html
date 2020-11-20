@@ -1,10 +1,14 @@
 <div class="container">
+  <div class="buttons">
+    <button mat-raised-button color="warn" routerLink="/forum">Forum</button>
+    <button mat-raised-button color="warn" routerLink="/forum-subs"> Test subcategories</button>
+  </div>
   <div class="row">
     <div class="post-head">
-      <h2 class="post-title">{{title}}</h2>
+      <h4 class="post-title">{{title}}</h4>
       
       <div class="card">
-          <div class="image">Profile</div>
+          <div class="image">Profile Picture</div>
           <div class="card-body">
             <p>forum post author</p>
           </div>
@@ -22,9 +26,11 @@
     </div>
 
     <div class="post-comment" *ngFor="let comment of comments">
-      <div class="profile">
-        <div class="image">Profile</div>
-        <p>forum comment author</p>
+      <div class="card">
+        <div class="image">Profile Picture</div>
+        <div class="card-body">
+          <p>forum post author</p>
+        </div>
       </div>
 
       <div class="text">

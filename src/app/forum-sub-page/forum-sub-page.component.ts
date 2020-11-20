@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from '../../types/post'
+import { MatButtonModule } from '@angular/material/button'
+
 
 @Component({
   selector: 'app-forum-sub-page',
@@ -12,4 +15,21 @@ export class ForumSubPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-}
+  posts: Post[] =  [{
+      id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
+        id: 'testcomment', content: 'testcontent'
+      }]},
+      { id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
+        id: 'testcomment', content: 'testcontent'
+      }]},
+      { id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
+          id: 'testcomment', content: 'testcontent'
+      }]},
+      { id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
+        id: 'testcomment', content: 'testcontent'
+      }]},
+      { id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
+        id: 'testcomment', content: 'testcontent'
+      }] 
+      }
+    ]}
