@@ -2,8 +2,9 @@ div {
   font:600 16px/18px 'Open Sans',sans-serif;
 }
 
-.buttons {
-  margin: 5px;
+button {
+  margin-right: 5px;
+  padding: 5px;
 }
 
 .post {
@@ -12,4 +13,8 @@ div {
   border-radius: 7px;
   margin: 5px;
   padding: 1vh;
+}
+
+h4 {
+  margin-left: 2vh;
 }

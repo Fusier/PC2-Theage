@@ -56,3 +56,12 @@ div > p {
 .overflow {
   overflow: hidden;
 }
+
+.buttons  {
+  text-align: center;
+}
+
+button {
+  margin-right: 5px;
+  padding: 5px;
+}
