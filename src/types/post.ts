@@ -4,5 +4,5 @@ export type Post = {
   id: string,
   title: string,
   content: string,
-  subcategories: [Comment]
+  comments: [Comment]
 };
