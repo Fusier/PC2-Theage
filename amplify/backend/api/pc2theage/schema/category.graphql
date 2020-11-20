@@ -1,0 +1,5 @@
+type Category @model {
+  id: ID!
+  name: String!
+  subcategories: [Subcategory!]!
+}

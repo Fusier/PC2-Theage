@@ -1,0 +1,4 @@
+type Comment @model {
+  id: ID!
+  content: String!
+}

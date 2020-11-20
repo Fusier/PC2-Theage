@@ -1,0 +1,5 @@
+type Subcategory @model {
+  id: ID!
+  name: String!
+  posts: [Post!]!
+}
