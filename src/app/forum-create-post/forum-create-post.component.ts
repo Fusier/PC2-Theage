@@ -24,17 +24,18 @@ export class ForumCreatePostComponent implements OnInit {
     });
   }
 
-  onChange(id) {
+  onChange(id: string) {
     this.subOptions = [];
-    for (const i of this.subcategories) {
-      if (i.catID === id) {
-        this.subOptions.push(i);
+    for(let i = 0; i < this.subcategories.length; i++) {
+      if (this.subcategories[i].catID === id) {
+        this.subOptions.push(this.subcategories[i]);
       }
     }
+
   }
 
   addItem(subID: string, title: string, content: string) {
-    this.api.CreatePost({content, subID, title});
+    this.api.CreatePost({content, subID, title}).then(r => console.log(r));
   }
 }
 
