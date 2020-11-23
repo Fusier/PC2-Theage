@@ -1,0 +1,12 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+.theage-theme {
+  $my-alternate-primary: mat-palette($mat-red);
+  $my-alternate-accent: mat-palette($mat-green, 400);
+  $my-alternate-warn: mat-palette($mat-grey);
+
+  $my-alternate-theme: mat-light-theme($my-alternate-primary, $my-alternate-accent, $my-alternate-warn);
+
+  @include angular-material-theme($my-alternate-theme);
+}

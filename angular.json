@@ -24,11 +24,12 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.min.css",
               "src/styles.css",
-              "src/assets/styles/clean-blog.css"
+              "src/assets/styles/clean-blog.css",
+              "src/theme.scss"
             ],
             "scripts": []
           },
