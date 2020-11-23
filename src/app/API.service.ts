@@ -71,18 +71,37 @@ export type DeleteCategoryInput = {
 
 export type CreateCommentInput = {
   id?: string | null;
+  postID: string;
   content: string;
 };
 
 export type ModelCommentConditionInput = {
+  postID?: ModelIDInput | null;
   content?: ModelStringInput | null;
   and?: Array<ModelCommentConditionInput | null> | null;
   or?: Array<ModelCommentConditionInput | null> | null;
   not?: ModelCommentConditionInput | null;
 };
 
+export type ModelIDInput = {
+  ne?: string | null;
+  eq?: string | null;
+  le?: string | null;
+  lt?: string | null;
+  ge?: string | null;
+  gt?: string | null;
+  contains?: string | null;
+  notContains?: string | null;
+  between?: Array<string | null> | null;
+  beginsWith?: string | null;
+  attributeExists?: boolean | null;
+  attributeType?: ModelAttributeTypes | null;
+  size?: ModelSizeInput | null;
+};
+
 export type UpdateCommentInput = {
   id: string;
+  postID?: string | null;
   content?: string | null;
 };
 
@@ -134,11 +153,13 @@ export type DeleteEventInput = {
 
 export type CreatePostInput = {
   id?: string | null;
+  subID: string;
   title: string;
   content: string;
 };
 
 export type ModelPostConditionInput = {
+  subID?: ModelIDInput | null;
   title?: ModelStringInput | null;
   content?: ModelStringInput | null;
   and?: Array<ModelPostConditionInput | null> | null;
@@ -148,6 +169,7 @@ export type ModelPostConditionInput = {
 
 export type UpdatePostInput = {
   id: string;
+  subID?: string | null;
   title?: string | null;
   content?: string | null;
 };
@@ -158,10 +180,12 @@ export type DeletePostInput = {
 
 export type CreateSubcategoryInput = {
   id?: string | null;
+  catID: string;
   name: string;
 };
 
 export type ModelSubcategoryConditionInput = {
+  catID?: ModelIDInput | null;
   name?: ModelStringInput | null;
   and?: Array<ModelSubcategoryConditionInput | null> | null;
   or?: Array<ModelSubcategoryConditionInput | null> | null;
@@ -170,6 +194,7 @@ export type ModelSubcategoryConditionInput = {
 
 export type UpdateSubcategoryInput = {
   id: string;
+  catID?: string | null;
   name?: string | null;
 };
 
@@ -185,24 +210,9 @@ export type ModelCategoryFilterInput = {
   not?: ModelCategoryFilterInput | null;
 };
 
-export type ModelIDInput = {
-  ne?: string | null;
-  eq?: string | null;
-  le?: string | null;
-  lt?: string | null;
-  ge?: string | null;
-  gt?: string | null;
-  contains?: string | null;
-  notContains?: string | null;
-  between?: Array<string | null> | null;
-  beginsWith?: string | null;
-  attributeExists?: boolean | null;
-  attributeType?: ModelAttributeTypes | null;
-  size?: ModelSizeInput | null;
-};
-
 export type ModelCommentFilterInput = {
   id?: ModelIDInput | null;
+  postID?: ModelIDInput | null;
   content?: ModelStringInput | null;
   and?: Array<ModelCommentFilterInput | null> | null;
   or?: Array<ModelCommentFilterInput | null> | null;
@@ -226,6 +236,7 @@ export type ModelEventFilterInput = {
 
 export type ModelPostFilterInput = {
   id?: ModelIDInput | null;
+  subID?: ModelIDInput | null;
   title?: ModelStringInput | null;
   content?: ModelStringInput | null;
   and?: Array<ModelPostFilterInput | null> | null;
@@ -235,6 +246,7 @@ export type ModelPostFilterInput = {
 
 export type ModelSubcategoryFilterInput = {
   id?: ModelIDInput | null;
+  catID?: ModelIDInput | null;
   name?: ModelStringInput | null;
   and?: Array<ModelSubcategoryFilterInput | null> | null;
   or?: Array<ModelSubcategoryFilterInput | null> | null;
@@ -245,21 +257,18 @@ export type CreateCategoryMutation = {
   __typename: "Category";
   id: string;
   name: string;
-  subcategories: Array<{
-    __typename: "Subcategory";
-    id: string;
-    name: string;
-    posts: Array<{
-      __typename: "Post";
+  subCategories: {
+    __typename: "ModelSubcategoryConnection";
+    items: Array<{
+      __typename: "Subcategory";
       id: string;
-      title: string;
-      content: string;
+      catID: string;
+      name: string;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
-    createdAt: string;
-    updatedAt: string;
-  }>;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -268,21 +277,18 @@ export type UpdateCategoryMutation = {
   __typename: "Category";
   id: string;
   name: string;
-  subcategories: Array<{
-    __typename: "Subcategory";
-    id: string;
-    name: string;
-    posts: Array<{
-      __typename: "Post";
+  subCategories: {
+    __typename: "ModelSubcategoryConnection";
+    items: Array<{
+      __typename: "Subcategory";
       id: string;
-      title: string;
-      content: string;
+      catID: string;
+      name: string;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
-    createdAt: string;
-    updatedAt: string;
-  }>;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -291,21 +297,18 @@ export type DeleteCategoryMutation = {
   __typename: "Category";
   id: string;
   name: string;
-  subcategories: Array<{
-    __typename: "Subcategory";
-    id: string;
-    name: string;
-    posts: Array<{
-      __typename: "Post";
+  subCategories: {
+    __typename: "ModelSubcategoryConnection";
+    items: Array<{
+      __typename: "Subcategory";
       id: string;
-      title: string;
-      content: string;
+      catID: string;
+      name: string;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
-    createdAt: string;
-    updatedAt: string;
-  }>;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -313,6 +316,7 @@ export type DeleteCategoryMutation = {
 export type CreateCommentMutation = {
   __typename: "Comment";
   id: string;
+  postID: string;
   content: string;
   createdAt: string;
   updatedAt: string;
@@ -321,6 +325,7 @@ export type CreateCommentMutation = {
 export type UpdateCommentMutation = {
   __typename: "Comment";
   id: string;
+  postID: string;
   content: string;
   createdAt: string;
   updatedAt: string;
@@ -329,6 +334,7 @@ export type UpdateCommentMutation = {
 export type DeleteCommentMutation = {
   __typename: "Comment";
   id: string;
+  postID: string;
   content: string;
   createdAt: string;
   updatedAt: string;
@@ -382,15 +388,21 @@ export type DeleteEventMutation = {
 export type CreatePostMutation = {
   __typename: "Post";
   id: string;
+  subID: string;
   title: string;
   content: string;
-  comments: Array<{
-    __typename: "Comment";
-    id: string;
-    content: string;
-    createdAt: string;
-    updatedAt: string;
-  } | null> | null;
+  comments: {
+    __typename: "ModelCommentConnection";
+    items: Array<{
+      __typename: "Comment";
+      id: string;
+      postID: string;
+      content: string;
+      createdAt: string;
+      updatedAt: string;
+    } | null> | null;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -398,15 +410,21 @@ export type CreatePostMutation = {
 export type UpdatePostMutation = {
   __typename: "Post";
   id: string;
+  subID: string;
   title: string;
   content: string;
-  comments: Array<{
-    __typename: "Comment";
-    id: string;
-    content: string;
-    createdAt: string;
-    updatedAt: string;
-  } | null> | null;
+  comments: {
+    __typename: "ModelCommentConnection";
+    items: Array<{
+      __typename: "Comment";
+      id: string;
+      postID: string;
+      content: string;
+      createdAt: string;
+      updatedAt: string;
+    } | null> | null;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -414,15 +432,21 @@ export type UpdatePostMutation = {
 export type DeletePostMutation = {
   __typename: "Post";
   id: string;
+  subID: string;
   title: string;
   content: string;
-  comments: Array<{
-    __typename: "Comment";
-    id: string;
-    content: string;
-    createdAt: string;
-    updatedAt: string;
-  } | null> | null;
+  comments: {
+    __typename: "ModelCommentConnection";
+    items: Array<{
+      __typename: "Comment";
+      id: string;
+      postID: string;
+      content: string;
+      createdAt: string;
+      updatedAt: string;
+    } | null> | null;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -430,22 +454,21 @@ export type DeletePostMutation = {
 export type CreateSubcategoryMutation = {
   __typename: "Subcategory";
   id: string;
+  catID: string;
   name: string;
-  posts: Array<{
-    __typename: "Post";
-    id: string;
-    title: string;
-    content: string;
-    comments: Array<{
-      __typename: "Comment";
+  posts: {
+    __typename: "ModelPostConnection";
+    items: Array<{
+      __typename: "Post";
       id: string;
+      subID: string;
+      title: string;
       content: string;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
-    createdAt: string;
-    updatedAt: string;
-  } | null> | null;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -453,22 +476,21 @@ export type CreateSubcategoryMutation = {
 export type UpdateSubcategoryMutation = {
   __typename: "Subcategory";
   id: string;
+  catID: string;
   name: string;
-  posts: Array<{
-    __typename: "Post";
-    id: string;
-    title: string;
-    content: string;
-    comments: Array<{
-      __typename: "Comment";
+  posts: {
+    __typename: "ModelPostConnection";
+    items: Array<{
+      __typename: "Post";
       id: string;
+      subID: string;
+      title: string;
       content: string;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
-    createdAt: string;
-    updatedAt: string;
-  } | null> | null;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -476,22 +498,21 @@ export type UpdateSubcategoryMutation = {
 export type DeleteSubcategoryMutation = {
   __typename: "Subcategory";
   id: string;
+  catID: string;
   name: string;
-  posts: Array<{
-    __typename: "Post";
-    id: string;
-    title: string;
-    content: string;
-    comments: Array<{
-      __typename: "Comment";
+  posts: {
+    __typename: "ModelPostConnection";
+    items: Array<{
+      __typename: "Post";
       id: string;
+      subID: string;
+      title: string;
       content: string;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
-    createdAt: string;
-    updatedAt: string;
-  } | null> | null;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -500,21 +521,18 @@ export type GetCategoryQuery = {
   __typename: "Category";
   id: string;
   name: string;
-  subcategories: Array<{
-    __typename: "Subcategory";
-    id: string;
-    name: string;
-    posts: Array<{
-      __typename: "Post";
+  subCategories: {
+    __typename: "ModelSubcategoryConnection";
+    items: Array<{
+      __typename: "Subcategory";
       id: string;
-      title: string;
-      content: string;
+      catID: string;
+      name: string;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
-    createdAt: string;
-    updatedAt: string;
-  }>;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -525,13 +543,10 @@ export type ListCategorysQuery = {
     __typename: "Category";
     id: string;
     name: string;
-    subcategories: Array<{
-      __typename: "Subcategory";
-      id: string;
-      name: string;
-      createdAt: string;
-      updatedAt: string;
-    }>;
+    subCategories: {
+      __typename: "ModelSubcategoryConnection";
+      nextToken: string | null;
+    } | null;
     createdAt: string;
     updatedAt: string;
   } | null> | null;
@@ -541,6 +556,7 @@ export type ListCategorysQuery = {
 export type GetCommentQuery = {
   __typename: "Comment";
   id: string;
+  postID: string;
   content: string;
   createdAt: string;
   updatedAt: string;
@@ -551,6 +567,7 @@ export type ListCommentsQuery = {
   items: Array<{
     __typename: "Comment";
     id: string;
+    postID: string;
     content: string;
     createdAt: string;
     updatedAt: string;
@@ -595,15 +612,21 @@ export type ListEventsQuery = {
 export type GetPostQuery = {
   __typename: "Post";
   id: string;
+  subID: string;
   title: string;
   content: string;
-  comments: Array<{
-    __typename: "Comment";
-    id: string;
-    content: string;
-    createdAt: string;
-    updatedAt: string;
-  } | null> | null;
+  comments: {
+    __typename: "ModelCommentConnection";
+    items: Array<{
+      __typename: "Comment";
+      id: string;
+      postID: string;
+      content: string;
+      createdAt: string;
+      updatedAt: string;
+    } | null> | null;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -613,15 +636,13 @@ export type ListPostsQuery = {
   items: Array<{
     __typename: "Post";
     id: string;
+    subID: string;
     title: string;
     content: string;
-    comments: Array<{
-      __typename: "Comment";
-      id: string;
-      content: string;
-      createdAt: string;
-      updatedAt: string;
-    } | null> | null;
+    comments: {
+      __typename: "ModelCommentConnection";
+      nextToken: string | null;
+    } | null;
     createdAt: string;
     updatedAt: string;
   } | null> | null;
@@ -631,22 +652,21 @@ export type ListPostsQuery = {
 export type GetSubcategoryQuery = {
   __typename: "Subcategory";
   id: string;
+  catID: string;
   name: string;
-  posts: Array<{
-    __typename: "Post";
-    id: string;
-    title: string;
-    content: string;
-    comments: Array<{
-      __typename: "Comment";
+  posts: {
+    __typename: "ModelPostConnection";
+    items: Array<{
+      __typename: "Post";
       id: string;
+      subID: string;
+      title: string;
       content: string;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
-    createdAt: string;
-    updatedAt: string;
-  } | null> | null;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -656,15 +676,12 @@ export type ListSubcategorysQuery = {
   items: Array<{
     __typename: "Subcategory";
     id: string;
+    catID: string;
     name: string;
-    posts: Array<{
-      __typename: "Post";
-      id: string;
-      title: string;
-      content: string;
-      createdAt: string;
-      updatedAt: string;
-    } | null> | null;
+    posts: {
+      __typename: "ModelPostConnection";
+      nextToken: string | null;
+    } | null;
     createdAt: string;
     updatedAt: string;
   } | null> | null;
@@ -675,21 +692,18 @@ export type OnCreateCategorySubscription = {
   __typename: "Category";
   id: string;
   name: string;
-  subcategories: Array<{
-    __typename: "Subcategory";
-    id: string;
-    name: string;
-    posts: Array<{
-      __typename: "Post";
+  subCategories: {
+    __typename: "ModelSubcategoryConnection";
+    items: Array<{
+      __typename: "Subcategory";
       id: string;
-      title: string;
-      content: string;
+      catID: string;
+      name: string;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
-    createdAt: string;
-    updatedAt: string;
-  }>;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -698,21 +712,18 @@ export type OnUpdateCategorySubscription = {
   __typename: "Category";
   id: string;
   name: string;
-  subcategories: Array<{
-    __typename: "Subcategory";
-    id: string;
-    name: string;
-    posts: Array<{
-      __typename: "Post";
+  subCategories: {
+    __typename: "ModelSubcategoryConnection";
+    items: Array<{
+      __typename: "Subcategory";
       id: string;
-      title: string;
-      content: string;
+      catID: string;
+      name: string;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
-    createdAt: string;
-    updatedAt: string;
-  }>;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -721,21 +732,18 @@ export type OnDeleteCategorySubscription = {
   __typename: "Category";
   id: string;
   name: string;
-  subcategories: Array<{
-    __typename: "Subcategory";
-    id: string;
-    name: string;
-    posts: Array<{
-      __typename: "Post";
+  subCategories: {
+    __typename: "ModelSubcategoryConnection";
+    items: Array<{
+      __typename: "Subcategory";
       id: string;
-      title: string;
-      content: string;
+      catID: string;
+      name: string;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
-    createdAt: string;
-    updatedAt: string;
-  }>;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -743,6 +751,7 @@ export type OnDeleteCategorySubscription = {
 export type OnCreateCommentSubscription = {
   __typename: "Comment";
   id: string;
+  postID: string;
   content: string;
   createdAt: string;
   updatedAt: string;
@@ -751,6 +760,7 @@ export type OnCreateCommentSubscription = {
 export type OnUpdateCommentSubscription = {
   __typename: "Comment";
   id: string;
+  postID: string;
   content: string;
   createdAt: string;
   updatedAt: string;
@@ -759,6 +769,7 @@ export type OnUpdateCommentSubscription = {
 export type OnDeleteCommentSubscription = {
   __typename: "Comment";
   id: string;
+  postID: string;
   content: string;
   createdAt: string;
   updatedAt: string;
@@ -812,15 +823,21 @@ export type OnDeleteEventSubscription = {
 export type OnCreatePostSubscription = {
   __typename: "Post";
   id: string;
+  subID: string;
   title: string;
   content: string;
-  comments: Array<{
-    __typename: "Comment";
-    id: string;
-    content: string;
-    createdAt: string;
-    updatedAt: string;
-  } | null> | null;
+  comments: {
+    __typename: "ModelCommentConnection";
+    items: Array<{
+      __typename: "Comment";
+      id: string;
+      postID: string;
+      content: string;
+      createdAt: string;
+      updatedAt: string;
+    } | null> | null;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -828,15 +845,21 @@ export type OnCreatePostSubscription = {
 export type OnUpdatePostSubscription = {
   __typename: "Post";
   id: string;
+  subID: string;
   title: string;
   content: string;
-  comments: Array<{
-    __typename: "Comment";
-    id: string;
-    content: string;
-    createdAt: string;
-    updatedAt: string;
-  } | null> | null;
+  comments: {
+    __typename: "ModelCommentConnection";
+    items: Array<{
+      __typename: "Comment";
+      id: string;
+      postID: string;
+      content: string;
+      createdAt: string;
+      updatedAt: string;
+    } | null> | null;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -844,15 +867,21 @@ export type OnUpdatePostSubscription = {
 export type OnDeletePostSubscription = {
   __typename: "Post";
   id: string;
+  subID: string;
   title: string;
   content: string;
-  comments: Array<{
-    __typename: "Comment";
-    id: string;
-    content: string;
-    createdAt: string;
-    updatedAt: string;
-  } | null> | null;
+  comments: {
+    __typename: "ModelCommentConnection";
+    items: Array<{
+      __typename: "Comment";
+      id: string;
+      postID: string;
+      content: string;
+      createdAt: string;
+      updatedAt: string;
+    } | null> | null;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -860,22 +889,21 @@ export type OnDeletePostSubscription = {
 export type OnCreateSubcategorySubscription = {
   __typename: "Subcategory";
   id: string;
+  catID: string;
   name: string;
-  posts: Array<{
-    __typename: "Post";
-    id: string;
-    title: string;
-    content: string;
-    comments: Array<{
-      __typename: "Comment";
+  posts: {
+    __typename: "ModelPostConnection";
+    items: Array<{
+      __typename: "Post";
       id: string;
+      subID: string;
+      title: string;
       content: string;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
-    createdAt: string;
-    updatedAt: string;
-  } | null> | null;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -883,22 +911,21 @@ export type OnCreateSubcategorySubscription = {
 export type OnUpdateSubcategorySubscription = {
   __typename: "Subcategory";
   id: string;
+  catID: string;
   name: string;
-  posts: Array<{
-    __typename: "Post";
-    id: string;
-    title: string;
-    content: string;
-    comments: Array<{
-      __typename: "Comment";
+  posts: {
+    __typename: "ModelPostConnection";
+    items: Array<{
+      __typename: "Post";
       id: string;
+      subID: string;
+      title: string;
       content: string;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
-    createdAt: string;
-    updatedAt: string;
-  } | null> | null;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -906,22 +933,21 @@ export type OnUpdateSubcategorySubscription = {
 export type OnDeleteSubcategorySubscription = {
   __typename: "Subcategory";
   id: string;
+  catID: string;
   name: string;
-  posts: Array<{
-    __typename: "Post";
-    id: string;
-    title: string;
-    content: string;
-    comments: Array<{
-      __typename: "Comment";
+  posts: {
+    __typename: "ModelPostConnection";
+    items: Array<{
+      __typename: "Post";
       id: string;
+      subID: string;
+      title: string;
       content: string;
       createdAt: string;
       updatedAt: string;
     } | null> | null;
-    createdAt: string;
-    updatedAt: string;
-  } | null> | null;
+    nextToken: string | null;
+  } | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -939,20 +965,17 @@ export class APIService {
           __typename
           id
           name
-          subcategories {
+          subCategories {
             __typename
-            id
-            name
-            posts {
+            items {
               __typename
               id
-              title
-              content
+              catID
+              name
               createdAt
               updatedAt
             }
-            createdAt
-            updatedAt
+            nextToken
           }
           createdAt
           updatedAt
@@ -978,20 +1001,17 @@ export class APIService {
           __typename
           id
           name
-          subcategories {
+          subCategories {
             __typename
-            id
-            name
-            posts {
+            items {
               __typename
               id
-              title
-              content
+              catID
+              name
               createdAt
               updatedAt
             }
-            createdAt
-            updatedAt
+            nextToken
           }
           createdAt
           updatedAt
@@ -1017,20 +1037,17 @@ export class APIService {
           __typename
           id
           name
-          subcategories {
+          subCategories {
             __typename
-            id
-            name
-            posts {
+            items {
               __typename
               id
-              title
-              content
+              catID
+              name
               createdAt
               updatedAt
             }
-            createdAt
-            updatedAt
+            nextToken
           }
           createdAt
           updatedAt
@@ -1055,6 +1072,7 @@ export class APIService {
         createComment(input: $input, condition: $condition) {
           __typename
           id
+          postID
           content
           createdAt
           updatedAt
@@ -1079,6 +1097,7 @@ export class APIService {
         updateComment(input: $input, condition: $condition) {
           __typename
           id
+          postID
           content
           createdAt
           updatedAt
@@ -1103,6 +1122,7 @@ export class APIService {
         deleteComment(input: $input, condition: $condition) {
           __typename
           id
+          postID
           content
           createdAt
           updatedAt
@@ -1220,14 +1240,20 @@ export class APIService {
         createPost(input: $input, condition: $condition) {
           __typename
           id
+          subID
           title
           content
           comments {
             __typename
-            id
-            content
-            createdAt
-            updatedAt
+            items {
+              __typename
+              id
+              postID
+              content
+              createdAt
+              updatedAt
+            }
+            nextToken
           }
           createdAt
           updatedAt
@@ -1252,14 +1278,20 @@ export class APIService {
         updatePost(input: $input, condition: $condition) {
           __typename
           id
+          subID
           title
           content
           comments {
             __typename
-            id
-            content
-            createdAt
-            updatedAt
+            items {
+              __typename
+              id
+              postID
+              content
+              createdAt
+              updatedAt
+            }
+            nextToken
           }
           createdAt
           updatedAt
@@ -1284,14 +1316,20 @@ export class APIService {
         deletePost(input: $input, condition: $condition) {
           __typename
           id
+          subID
           title
           content
           comments {
             __typename
-            id
-            content
-            createdAt
-            updatedAt
+            items {
+              __typename
+              id
+              postID
+              content
+              createdAt
+              updatedAt
+            }
+            nextToken
           }
           createdAt
           updatedAt
@@ -1316,21 +1354,20 @@ export class APIService {
         createSubcategory(input: $input, condition: $condition) {
           __typename
           id
+          catID
           name
           posts {
             __typename
-            id
-            title
-            content
-            comments {
+            items {
               __typename
               id
+              subID
+              title
               content
               createdAt
               updatedAt
             }
-            createdAt
-            updatedAt
+            nextToken
           }
           createdAt
           updatedAt
@@ -1355,21 +1392,20 @@ export class APIService {
         updateSubcategory(input: $input, condition: $condition) {
           __typename
           id
+          catID
           name
           posts {
             __typename
-            id
-            title
-            content
-            comments {
+            items {
               __typename
               id
+              subID
+              title
               content
               createdAt
               updatedAt
             }
-            createdAt
-            updatedAt
+            nextToken
           }
           createdAt
           updatedAt
@@ -1394,21 +1430,20 @@ export class APIService {
         deleteSubcategory(input: $input, condition: $condition) {
           __typename
           id
+          catID
           name
           posts {
             __typename
-            id
-            title
-            content
-            comments {
+            items {
               __typename
               id
+              subID
+              title
               content
               createdAt
               updatedAt
             }
-            createdAt
-            updatedAt
+            nextToken
           }
           createdAt
           updatedAt
@@ -1431,20 +1466,17 @@ export class APIService {
           __typename
           id
           name
-          subcategories {
+          subCategories {
             __typename
-            id
-            name
-            posts {
+            items {
               __typename
               id
-              title
-              content
+              catID
+              name
               createdAt
               updatedAt
             }
-            createdAt
-            updatedAt
+            nextToken
           }
           createdAt
           updatedAt
@@ -1470,12 +1502,9 @@ export class APIService {
             __typename
             id
             name
-            subcategories {
+            subCategories {
               __typename
-              id
-              name
-              createdAt
-              updatedAt
+              nextToken
             }
             createdAt
             updatedAt
@@ -1503,6 +1532,7 @@ export class APIService {
         getComment(id: $id) {
           __typename
           id
+          postID
           content
           createdAt
           updatedAt
@@ -1527,6 +1557,7 @@ export class APIService {
           items {
             __typename
             id
+            postID
             content
             createdAt
             updatedAt
@@ -1619,14 +1650,20 @@ export class APIService {
         getPost(id: $id) {
           __typename
           id
+          subID
           title
           content
           comments {
             __typename
-            id
-            content
-            createdAt
-            updatedAt
+            items {
+              __typename
+              id
+              postID
+              content
+              createdAt
+              updatedAt
+            }
+            nextToken
           }
           createdAt
           updatedAt
@@ -1651,14 +1688,12 @@ export class APIService {
           items {
             __typename
             id
+            subID
             title
             content
             comments {
               __typename
-              id
-              content
-              createdAt
-              updatedAt
+              nextToken
             }
             createdAt
             updatedAt
@@ -1686,21 +1721,20 @@ export class APIService {
         getSubcategory(id: $id) {
           __typename
           id
+          catID
           name
           posts {
             __typename
-            id
-            title
-            content
-            comments {
+            items {
               __typename
               id
+              subID
+              title
               content
               createdAt
               updatedAt
             }
-            createdAt
-            updatedAt
+            nextToken
           }
           createdAt
           updatedAt
@@ -1725,14 +1759,11 @@ export class APIService {
           items {
             __typename
             id
+            catID
             name
             posts {
               __typename
-              id
-              title
-              content
-              createdAt
-              updatedAt
+              nextToken
             }
             createdAt
             updatedAt
@@ -1764,20 +1795,17 @@ export class APIService {
           __typename
           id
           name
-          subcategories {
+          subCategories {
             __typename
-            id
-            name
-            posts {
+            items {
               __typename
               id
-              title
-              content
+              catID
+              name
               createdAt
               updatedAt
             }
-            createdAt
-            updatedAt
+            nextToken
           }
           createdAt
           updatedAt
@@ -1795,20 +1823,17 @@ export class APIService {
           __typename
           id
           name
-          subcategories {
+          subCategories {
             __typename
-            id
-            name
-            posts {
+            items {
               __typename
               id
-              title
-              content
+              catID
+              name
               createdAt
               updatedAt
             }
-            createdAt
-            updatedAt
+            nextToken
           }
           createdAt
           updatedAt
@@ -1826,20 +1851,17 @@ export class APIService {
           __typename
           id
           name
-          subcategories {
+          subCategories {
             __typename
-            id
-            name
-            posts {
+            items {
               __typename
               id
-              title
-              content
+              catID
+              name
               createdAt
               updatedAt
             }
-            createdAt
-            updatedAt
+            nextToken
           }
           createdAt
           updatedAt
@@ -1856,6 +1878,7 @@ export class APIService {
         onCreateComment {
           __typename
           id
+          postID
           content
           createdAt
           updatedAt
@@ -1872,6 +1895,7 @@ export class APIService {
         onUpdateComment {
           __typename
           id
+          postID
           content
           createdAt
           updatedAt
@@ -1888,6 +1912,7 @@ export class APIService {
         onDeleteComment {
           __typename
           id
+          postID
           content
           createdAt
           updatedAt
@@ -1973,14 +1998,20 @@ export class APIService {
         onCreatePost {
           __typename
           id
+          subID
           title
           content
           comments {
             __typename
-            id
-            content
-            createdAt
-            updatedAt
+            items {
+              __typename
+              id
+              postID
+              content
+              createdAt
+              updatedAt
+            }
+            nextToken
           }
           createdAt
           updatedAt
@@ -1997,14 +2028,20 @@ export class APIService {
         onUpdatePost {
           __typename
           id
+          subID
           title
           content
           comments {
             __typename
-            id
-            content
-            createdAt
-            updatedAt
+            items {
+              __typename
+              id
+              postID
+              content
+              createdAt
+              updatedAt
+            }
+            nextToken
           }
           createdAt
           updatedAt
@@ -2021,14 +2058,20 @@ export class APIService {
         onDeletePost {
           __typename
           id
+          subID
           title
           content
           comments {
             __typename
-            id
-            content
-            createdAt
-            updatedAt
+            items {
+              __typename
+              id
+              postID
+              content
+              createdAt
+              updatedAt
+            }
+            nextToken
           }
           createdAt
           updatedAt
@@ -2045,21 +2088,20 @@ export class APIService {
         onCreateSubcategory {
           __typename
           id
+          catID
           name
           posts {
             __typename
-            id
-            title
-            content
-            comments {
+            items {
               __typename
               id
+              subID
+              title
               content
               createdAt
               updatedAt
             }
-            createdAt
-            updatedAt
+            nextToken
           }
           createdAt
           updatedAt
@@ -2076,21 +2118,20 @@ export class APIService {
         onUpdateSubcategory {
           __typename
           id
+          catID
           name
           posts {
             __typename
-            id
-            title
-            content
-            comments {
+            items {
               __typename
               id
+              subID
+              title
               content
               createdAt
               updatedAt
             }
-            createdAt
-            updatedAt
+            nextToken
           }
           createdAt
           updatedAt
@@ -2107,21 +2148,20 @@ export class APIService {
         onDeleteSubcategory {
           __typename
           id
+          catID
           name
           posts {
             __typename
-            id
-            title
-            content
-            comments {
+            items {
               __typename
               id
+              subID
+              title
               content
               createdAt
               updatedAt
             }
-            createdAt
-            updatedAt
+            nextToken
           }
           createdAt
           updatedAt
