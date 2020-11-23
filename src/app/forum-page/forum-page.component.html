@@ -9,7 +9,7 @@
             <img class="mx-auto d-block" src="./assets/images/{{category.id}}.jpg">
             <h5 class="mainCategories">{{category.name}}</h5>
             <div class="mainCategories" *ngFor="let subcategory of subCategories">
-              <p *ngIf="subcategory.catID === category.id" routerLink="/forum-subs/{{subcategory.id}}">{{subcategory.name}}</p>
+              <p class="links" *ngIf="subcategory.catID === category.id" routerLink="/forum-subs/{{subcategory.id}}">{{subcategory.name}}</p>
             </div>
           </div>
         </div>

@@ -40,7 +40,7 @@ h1, h2, h3,.categories {
 }
 
 div {
-  font:600 16px/18px 'Open Sans',sans-serif;
+  font:600 18px/20px 'Open Sans',sans-serif; font-weight: normal;
   /*height: auto;*/
 }
 
@@ -77,5 +77,14 @@ button {
 
 .latestPosts {
   overflow: scroll;
+}
+
+.links {
+  text-decoration: none;
+}
+
+.links:hover {
+  color: red;
+  cursor: pointer;
 }
 

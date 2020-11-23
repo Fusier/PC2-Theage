@@ -12,6 +12,11 @@ button {
   border-style: solid;
   border-radius: 7px;
   padding: 1vh;
+  cursor: pointer;
+}
+
+.post:hover {
+  color: red;
 }
 
 h4 {
