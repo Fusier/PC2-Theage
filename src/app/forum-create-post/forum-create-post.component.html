@@ -1,0 +1,36 @@
+<div class="container">
+  <form class="theage-theme">
+
+    <h3>Create a new post</h3>
+    
+    <mat-form-field appearance="fill">
+      <div class="form-field">
+        <mat-label>Category</mat-label>
+        <select matNativeControl required>
+          <option value="option" *ngFor="let item of categories">{{item.name}}</option>
+        </select>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field>
+      <div class="form-field">
+        <mat-label>Post title</mat-label>
+        <textarea matInput #message maxlength="256" placeholder="Enter post title"></textarea>
+        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+      </div>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field>
+      <div class="form-field">
+        <mat-label>Content</mat-label>
+        <textarea matInput placeholder="Enter post description"></textarea>
+      </div>
+      
+    </mat-form-field>
+
+    <br>
+    <button mat-raised-button color="primary">Create a post</button>
+  </form>
+</div>

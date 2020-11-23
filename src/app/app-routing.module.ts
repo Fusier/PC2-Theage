@@ -12,6 +12,8 @@ import { AuthorPostComponent } from "src/app/author-post/author-post.component";
 import { ViewPostComponent } from "src/app/view-post/view-post.component";
 import { EventPageComponent } from "./event-page/event-page.component";
 import { StartPageComponent} from "src/app/start-page/start-page.component";
+import { ForumCreatePostComponent } from './forum-create-post/forum-create-post.component';
+
 
 const routes: Routes = [
   { path: "", redirectTo: "/start-page", pathMatch: "full" },
@@ -21,6 +23,7 @@ const routes: Routes = [
   { path: "forum", component: ForumComponent },
   { path: "forum-subs", component: ForumSubPageComponent },
   { path: "forum-post", component: ForumPostComponent },
+  { path: "forum-post-new", component: ForumCreatePostComponent },
   { path: "contact", component: ContactComponent },
   { path: "posts", component: PastPostsComponent },
   { path: "post/:id", component: ViewPostComponent },
