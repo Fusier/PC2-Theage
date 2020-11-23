@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Category } from '../../types/category';
 
 @Component({
   selector: 'app-forum-create-post',
@@ -11,5 +12,38 @@ export class ForumCreatePostComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
+  categories: Category[] = [{id: 'testid', name: 'testcategory', subcategories: [{
+    id: 'testid', name: 'testsubcategory', posts: [{
+      id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
+        id: 'testcomment', content: 'testcontent'
+        }]
+      }]
+  }]}, {id: 'testid', name: 'testcategory', subcategories: [{
+      id: 'testid', name: 'testsubcategory', posts: [{
+        id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
+          id: 'testcomment', content: 'testcontent'
+        }]
+      }]
+    }]}, {id: 'testid', name: 'testcategory', subcategories: [{
+      id: 'testid', name: 'testsubcategory', posts: [{
+        id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
+          id: 'testcomment', content: 'testcontent'
+        }]
+      }]
+    }]}, {id: 'testid', name: 'testcategory', subcategories: [{
+      id: 'testid', name: 'testsubcategory', posts: [{
+        id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
+          id: 'testcomment', content: 'testcontent'
+        }]
+      }]
+    }]}, {id: 'testid', name: 'testcategory', subcategories: [{
+      id: 'testid', name: 'testsubcategory', posts: [{
+        id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
+          id: 'testcomment', content: 'testcontent'
+        }]
+      }]
+    }]}];
 
 }

@@ -3,6 +3,15 @@
 
     <h3>Create a new post</h3>
     
+    <mat-form-field appearance="fill">
+      <div class="form-field">
+        <mat-label>Category</mat-label>
+        <select matNativeControl required>
+          <option value="option" *ngFor="let item of categories">{{item.name}}</option>
+        </select>
+      </div>
+    </mat-form-field>
+
     <mat-form-field>
       <div class="form-field">
         <mat-label>Post title</mat-label>
@@ -15,8 +24,8 @@
 
     <mat-form-field>
       <div class="form-field">
-      <mat-label>Content</mat-label>
-      <textarea matInput placeholder="Enter post description"></textarea>
+        <mat-label>Content</mat-label>
+        <textarea matInput placeholder="Enter post description"></textarea>
       </div>
       
     </mat-form-field>
