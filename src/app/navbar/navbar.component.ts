@@ -9,4 +9,10 @@ export class NavbarComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  blogLink: string = "https://www.theage-muenchen.de/theage-blog.html"
+
+  clickBlog() {
+    window.location.href = this.blogLink;
+  }
 }
