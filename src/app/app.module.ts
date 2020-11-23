@@ -25,6 +25,7 @@ import { ForumSubPageComponent } from './forum-sub-page/forum-sub-page.component
 import { ForumPostComponent } from './forum-post/forum-post.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ForumCreatePostComponent } from './forum-create-post/forum-create-post.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     StartPageComponent,
     ForumComponent,
     ForumSubPageComponent,
-    ForumPostComponent
+    ForumPostComponent,
+    ForumCreatePostComponent
   ],
   imports: [
     BrowserModule,
