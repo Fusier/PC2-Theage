@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../../types/category';
+import { APIService } from '../API.service';
 
 @Component({
   selector: 'app-forum-create-post',
@@ -7,43 +8,16 @@ import { Category } from '../../types/category';
   styleUrls: ['./forum-create-post.component.css']
 })
 export class ForumCreatePostComponent implements OnInit {
-
-  constructor() { }
+  categories: Category[];
+  constructor(private api: APIService) { }
 
   ngOnInit(): void {
+    this.api.ListCategorys().then(category => {
+      this.categories = category.items;
+    });
   }
 
 
-  categories: Category[] = [{id: 'testid', name: 'testcategory', subcategories: [{
-    id: 'testid', name: 'testsubcategory', posts: [{
-      id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
-        id: 'testcomment', content: 'testcontent'
-        }]
-      }]
-  }]}, {id: 'testid', name: 'testcategory', subcategories: [{
-      id: 'testid', name: 'testsubcategory', posts: [{
-        id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
-          id: 'testcomment', content: 'testcontent'
-        }]
-      }]
-    }]}, {id: 'testid', name: 'testcategory', subcategories: [{
-      id: 'testid', name: 'testsubcategory', posts: [{
-        id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
-          id: 'testcomment', content: 'testcontent'
-        }]
-      }]
-    }]}, {id: 'testid', name: 'testcategory', subcategories: [{
-      id: 'testid', name: 'testsubcategory', posts: [{
-        id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
-          id: 'testcomment', content: 'testcontent'
-        }]
-      }]
-    }]}, {id: 'testid', name: 'testcategory', subcategories: [{
-      id: 'testid', name: 'testsubcategory', posts: [{
-        id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
-          id: 'testcomment', content: 'testcontent'
-        }]
-      }]
-    }]}];
+
 
 }

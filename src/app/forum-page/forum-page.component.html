@@ -6,7 +6,7 @@
         <div class="container-fluid">
         <div class="row rowEdit">
           <div *ngFor="let category of categories" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 paddings">
-            <img class="mx-auto d-block" src="./assets/images/{{category.id}}.png">
+            <img class="mx-auto d-block" src="./assets/images/{{category.id}}.jpg">
             <h5 class="mainCategories">{{category.name}}</h5>
             <div class="mainCategories" *ngFor="let subcategory of subCategories">
               <p *ngIf="subcategory.catID === category.id" routerLink="/forum-subs/{{subcategory.id}}">{{subcategory.name}}</p>
@@ -16,7 +16,7 @@
       </div>
 
       </div>
-      <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 mx-auto separator overflow">
+      <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 mx-auto separator overflow latestPosts">
           <h4 class="categories">Latest posts</h4>
           <p *ngFor="let item of array">{{text}}</p>
       </div>
