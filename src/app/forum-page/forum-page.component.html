@@ -8,7 +8,9 @@
           <div *ngFor="let category of categories" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 paddings">
             <img class="mx-auto d-block" src="./assets/images/{{category.id}}.png">
             <h5 class="mainCategories">{{category.name}}</h5>
-            <p class="mainCategories" *ngFor="let subcategory of category.subcategories">{{subcategory.name}} </p>
+            <div class="mainCategories" *ngFor="let subcategory of subCategories">
+              <p *ngIf="subcategory.catID === category.id">{{subcategory.name}}</p>
+            </div>
           </div>
         </div>
       </div>

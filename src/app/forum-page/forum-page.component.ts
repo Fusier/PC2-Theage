@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../../types/category';
 import { Subcategory } from '../../types/subcategory';
+import { APIService } from '../API.service';
 
 @Component({
   selector: 'app-forum-page',
@@ -12,41 +13,18 @@ export class ForumComponent implements OnInit {
     'fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?';
   array = new Array(3);
 
-  categories: Category[] = [{id: 'testid', name: 'testcategory', subcategories: [{
-    id: 'testid', name: 'testsubcategory', posts: [{
-      id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
-        id: 'testcomment', content: 'testcontent'
-        }]
-      }]
-  }]}, {id: 'testid', name: 'testcategory', subcategories: [{
-      id: 'testid', name: 'testsubcategory', posts: [{
-        id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
-          id: 'testcomment', content: 'testcontent'
-        }]
-      }]
-    }]}, {id: 'testid', name: 'testcategory', subcategories: [{
-      id: 'testid', name: 'testsubcategory', posts: [{
-        id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
-          id: 'testcomment', content: 'testcontent'
-        }]
-      }]
-    }]}, {id: 'testid', name: 'testcategory', subcategories: [{
-      id: 'testid', name: 'testsubcategory', posts: [{
-        id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
-          id: 'testcomment', content: 'testcontent'
-        }]
-      }]
-    }]}, {id: 'testid', name: 'testcategory', subcategories: [{
-      id: 'testid', name: 'testsubcategory', posts: [{
-        id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
-          id: 'testcomment', content: 'testcontent'
-        }]
-      }]
-    }]}];
+  categories: Category[];
+  subCategories: Subcategory[];
 
-  constructor() { }
+  constructor(private api: APIService) { }
 
   ngOnInit(): void {
+    this.api.ListCategorys().then(category => {
+      this.categories = category.items;
+    });
+    this.api.ListSubcategorys().then(subcategory => {
+      this.subCategories = subcategory.items;
+    });
   }
 
 }
