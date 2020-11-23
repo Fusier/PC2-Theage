@@ -1,6 +1,7 @@
-type Post @model {
+type Post @model @key(name: "bySubcategory", fields: ["subID", "title", "content"]) {
   id: ID!
+  subID: ID!
   title: String!
   content: String!
-  comments: [Comment]
+  comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
 }

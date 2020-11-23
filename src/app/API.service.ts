@@ -256,7 +256,7 @@ export type CreateCategoryMutation = {
       content: string;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null> | null;
     createdAt: string;
     updatedAt: string;
   }>;
@@ -279,7 +279,7 @@ export type UpdateCategoryMutation = {
       content: string;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null> | null;
     createdAt: string;
     updatedAt: string;
   }>;
@@ -302,7 +302,7 @@ export type DeleteCategoryMutation = {
       content: string;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null> | null;
     createdAt: string;
     updatedAt: string;
   }>;
@@ -390,7 +390,7 @@ export type CreatePostMutation = {
     content: string;
     createdAt: string;
     updatedAt: string;
-  }>;
+  } | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -406,7 +406,7 @@ export type UpdatePostMutation = {
     content: string;
     createdAt: string;
     updatedAt: string;
-  }>;
+  } | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -422,7 +422,7 @@ export type DeletePostMutation = {
     content: string;
     createdAt: string;
     updatedAt: string;
-  }>;
+  } | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -442,10 +442,10 @@ export type CreateSubcategoryMutation = {
       content: string;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null> | null;
     createdAt: string;
     updatedAt: string;
-  }>;
+  } | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -465,10 +465,10 @@ export type UpdateSubcategoryMutation = {
       content: string;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null> | null;
     createdAt: string;
     updatedAt: string;
-  }>;
+  } | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -488,10 +488,10 @@ export type DeleteSubcategoryMutation = {
       content: string;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null> | null;
     createdAt: string;
     updatedAt: string;
-  }>;
+  } | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -511,7 +511,7 @@ export type GetCategoryQuery = {
       content: string;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null> | null;
     createdAt: string;
     updatedAt: string;
   }>;
@@ -603,7 +603,7 @@ export type GetPostQuery = {
     content: string;
     createdAt: string;
     updatedAt: string;
-  }>;
+  } | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -621,7 +621,7 @@ export type ListPostsQuery = {
       content: string;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null> | null;
     createdAt: string;
     updatedAt: string;
   } | null> | null;
@@ -643,10 +643,10 @@ export type GetSubcategoryQuery = {
       content: string;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null> | null;
     createdAt: string;
     updatedAt: string;
-  }>;
+  } | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -664,7 +664,7 @@ export type ListSubcategorysQuery = {
       content: string;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null> | null;
     createdAt: string;
     updatedAt: string;
   } | null> | null;
@@ -686,7 +686,7 @@ export type OnCreateCategorySubscription = {
       content: string;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null> | null;
     createdAt: string;
     updatedAt: string;
   }>;
@@ -709,7 +709,7 @@ export type OnUpdateCategorySubscription = {
       content: string;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null> | null;
     createdAt: string;
     updatedAt: string;
   }>;
@@ -732,7 +732,7 @@ export type OnDeleteCategorySubscription = {
       content: string;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null> | null;
     createdAt: string;
     updatedAt: string;
   }>;
@@ -820,7 +820,7 @@ export type OnCreatePostSubscription = {
     content: string;
     createdAt: string;
     updatedAt: string;
-  }>;
+  } | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -836,7 +836,7 @@ export type OnUpdatePostSubscription = {
     content: string;
     createdAt: string;
     updatedAt: string;
-  }>;
+  } | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -852,7 +852,7 @@ export type OnDeletePostSubscription = {
     content: string;
     createdAt: string;
     updatedAt: string;
-  }>;
+  } | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -872,10 +872,10 @@ export type OnCreateSubcategorySubscription = {
       content: string;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null> | null;
     createdAt: string;
     updatedAt: string;
-  }>;
+  } | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -895,10 +895,10 @@ export type OnUpdateSubcategorySubscription = {
       content: string;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null> | null;
     createdAt: string;
     updatedAt: string;
-  }>;
+  } | null> | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -918,10 +918,10 @@ export type OnDeleteSubcategorySubscription = {
       content: string;
       createdAt: string;
       updatedAt: string;
-    }>;
+    } | null> | null;
     createdAt: string;
     updatedAt: string;
-  }>;
+  } | null> | null;
   createdAt: string;
   updatedAt: string;
 };

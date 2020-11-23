@@ -1,5 +1,5 @@
 type Category @model {
   id: ID!
   name: String!
-  subcategories: [Subcategory!]!
+  subCategories: [Subcategory!]! @connection(keyName: "byCategory", fields: ["id"])
 }

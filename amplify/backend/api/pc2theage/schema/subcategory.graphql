@@ -1,5 +1,6 @@
-type Subcategory @model {
+type Subcategory @model @key(name: "byCategory", fields: ["catID", "name"]){
   id: ID!
+  catID: ID!
   name: String!
-  posts: [Post]
+  posts: [Post] @connection(keyName: "bySubcategory", fields: ["id"])
 }
