@@ -1,4 +1,91 @@
 # this is an auto generated file. This will be overwritten
+subscription OnCreateCategory {
+  onCreateCategory {
+    id
+    name
+    subcategories {
+      id
+      name
+      posts {
+        id
+        title
+        content
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateCategory {
+  onUpdateCategory {
+    id
+    name
+    subcategories {
+      id
+      name
+      posts {
+        id
+        title
+        content
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteCategory {
+  onDeleteCategory {
+    id
+    name
+    subcategories {
+      id
+      name
+      posts {
+        id
+        title
+        content
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateComment {
+  onCreateComment {
+    id
+    content
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateComment {
+  onUpdateComment {
+    id
+    content
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteComment {
+  onDeleteComment {
+    id
+    content
+    createdAt
+    updatedAt
+  }
+}
 subscription OnCreateEvent {
   onCreateEvent {
     id
@@ -40,6 +127,114 @@ subscription OnDeleteEvent {
     startDate
     endDate
     time
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreatePost {
+  onCreatePost {
+    id
+    title
+    content
+    comments {
+      id
+      content
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdatePost {
+  onUpdatePost {
+    id
+    title
+    content
+    comments {
+      id
+      content
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeletePost {
+  onDeletePost {
+    id
+    title
+    content
+    comments {
+      id
+      content
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateSubcategory {
+  onCreateSubcategory {
+    id
+    name
+    posts {
+      id
+      title
+      content
+      comments {
+        id
+        content
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateSubcategory {
+  onUpdateSubcategory {
+    id
+    name
+    posts {
+      id
+      title
+      content
+      comments {
+        id
+        content
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteSubcategory {
+  onDeleteSubcategory {
+    id
+    name
+    posts {
+      id
+      title
+      content
+      comments {
+        id
+        content
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
     createdAt
     updatedAt
   }

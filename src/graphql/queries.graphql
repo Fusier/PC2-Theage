@@ -1,4 +1,69 @@
 # this is an auto generated file. This will be overwritten
+query GetCategory($id: ID!) {
+  getCategory(id: $id) {
+    id
+    name
+    subcategories {
+      id
+      name
+      posts {
+        id
+        title
+        content
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListCategorys(
+  $filter: ModelCategoryFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listCategorys(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      subcategories {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetComment($id: ID!) {
+  getComment(id: $id) {
+    id
+    content
+    createdAt
+    updatedAt
+  }
+}
+query ListComments(
+  $filter: ModelCommentFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      content
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
 query GetEvent($id: ID!) {
   getEvent(id: $id) {
     id
@@ -30,6 +95,86 @@ query ListEvents(
       startDate
       endDate
       time
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetPost($id: ID!) {
+  getPost(id: $id) {
+    id
+    title
+    content
+    comments {
+      id
+      content
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListPosts(
+  $filter: ModelPostFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      title
+      content
+      comments {
+        id
+        content
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetSubcategory($id: ID!) {
+  getSubcategory(id: $id) {
+    id
+    name
+    posts {
+      id
+      title
+      content
+      comments {
+        id
+        content
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListSubcategorys(
+  $filter: ModelSubcategoryFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listSubcategorys(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      posts {
+        id
+        title
+        content
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
