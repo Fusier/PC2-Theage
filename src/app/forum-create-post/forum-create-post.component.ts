@@ -12,7 +12,7 @@ import { APIService } from '../API.service';
 export class ForumCreatePostComponent implements OnInit {
   categories: Category[];
   subcategories: Subcategory[];
-  titles: String[];
+  subOptions: Subcategory[];
   constructor(private api: APIService) { }
 
   ngOnInit(): void {
@@ -24,21 +24,18 @@ export class ForumCreatePostComponent implements OnInit {
     });
   }
 
-  onChange(id) {
-    this.titles = [];
-    for(let i:number=0;i<this.subcategories.length;i++) {
-      if(this.subcategories[i].catID === id) {
-        this.titles.push(this.subcategories[i].name);
+  onChange(id: string) {
+    this.subOptions = [];
+    for(let i = 0; i < this.subcategories.length; i++) {
+      if (this.subcategories[i].catID === id) {
+        this.subOptions.push(this.subcategories[i]);
       }
     }
+
   }
 
-  addItem() {
-    for(let i:number=0;i<this.titles.length;i++) {
-      if(this.subcategories[i].catID === id) {
-        this.titles.push(this.subcategories[i].name);
-      }
-    }
+  addItem(subID: string, title: string, content: string) {
+    this.api.CreatePost({content, subID, title}).then(r => console.log(r));
   }
 }
 

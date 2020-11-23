@@ -5,31 +5,31 @@
 
       <div class="form-field">
         <mat-label class="title">Category</mat-label>
-        <select name="category" required>
-          <option [value]="category.id" *ngFor="let category of categories" (click)="onChange(category.id)" >{{category.name}}</option>
+        <select #cat name="category" (click)="onChange(cat.value)" required>
+          <option [value]="category.id" *ngFor="let category of categories">{{category.name}}</option>
         </select>
 
         <mat-label class="title">Subcategory</mat-label>
-        <select name="subcategory" required>
-          <option [value]="title" *ngFor="let title of titles">{{title}}</option>
+        <select #sub name="subcategory" required>
+          <option [value]="sub.id" *ngFor="let sub of subOptions">{{sub.name}}</option>
         </select>
       </div>
 
       <div class="form-field">
         <mat-label class="title">Post title</mat-label>
-        <textarea matInput #message maxlength="256" placeholder="Enter post title"> </textarea>
-        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+        <textarea matInput #title maxlength="256" placeholder="Enter post title" required></textarea>
+        <mat-hint align="end">{{title.value.length}} / 256</mat-hint>
       </div>
 
     <br>
 
       <div class="form-field">
         <mat-label class="title">Content</mat-label>
-        <textarea matInput #message maxlength="5000" placeholder="Enter post title"> </textarea>
-        <mat-hint align="end">{{message.value.length}} / 5000</mat-hint>
+        <textarea matInput #content maxlength="5000" placeholder="Enter post content" required></textarea>
+        <mat-hint align="end">{{content.value.length}} / 5000</mat-hint>
       </div>
 
     <br>
-    <button mat-raised-button color="primary" (click)="addItem()">Create a post</button>
+    <button mat-raised-button color="primary" (click)="addItem(sub.value, title.value, content.value)">Create a post</button>
   </form>
 </div>
