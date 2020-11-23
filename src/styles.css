@@ -15,3 +15,6 @@ input.form-control,
 textarea.form-control {
   border-radius: 0;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

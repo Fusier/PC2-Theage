@@ -1,0 +1,20 @@
+div {
+  font:600 16px/18px 'Open Sans',sans-serif;
+}
+
+button {
+  margin-right: 5px;
+  padding: 5px;
+}
+
+.post {
+  border-color: black;
+  border-style: solid;
+  border-radius: 7px;
+  margin: 5px;
+  padding: 1vh;
+}
+
+h4 {
+  margin-left: 2vh;
+}

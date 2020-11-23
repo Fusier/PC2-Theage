@@ -23,6 +23,9 @@ import { StartPageComponent } from "./start-page/start-page.component";
 import { ForumComponent } from './forum-page/forum-page.component';
 import { ForumSubPageComponent } from './forum-sub-page/forum-sub-page.component';
 import { ForumPostComponent } from './forum-post/forum-post.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +53,11 @@ import { ForumPostComponent } from './forum-post/forum-post.component';
     BrowserAnimationsModule,
     HttpModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatButtonModule,
+    MatFormFieldModule
+  ],
+  exports: [
   ],
   providers: [],
   bootstrap: [AppComponent]

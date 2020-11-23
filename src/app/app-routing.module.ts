@@ -14,7 +14,7 @@ import { EventPageComponent } from "./event-page/event-page.component";
 import { StartPageComponent} from "src/app/start-page/start-page.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "/home", pathMatch: "full" },
+  { path: "", redirectTo: "/start-page", pathMatch: "full" },
   { path: "home", component: HomeComponent },
   { path: "about", component: AboutComponent },
   { path: "faq", component: FaqComponent },
