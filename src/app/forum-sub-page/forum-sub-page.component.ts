@@ -16,20 +16,20 @@ export class ForumSubPageComponent implements OnInit {
   }
 
   posts: Post[] =  [{
-      id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
-        id: 'testcomment', content: 'testcontent'
+      id: 'test post', title: 'test title', content: 'test content', comments: [{
+        id: 'test comment', content: 'test content'
       }]},
-      { id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
-        id: 'testcomment', content: 'testcontent'
+      { id: 'test post', title: 'test title', content: 'test content', comments: [{
+        id: 'test comment', content: 'test content'
       }]},
-      { id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
-          id: 'testcomment', content: 'testcontent'
+      { id: 'test post', title: 'test title', content: 'test content', comments: [{
+          id: 'test comment', content: 'test content'
       }]},
-      { id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
-        id: 'testcomment', content: 'testcontent'
+      { id: 'test post', title: 'test title', content: 'test content', comments: [{
+        id: 'test comment', content: 'test content'
       }]},
-      { id: 'testpost', title: 'testtitle', content: 'testcontent', comments: [{
-        id: 'testcomment', content: 'testcontent'
-      }] 
+      { id: 'test post', title: 'test title', content: 'test content', comments: [{
+        id: 'test comment', content: 'test content'
+      }]
       }
     ]}

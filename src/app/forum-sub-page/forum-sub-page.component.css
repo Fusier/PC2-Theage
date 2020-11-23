@@ -11,10 +11,10 @@ button {
   border-color: black;
   border-style: solid;
   border-radius: 7px;
-  margin: 5px;
   padding: 1vh;
 }
 
 h4 {
   margin-left: 2vh;
+  border-bottom: solid;
 }

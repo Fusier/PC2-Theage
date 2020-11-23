@@ -1,28 +1,28 @@
 <body>
-<div class="row">
-  <div class="content">
-    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 mx-auto" style="overflow:scroll;">
-        <h4 class="categories">Categories</h4>
-      <div class="container-fluid">
-      <div class="row rowEdit">
-        <div *ngFor="let category of categories" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 paddings">
-          <img class="mx-auto d-block" src="./assets/images/{{category.id}}.png">
-          <h5 class="mainCategories">{{category.name}}</h5>
-          <p class="mainCategories" *ngFor="let subcategory of category.subcategories">{{subcategory.name}} </p>
+  <div class="row">
+    <div class="content">
+      <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 mx-auto" style="overflow:scroll;">
+          <h4 class="categories">Categories</h4>
+        <div class="container-fluid">
+        <div class="row rowEdit">
+          <div *ngFor="let category of categories" class="col-lg-2 col-md-12 col-sm-12 col-xs-12 paddings">
+            <img class="mx-auto d-block" src="./assets/images/{{category.id}}.png">
+            <h5 class="mainCategories">{{category.name}}</h5>
+            <p class="mainCategories" *ngFor="let subcategory of category.subcategories">{{subcategory.name}} </p>
+          </div>
         </div>
       </div>
-    </div>
-<!--        <p *ngFor="let item of array">{{text}}</p> -->
 
+      </div>
+      <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 mx-auto separator overflow">
+          <h4 class="categories">Latest posts</h4>
+          <p *ngFor="let item of array">{{text}}</p>
+      </div>
     </div>
-    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 mx-auto separator overflow">
-        <h4 class="categories">Latest posts</h4>
-        <p *ngFor="let item of array">{{text}}</p>
+    <div class="theage-theme">
+      <button mat-raised-button color="primary" routerLink="/forum-subs"> Test subcategories</button>
+      <button mat-raised-button color="primary" routerLink="/forum-post">test post</button>
+      <button mat-raised-button color="primary" routerLink="/forum-post-new">new post form</button>
     </div>
   </div>
-  <div class="buttons">
-    <button mat-raised-button color="warn" routerLink="/forum-subs"> Test subcategories</button>
-    <button mat-raised-button color="warn" routerLink="/forum-post">test post</button>
-  </div>
-</div>
 </body>
