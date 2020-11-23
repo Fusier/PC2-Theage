@@ -16,7 +16,7 @@ import { ForumCreatePostComponent } from './forum-create-post/forum-create-post.
 
 
 const routes: Routes = [
-  { path: "", redirectTo: "/home", pathMatch: "full" },
+  { path: "", redirectTo: "/start-page", pathMatch: "full" },
   { path: "home", component: HomeComponent },
   { path: "about", component: AboutComponent },
   { path: "faq", component: FaqComponent },
