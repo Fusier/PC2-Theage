@@ -6,8 +6,8 @@
     <mat-form-field appearance="fill">
       <div class="form-field">
         <mat-label>Category</mat-label>
-        <select matNativeControl required>
-          <option value="option" *ngFor="let item of categories">{{item.name}}</option>
+        <select name="category">
+          <option [value]="item.id" *ngFor="let item of categories">{{item.name}}</option>
         </select>
       </div>
     </mat-form-field>
@@ -25,7 +25,8 @@
     <mat-form-field>
       <div class="form-field">
         <mat-label>Content</mat-label>
-        <textarea matInput placeholder="Enter post description"></textarea>
+        <textarea matInput #message maxlength="5000" placeholder="Enter post title"></textarea>
+        <mat-hint align="end">{{message.value.length}} / 5000</mat-hint>
       </div>
       
     </mat-form-field>
