@@ -2,13 +2,12 @@
 
   <div class="buttons">
     <button mat-raised-button color="warn" routerLink="/forum">forum</button>
-    <button mat-raised-button color="warn" routerLink="/forum-post">test post</button>
   </div>
 
   <div class="">
-    <h4>Forum subcategories</h4>
+    <h4>{{title}}</h4>
     <div *ngFor="let post of posts" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <p class="post">{{post.title}}</p>
+      <p class="post" *ngIf="post.subID === this.id" routerLink="/forum-post/{{post.id}}">{{post.title}}</p>
     </div>
   </div>
 </div>

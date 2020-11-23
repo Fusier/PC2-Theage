@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Comment } from '../../types/comment';
+import {Post} from "../../types/post";
+import {ActivatedRoute} from "@angular/router";
+import {APIService} from "../API.service";
 
 @Component({
   selector: 'app-forum-post',
@@ -7,18 +10,29 @@ import { Comment } from '../../types/comment';
   styleUrls: ['./forum-post.component.css']
 })
 export class ForumPostComponent implements OnInit {
+  id;
+  comments: Comment[];
+  title: string;
+  content: string;
 
+  constructor(private route: ActivatedRoute, private api: APIService) { }
 
-  constructor() { }
-  
   ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.api.GetPost(this.id).then(post => {
+      this.title = post.title;
+      this.content = post.content;
+    });
+    this.api.ListComments().then(comment => {
+      this.comments = comment.items;
+    });
   }
 
-  post: String = "I am a sample post";
-  text: String = "I am a sample text";
-  title: String = "I am a sample title";
-  comments: Comment[] = [{
-    id: "jaa",
-    content: "Don't mind me, I am just some sample content"
-  }];
+  // post: String = "I am a sample post";
+  // text: String = "I am a sample text";
+  // title: String = "I am a sample title";
+  // comments: Comment[] = [{
+  //   id: "jaa",
+  //   content: "Don't mind me, I am just some sample content"
+  // }];
 }

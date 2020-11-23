@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Post } from '../../types/post'
-import { MatButtonModule } from '@angular/material/button'
+import {Component, Input, OnInit} from '@angular/core';
+import { Post } from '../../types/post';
+import { MatButtonModule } from '@angular/material/button';
+import { ActivatedRoute } from '@angular/router';
+import { Subcategory } from '../../types/subcategory';
+import { APIService } from '../API.service';
 
 
 @Component({
@@ -8,28 +11,22 @@ import { MatButtonModule } from '@angular/material/button'
   templateUrl: './forum-sub-page.component.html',
   styleUrls: ['./forum-sub-page.component.css']
 })
-export class ForumSubPageComponent implements OnInit {
 
-  constructor() { }
+export class ForumSubPageComponent implements OnInit {
+  id;
+  posts: Post[];
+  title: string;
+
+  constructor(private route: ActivatedRoute, private api: APIService) {}
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.api.GetSubcategory(this.id).then(subcategory => {
+      this.title = subcategory.name;
+    });
+    this.api.ListPosts().then(post => {
+      this.posts = post.items;
+    });
   }
+}
 
-  posts: Post[] =  [{
-      id: 'test post', title: 'test title', content: 'test content', comments: [{
-        id: 'test comment', content: 'test content'
-      }]},
-      { id: 'test post', title: 'test title', content: 'test content', comments: [{
-        id: 'test comment', content: 'test content'
-      }]},
-      { id: 'test post', title: 'test title', content: 'test content', comments: [{
-          id: 'test comment', content: 'test content'
-      }]},
-      { id: 'test post', title: 'test title', content: 'test content', comments: [{
-        id: 'test comment', content: 'test content'
-      }]},
-      { id: 'test post', title: 'test title', content: 'test content', comments: [{
-        id: 'test comment', content: 'test content'
-      }]
-      }
-    ]}
