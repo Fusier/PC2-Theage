@@ -12,3 +12,7 @@ mat-form-field {
 .form-field > * {
   width: 100%;
 }
+
+mat-label {
+  text-align: left;
+}
