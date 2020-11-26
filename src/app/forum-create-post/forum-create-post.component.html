@@ -1,21 +1,22 @@
 <div class="container">
-  <form class="theage-theme" >
+  <form #blogForm="ngForm" class="theage-theme" >
 
-    <h3>Create a new post</h3>
+    <h3 class="category">Create a new post</h3>
 
-      <div class="form-field">
-        <mat-label class="title">Category</mat-label>
+      <div class="form-field selectors">
+        <mat-label class="title category">Category</mat-label>
         <select #cat name="category" (click)="onChange(cat.value)" required>
           <option [value]="category.id" *ngFor="let category of categories">{{category.name}}</option>
         </select>
-
+      </div>
+    <div class="form-field selectors">
         <mat-label class="title">Subcategory</mat-label>
         <select #sub name="subcategory" required>
           <option [value]="sub.id" *ngFor="let sub of subOptions">{{sub.name}}</option>
         </select>
-      </div>
+    </div>
 
-      <div class="form-field">
+      <div class="form-field subTitles">
         <mat-label class="title">Post title</mat-label>
         <textarea matInput #title maxlength="256" placeholder="Enter post title" required></textarea>
         <mat-hint align="end">{{title.value.length}} / 256</mat-hint>
@@ -23,13 +24,14 @@
 
     <br>
 
-      <div class="form-field">
+      <div class="form-field subTitles">
         <mat-label class="title">Content</mat-label>
         <textarea matInput #content maxlength="5000" placeholder="Enter post content" required></textarea>
         <mat-hint align="end">{{content.value.length}} / 5000</mat-hint>
       </div>
 
     <br>
-    <button mat-raised-button color="primary" (click)="addItem(sub.value, title.value, content.value)">Create a post</button>
+    <button mat-raised-button color="primary" (click)="addItem(sub.value, title.value, content.value); handleClear();">Create a post</button>
+    <h3 class="posted" *ngIf="isPosted">Your post has been posted!</h3>
   </form>
 </div>

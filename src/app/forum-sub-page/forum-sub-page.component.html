@@ -1,20 +1,18 @@
 <div class="container">
 
   <div class="theage-theme">
-    <button mat-raised-button color="primary" routerLink="/forum">Forum</button>
-    <button mat-raised-button color="primary" routerLink="/forum-post-new">New post form</button>
+    <button mat-raised-button class="forumButton" color="primary" routerLink="/forum">Forum</button>
+    <button mat-raised-button class="postButton" color="primary" routerLink="/forum-post-new">Create new post</button>
   </div>
 
   <div class="post-container">
     <h4>{{title}}</h4>
 
-    <div *ngFor="let post of posts" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <div class="posts theage-theme" *ngIf="post.subID === this.id">
+    <div *ngFor="let post of posts" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding">
+      <div class="posts theage-theme space" *ngIf="post.subID === this.id">
         <p class="post" routerLink="/forum-post/{{post.id}}">{{post.title}}</p>
         <button mat-raised-button color="primary" (click)="deletePost(post.id)">Delete post</button>
       </div>
-      
     </div>
   </div>
-
 </div>
