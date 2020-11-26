@@ -27,12 +27,4 @@ export class ForumPostComponent implements OnInit {
       this.comments = comment.items;
     });
   }
-
-  // post: String = "I am a sample post";
-  // text: String = "I am a sample text";
-  // title: String = "I am a sample title";
-  // comments: Comment[] = [{
-  //   id: "jaa",
-  //   content: "Don't mind me, I am just some sample content"
-  // }];
 }

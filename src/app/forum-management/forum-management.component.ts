@@ -4,11 +4,11 @@ import { Category } from '../../types/category';
 import { APIService } from '../API.service';
 
 @Component({
-  selector: 'app-forum-create-post',
-  templateUrl: './forum-create-post.component.html',
-  styleUrls: ['./forum-create-post.component.css']
+  selector: 'app-forum-management',
+  templateUrl: './forum-management.component.html',
+  styleUrls: ['./forum-management.component.css']
 })
-export class ForumCreatePostComponent implements OnInit {
+export class ForumManagementComponent implements OnInit {
   categories: Category[];
   subcategories: Subcategory[];
   subOptions: Subcategory[];
@@ -33,9 +33,20 @@ export class ForumCreatePostComponent implements OnInit {
 
   }
 
-  addItem(subID: string, title: string, content: string) {
-    this.api.CreatePost({content, subID, title}).then(r => console.log(r));
+  addCategory() {
+    console.log("Added a category");
   }
+
+  deleteCategory() {
+    console.log("Deleted a category");
+  }
+
+  addSubcategory() {
+    console.log("Added a subcategory");
+  }
+
+  deleteSubcategory() {
+    console.log("Deleted a subcategory");
+  }
+
 }
-
-
