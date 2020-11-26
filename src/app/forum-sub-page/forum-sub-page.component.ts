@@ -13,7 +13,7 @@ import { APIService } from '../API.service';
 })
 
 export class ForumSubPageComponent implements OnInit {
-  id;
+  id: string;
   posts: Post[];
   title: string;
 
@@ -28,5 +28,12 @@ export class ForumSubPageComponent implements OnInit {
       this.posts = post.items;
     });
   }
+
+  
+  deletePost(id): void {
+    console.log(id)
+    this.api.DeletePost({id}).then(r => console.log(r));
+  }
+ 
 }
 

@@ -2,12 +2,12 @@ div {
   font:600 16px/18px 'Open Sans',sans-serif;
 }
 
-button {
+.theage-theme > button {
   margin-right: 5px;
   padding: 5px;
 }
 
-.post {
+.posts {
   border-color: black;
   border-style: solid;
   border-radius: 7px;
