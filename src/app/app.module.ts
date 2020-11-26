@@ -28,6 +28,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ForumCreatePostComponent } from './forum-create-post/forum-create-post.component';
 import { MatInputModule } from '@angular/material/input';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { ForumManagementComponent } from './forum-management/forum-management.component';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -51,6 +55,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     ForumSubPageComponent,
     ForumPostComponent,
     ForumCreatePostComponent,
+    ForumManagementComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +65,10 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     AppRoutingModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatInputModule,
+    MatTreeModule,
+    MatIconModule,
+    MatProgressBarModule
     MatInputModule,
     MatProgressSpinnerModule,
   ],

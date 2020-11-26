@@ -13,6 +13,7 @@ import { ViewPostComponent } from "src/app/view-post/view-post.component";
 import { EventPageComponent } from "./event-page/event-page.component";
 import { StartPageComponent} from "src/app/start-page/start-page.component";
 import { ForumCreatePostComponent } from './forum-create-post/forum-create-post.component';
+import { ForumManagementComponent } from './forum-management/forum-management.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: "forum-subs/:id", component: ForumSubPageComponent},
   { path: "forum-post/:id", component: ForumPostComponent },
   { path: "forum-post-new", component: ForumCreatePostComponent },
+  { path: "forum-management", component: ForumManagementComponent },
   { path: "contact", component: ContactComponent },
   { path: "posts", component: PastPostsComponent },
   { path: "post/:id", component: ViewPostComponent },
