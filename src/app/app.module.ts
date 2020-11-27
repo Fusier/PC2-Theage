@@ -32,6 +32,7 @@ import { ForumManagementComponent } from './forum-management/forum-management.co
 import { MatTreeModule } from '@angular/material/tree';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import {RegistrationPageComponent} from "./registration-page/registration-page.component";
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     ForumSubPageComponent,
     ForumPostComponent,
     ForumCreatePostComponent,
-    ForumManagementComponent
+    ForumManagementComponent,
+    RegistrationPageComponent
   ],
   imports: [
     BrowserModule,
