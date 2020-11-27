@@ -15,6 +15,7 @@ import { StartPageComponent} from "src/app/start-page/start-page.component";
 import { ForumCreatePostComponent } from './forum-create-post/forum-create-post.component';
 import { ForumManagementComponent } from './forum-management/forum-management.component';
 import {RegistrationPageComponent} from "./registration-page/registration-page.component";
+import {RegistrationConfirmComponent} from "./registration-confirm/registration-confirm.component";
 
 
 const routes: Routes = [
@@ -33,7 +34,8 @@ const routes: Routes = [
   { path: "author-post", component: AuthorPostComponent },
   { path: "event-page", component: EventPageComponent },
   { path: "start-page", component: StartPageComponent },
-  { path: "registration-page", component: RegistrationPageComponent}
+  { path: "registration-page", component: RegistrationPageComponent},
+  { path: "registration-confirm", component: RegistrationConfirmComponent}
 ];
 
 @NgModule({
