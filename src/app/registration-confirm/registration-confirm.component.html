@@ -1,0 +1,34 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+
+<html class="html">
+<head>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<div class="container">
+  <div class="login-form">
+    <div class="main-div">
+      <img class="logo" src="./assets/images/logov2.png">
+      <div class="panel">
+        <p>Please confirm your email</p>
+      </div>
+      <form id="Login">
+        <div class="form-group">
+          <input #username class="textField" type="text" class="form-control" id="inputUsername" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <input #code class="textField" type="text" class="form-control" id="inputEmail" placeholder="Verification code">
+        </div>
+        <button type="submit" (click)="confirmSignUp()" class="btn btn-primary buttonMargin" routerLink="/home" routerLinkActive="active">Register</button>
+      </form>
+    </div>
+  </div>
+</div>
+</html>
