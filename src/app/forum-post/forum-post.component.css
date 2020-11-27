@@ -60,6 +60,10 @@ div {
   width: 100%;
 }
 
+.delete-button {
+  float: right;
+}
+
 button {
   margin: 5px;
 }
