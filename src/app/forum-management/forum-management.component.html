@@ -62,10 +62,12 @@
         </select>
       </div>
 
-      <mat-label class="title">Subcategory</mat-label>
+      <div class="form-field">
+        <mat-label class="title">Subcategory</mat-label>
         <select #subDeleteText name="subcategory" required>
           <option [value]="sub.id" *ngFor="let sub of subOptions">{{sub.name}}</option>
         </select>
+      </div>
     <button mat-raised-button color="primary" (click)="deleteSubcategory(subDeleteText.value)">Delete subcategory</button>
   </form>
 

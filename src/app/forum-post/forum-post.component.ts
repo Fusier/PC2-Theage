@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { Comment } from '../../types/comment';
 import {Post} from '../../types/post';
 import {ActivatedRoute} from '@angular/router';
@@ -18,13 +18,12 @@ export class ForumPostComponent implements OnInit, AfterViewInit {
   title: string;
   content: string;
   isLoading: boolean = true;
-
-
+  isPosted: boolean = false;
+  @ViewChild('comment') inputComment;
 
   constructor(private route: ActivatedRoute, private api: APIService) { }
 
-  ngAfterViewInit() {
-  }
+  ngAfterViewInit() {}
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -38,11 +37,28 @@ export class ForumPostComponent implements OnInit, AfterViewInit {
         /*console.log(this.subName);*/
         this.isLoading = false;
       });
-
     });
+
     this.api.ListComments().then(comment => {
       this.comments = comment.items;
     });
 
+    this.api.OnCreateCommentListener.subscribe( (event: any) => {
+      const newComment = event.value.data.onCreateComment;
+      this.comments = [newComment, ...this.comments ];
+    });
+  }
+
+  addComment(comment: string) {
+    this.api.CreateComment({postID: this.id, content: comment}).then(r => console.log(r));
+  }
+
+  deleteComment(id: string) {
+    this.api.DeleteComment({id}).then(r => console.log(r));
+  } 
+
+  handleClear() {
+    this.isPosted = true;
+    this.inputComment.nativeElement.value = '';
   }
 }
