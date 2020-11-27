@@ -14,6 +14,7 @@ import { EventPageComponent } from "./event-page/event-page.component";
 import { StartPageComponent} from "src/app/start-page/start-page.component";
 import { ForumCreatePostComponent } from './forum-create-post/forum-create-post.component';
 import { ForumManagementComponent } from './forum-management/forum-management.component';
+import {RegistrationPageComponent} from "./registration-page/registration-page.component";
 
 
 const routes: Routes = [
@@ -31,7 +32,8 @@ const routes: Routes = [
   { path: "post/:id", component: ViewPostComponent },
   { path: "author-post", component: AuthorPostComponent },
   { path: "event-page", component: EventPageComponent },
-  { path: "start-page", component: StartPageComponent }
+  { path: "start-page", component: StartPageComponent },
+  { path: "registration-page", component: RegistrationPageComponent}
 ];
 
 @NgModule({
