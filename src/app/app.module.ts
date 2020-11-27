@@ -28,7 +28,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ForumCreatePostComponent } from './forum-create-post/forum-create-post.component';
 import { MatInputModule } from '@angular/material/input';
 
-
 @NgModule({
   declarations: [
     AppComponent,
