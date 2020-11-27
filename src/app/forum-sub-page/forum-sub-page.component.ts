@@ -29,9 +29,12 @@ export class ForumSubPageComponent implements OnInit {
     });
   }
 
-  
+  /**
+   * Deletes a post upon clicking the delete button on a post
+   * @param id post's id
+   */
   deletePost(id): void {
-    console.log(id)
+    //console.log(id)
     this.api.DeletePost({id}).then(r => console.log(r));
   }
  

@@ -27,6 +27,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ForumCreatePostComponent } from './forum-create-post/forum-create-post.component';
 import { MatInputModule } from '@angular/material/input';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { ForumManagementComponent } from './forum-management/forum-management.component';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -49,6 +54,7 @@ import { MatInputModule } from '@angular/material/input';
     ForumSubPageComponent,
     ForumPostComponent,
     ForumCreatePostComponent,
+    ForumManagementComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +64,12 @@ import { MatInputModule } from '@angular/material/input';
     AppRoutingModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTreeModule,
+    MatIconModule,
+    MatProgressBarModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
   ],

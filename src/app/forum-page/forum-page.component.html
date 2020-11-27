@@ -1,5 +1,8 @@
 <body>
   <div class="row">
+    <div class="theage-theme">
+      <button mat-raised-button color="primary" routerLink="/forum-management">Manage forum content</button>
+    </div>
     <div class="content">
       <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 mx-auto" style="overflow:scroll;">
           <h4 class="categories">Categories</h4>
@@ -9,7 +12,7 @@
             <img class="mx-auto d-block" src="./assets/images/{{category.id}}.jpg">
             <h5 class="mainCategories">{{category.name}}</h5>
             <div class="mainCategories" *ngFor="let subcategory of subCategories">
-              <p *ngIf="subcategory.catID === category.id" routerLink="/forum-subs/{{subcategory.id}}">{{subcategory.name}}</p>
+              <p class="links" *ngIf="subcategory.catID === category.id" routerLink="/forum-subs/{{subcategory.id}}">{{subcategory.name}}</p>
             </div>
           </div>
         </div>
@@ -20,9 +23,6 @@
           <h4 class="categories">Latest posts</h4>
           <p *ngFor="let item of array">{{text}}</p>
       </div>
-    </div>
-    <div class="theage-theme">
-      <button mat-raised-button color="primary" routerLink="/forum-post-new">new post form</button>
     </div>
   </div>
 </body>

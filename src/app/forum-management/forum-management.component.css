@@ -1,0 +1,11 @@
+.form-field > * {
+  width: 100%;
+}
+
+.theage.theme{
+  text-align: center;
+}
+
+button {
+  margin: 5px;
+}

@@ -11,7 +11,6 @@
   border-radius: 7px;
   margin: 5px;
   padding: 5px;
-
   min-height: 300px;
 }
 
@@ -21,21 +20,17 @@
   border-color: black;
   text-align: center;
   min-height: 40vh;
-  min-width: 30vh;
+  min-width: 25vh;
 }
 
-.profile p {
-  min-width: 30vh;
-}
-
-.text p {
-  padding: 10px;
+.text {
+  padding-left: 28vh;
 }
 
 .image {
   float: left;
-  height: 30vh;
-  width: 30vh;
+  height: 25vh;
+  width: 25vh;
   border-color: black;
   border-style: solid;
   text-align: center;
@@ -52,6 +47,5 @@ div {
 }
 
 button {
-  margin-right: 5px;
-  padding: 5px;
+  margin: 5px;
 }

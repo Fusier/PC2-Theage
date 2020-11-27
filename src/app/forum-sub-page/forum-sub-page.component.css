@@ -12,9 +12,39 @@ div {
   border-style: solid;
   border-radius: 7px;
   padding: 1vh;
+  cursor: pointer;
+}
+
+.post:hover {
+  color: red;
 }
 
 h4 {
-  margin-left: 2vh;
+  margin-left: 15px;
   border-bottom: solid;
+}
+
+.buttonForum {
+  margin-bottom: 20px;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.postButton {
+  float: right !important;
+  margin-bottom: 10px;
+  margin-left: 5px !important;
+}
+
+.forumButton {
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+.space {
+  margin-top: 30px;
+}
+
+.padding {
+  padding-right: 0px;
 }

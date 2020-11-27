@@ -1,5 +1,5 @@
-.container {
-  text-align: center;
+.subTitles {
+  text-align: left;
 }
 
 mat-form-field {
@@ -15,4 +15,20 @@ mat-form-field {
 
 mat-label {
   text-align: left;
+}
+
+.category {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.selectors {
+  padding-top: 20px;
+  padding-bottom: 20px
+}
+
+.posted {
+  text-align: center;
+  padding-bottom: 50px;
+  padding-top: 50px;
 }

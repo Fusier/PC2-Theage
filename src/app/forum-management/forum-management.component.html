@@ -1,0 +1,72 @@
+<div class="container">
+
+  <h2>Forum management</h2>
+
+  <hr>
+  <h3>Category management</h3>
+  <br>
+
+  <form class="theage-theme" >
+    <h5>Create a new category</h5>
+
+      <div class="form-field">
+        <mat-label class="title">Category name</mat-label>
+        <input matInput #catCreate maxlength="32" placeholder="Enter category name" required>
+        <mat-hint align="end">{{catCreate.value.length}} / 32</mat-hint>
+      </div>
+      <button mat-raised-button color="primary" (click)="addCategory(catCreate.value)">Create category</button> 
+  </form>
+  <hr>
+
+  <form class="theage-theme" >
+
+    <h5>Delete a category</h5>
+
+    <div class="form-field">
+      <mat-label class="title">Select a Category</mat-label>
+      <select #catDelete name="category" required>
+        <option [value]="category.id" *ngFor="let category of categories">{{category.name}}</option>
+      </select>
+    </div>
+    <button mat-raised-button color="primary" (click)="deleteCategory(catDelete.value)">Delete category</button>
+  </form>
+
+  <hr>
+  <h3>Subcategory mangement</h3>
+  <br>
+
+  <form class="theage-theme" >
+    <h5>Create a new subcategory</h5>
+      <div class="form-field">
+        <mat-label class="title">Select a Category</mat-label>
+        <select #subCreateSelect name="category" required>
+          <option [value]="category.id" *ngFor="let category of categories">{{category.name}}</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <mat-label class="title">Subcategory name</mat-label>
+        <input matInput #subCreateText maxlength="32" placeholder="Enter subcategory name" required>
+        <mat-hint align="end">{{subCreateText.value.length}} / 32</mat-hint>
+      </div>
+    <button mat-raised-button color="primary" (click)="addSubcategory(subCreateSelect.value, subCreateText.value)">Create subcategory</button>
+  </form>
+
+  <form class="theage-theme" >
+
+    <hr>
+    <h5>Delete a subcategory</h5>
+      <div class="form-field">
+        <mat-label class="title">Select a Category</mat-label>
+        <select #subDeleteCat name="category" (click)="onChange(subDeleteCat.value)" required>
+          <option [value]="category.id" *ngFor="let category of categories">{{category.name}}</option>
+        </select>
+      </div>
+
+      <mat-label class="title">Subcategory</mat-label>
+        <select #subDeleteText name="subcategory" required>
+          <option [value]="sub.id" *ngFor="let sub of subOptions">{{sub.name}}</option>
+        </select>
+    <button mat-raised-button color="primary" (click)="deleteSubcategory(subDeleteText.value)">Delete subcategory</button>
+  </form>
+
+</div>
