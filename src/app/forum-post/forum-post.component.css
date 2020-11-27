@@ -14,6 +14,10 @@
   min-height: 300px;
 }
 
+.post-head, .post-comment > button{
+  align-content: right;
+}
+
 .card {
   float: left;
   border-style: solid;
@@ -44,6 +48,16 @@
 
 div {
   font:600 16px/18px 'Open Sans',sans-serif;
+}
+
+.comment-section {
+  width: 100%;
+  border-style: solid;
+  padding: 5px;
+}
+
+.form-field > textarea, mat-hint {
+  width: 100%;
 }
 
 button {

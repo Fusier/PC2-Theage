@@ -4,7 +4,7 @@
     <button mat-raised-button color="primary" routerLink="/forum">Forum</button>
     <button mat-raised-button color="primary" routerLink="/forum-subs/{{subId}}">{{subName}}</button>
   </div>
-  <div class="row">
+  <div class="row theage-theme">
     <div class="post-head">
       <h4 class="post-title">{{title}}</h4>
 
@@ -22,16 +22,31 @@
 
     <div class="post-comment" *ngFor="let comment of comments">
       <div class="card">
-        <div class="image">Profile Picture</div>
+        <img class="image" src="./assets/images/default.jpg">
         <div class="card-body">
-          <p>forum post author</p>
+          <p>forum comment author</p>
         </div>
       </div>
 
       <div class="text">
+        <button mat-raised-button color="primary" (click)="deleteComment(comment.id)">Delete post</button>
         <p>{{comment.content}}</p>
       </div>
     </div>
   </div>
+
+  <div class="comment-section theage-theme">
+    <h3>Create a comment</h3>
+    <mat-label class="title">Content</mat-label>
+    <div class="form-field">
+      <textarea matInput #comment maxlength="5000" placeholder="Enter your comment here" required></textarea>
+      <mat-hint style="text-align: right;">{{comment.value.length}} / 5000</mat-hint>
+    </div>
+    <button mat-raised-button color="primary" (click)="addComment(comment.value); handleClear();">Create a comment</button>
+    <h3 class="posted" *ngIf="isPosted">Your comment has been posted!</h3>
+    
+  </div>
 </div>
+
+
 
