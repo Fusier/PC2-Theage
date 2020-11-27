@@ -21,12 +21,9 @@ export class ForumPostComponent implements OnInit, AfterViewInit {
   isPosted: boolean = false;
   @ViewChild('comment') inputComment;
 
-
-
   constructor(private route: ActivatedRoute, private api: APIService) { }
 
-  ngAfterViewInit() {
-  }
+  ngAfterViewInit() {}
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
