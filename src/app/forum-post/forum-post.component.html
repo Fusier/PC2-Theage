@@ -20,17 +20,22 @@
       </div>
     </div>
 
-    <div class="post-comment" *ngFor="let comment of comments">
-      <div class="card">
-        <img class="image" src="./assets/images/default.jpg">
-        <div class="card-body">
-          <p>forum comment author</p>
+    <div *ngFor="let comment of comments">
+      <div class="post-comment" *ngIf="comment.postID === this.id">
+        <div class="card">
+          <img class="image" src="./assets/images/default.jpg">
+          <div class="card-body">
+            <p>forum comment author</p>
+          </div>
         </div>
-      </div>
 
-      <div class="text">
-        <button mat-raised-button color="primary" (click)="deleteComment(comment.id)">Delete post</button>
-        <p>{{comment.content}}</p>
+        <div class="delete-button">
+          <button mat-raised-button align="end" color="primary" (click)="deleteComment(comment.id)">Delete post</button>
+        </div>
+
+        <div class="text">
+          <p>{{comment.content}}</p>
+        </div>
       </div>
     </div>
   </div>
