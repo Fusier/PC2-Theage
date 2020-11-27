@@ -34,7 +34,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {RegistrationPageComponent} from "./registration-page/registration-page.component";
 
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -10,6 +10,11 @@
       "StackName": "amplify-pc2theage-theage-180612",
       "StackId": "arn:aws:cloudformation:us-east-2:317805795037:stack/amplify-pc2theage-theage-180612/d37a7030-2437-11eb-8d53-02226743ec12",
       "AmplifyAppId": "d2lahw2jspe04r"
+    },
+    "categories": {
+      "auth": {
+        "pc2theage122f23e2": {}
+      }
     }
   },
   "dev": {
