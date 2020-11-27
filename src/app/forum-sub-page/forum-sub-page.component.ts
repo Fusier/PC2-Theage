@@ -35,8 +35,20 @@ export class ForumSubPageComponent implements OnInit {
    */
   deletePost(id): void {
     //console.log(id)
+    this.deleteComments(id);
     this.api.DeletePost({id}).then(r => console.log(r));
   }
  
+  deleteComments(id: string) {
+    this.api.ListComments().then(query => {
+      query.items.forEach(comment => {
+        if(comment.postID === id) {
+          let commentID: string = comment.postID;
+          console.log(comment.id);
+          this.api.DeletePost({id: commentID}).then(e => console.log(e));
+        }
+      });
+    });
+  }
 }
 
