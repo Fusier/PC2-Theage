@@ -8,6 +8,11 @@ import { APIService } from '../API.service';
   templateUrl: './forum-management.component.html',
   styleUrls: ['./forum-management.component.css']
 })
+
+/**
+ * ForumManagementComponet is responsible for all the admin functionality
+ * relating to forum management
+ */
 export class ForumManagementComponent implements OnInit {
   categories: Category[];
   subcategories: Subcategory[];
@@ -41,26 +46,36 @@ export class ForumManagementComponent implements OnInit {
   }
 
   /**
-   * adds a category based on given text
+   * Adds a a new category with admin given name
+   * @param name Category's name
    */
   addCategory(name: string) {
     console.log("Added a category");
     this.api.CreateCategory({name}).then(r => console.log(r));
   }
 
+  /**
+   * Deletes a category and everything contained in it
+   * @param id category's id
+   */
   deleteCategory(id: string) {
     this.deleteSubcategories(id)
     this.api.DeleteCategory({id}).then(r => console.log(r));
   }
 
+  /**
+   * Creates a new subcategory
+   * @param catID parent category's name
+   * @param name subcategory's name
+   */
   addSubcategory(catID: string, name: string) {
     console.log("Added a subcategory");
     this.api.CreateSubcategory({catID, name}).then(r => console.log(r));
   }
 
   /**
-   * We did not have time to do cleaner implementation. Too Bad ;).
-   * @param id 
+   * Deletes a subcategory and all the posts included in it
+   * @param id subcategory's id
    */
   deleteSubcategory(id: string) {
     console.log("deleting posts")
@@ -70,6 +85,10 @@ export class ForumManagementComponent implements OnInit {
     this.api.DeleteSubcategory({id}).then(r => console.log(r));
   }
 
+  /**
+   * Deletes all subcategory and all the posts included in it
+   * @param id parent category's id
+   */
   deleteSubcategories(id: string) {
     this.api.ListPosts().then(query => {
       query.items.forEach(sub => {
@@ -83,6 +102,10 @@ export class ForumManagementComponent implements OnInit {
     });
   }
 
+  /**
+   * Deletes all posts that have the id as a parent subcategory
+   * @param id parent subcategory's id
+   */
   deletePosts(id: string) {
     this.api.ListPosts().then(query => {
       query.items.forEach(post => {
@@ -96,6 +119,10 @@ export class ForumManagementComponent implements OnInit {
     });
   }
 
+  /**
+   * Deletes all posts that have the id as a parent post
+   * @param id comment's parent post
+   */
   deleteComments(id: string) {
     this.api.ListComments().then(query => {
       query.items.forEach(comment => {
