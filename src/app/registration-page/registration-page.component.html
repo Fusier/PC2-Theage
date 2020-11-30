@@ -29,6 +29,9 @@
         <div class="form-group">
           <input #password type="password" class="form-control" id="inputPassword" placeholder="Password">
         </div>
+        <div *ngIf="error">
+          <p class="color">Error creating account!<p>
+        </div>
         <button type="submit" (click)="signUp()" class="btn btn-primary buttonMargin" routerLink="/registration-confirm" routerLinkActive="active">Register</button>
       </form>
     </div>

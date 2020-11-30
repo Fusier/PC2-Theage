@@ -12,6 +12,7 @@ export class RegistrationPageComponent implements OnInit {
   @ViewChild('username') inputUsername;
   @ViewChild('email') inputEmail;
   @ViewChild('password') inputPassword;
+  error: boolean = false;
 
 
   constructor() {}
@@ -35,6 +36,7 @@ export class RegistrationPageComponent implements OnInit {
       });
       console.log(user);
     } catch (error) {
+      this.error = true;
       console.log('error signing up:', error);
     }
   }

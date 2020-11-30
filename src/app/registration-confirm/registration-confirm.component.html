@@ -26,7 +26,10 @@
         <div class="form-group">
           <input #code class="textField" type="text" class="form-control" id="inputEmail" placeholder="Verification code">
         </div>
-        <button type="submit" (click)="confirmSignUp()" class="btn btn-primary buttonMargin" routerLink="/home" routerLinkActive="active">Register</button>
+        <div *ngIf="error">
+          <p class="color">Confirmation was not successful<p>
+        </div>
+        <button type="submit" (click)="confirmSignUp()" class="btn btn-primary buttonMargin" routerLink="/start-page" routerLinkActive="active">Register</button>
       </form>
     </div>
   </div>

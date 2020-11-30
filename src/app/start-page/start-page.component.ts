@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Auth } from 'aws-amplify';
 
+
 @Component({
   selector: 'app-start-page',
   templateUrl: './start-page.component.html',
@@ -12,6 +13,9 @@ export class StartPageComponent implements OnInit {
   @ViewChild('email') inputUser;
   @ViewChild('password') inputPass;
   @ViewChild('loginbtn') loginbtn;
+  error: boolean = false;
+
+
 
   constructor(private router: Router) {}
 
@@ -25,6 +29,7 @@ export class StartPageComponent implements OnInit {
         this.router.navigate(['/home'], );
       }
     } catch (error) {
+      this.error = true;
       console.log('error signing in', error);
     }
   }
