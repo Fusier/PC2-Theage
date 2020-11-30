@@ -4,7 +4,6 @@ import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { Http, HttpModule } from "@angular/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
@@ -34,6 +33,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {RegistrationPageComponent} from "./registration-page/registration-page.component";
 import {RegistrationConfirmComponent} from "./registration-confirm/registration-confirm.component";
+import { LoginService } from './service/login-service';
 import Amplify from 'aws-amplify';
 import awsmobile from '../aws-exports';
 
@@ -63,7 +63,7 @@ Amplify.configure(awsmobile);
     ForumCreatePostComponent,
     ForumManagementComponent,
     RegistrationPageComponent,
-    RegistrationConfirmComponent
+    RegistrationConfirmComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,7 +82,7 @@ Amplify.configure(awsmobile);
   ],
   exports: [
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

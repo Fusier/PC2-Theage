@@ -8,6 +8,5 @@ import { Router } from '@angular/router';
 })
 export class AppComponent  {
   title = 'angular-blog-new';
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router) {}
 }

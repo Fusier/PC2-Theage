@@ -1,12 +1,15 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../service/login-service';
 
 @Component({
-  selector: "app-contact",
-  templateUrl: "./contact.component.html",
-  styleUrls: ["./contact.component.css"]
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  constructor() {}
+  constructor(private login: LoginService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.login.checkLogin();
+  }
 }
