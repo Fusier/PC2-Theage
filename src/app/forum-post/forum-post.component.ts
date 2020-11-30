@@ -1,9 +1,9 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { Comment } from '../../types/comment';
-import {Post} from '../../types/post';
 import {ActivatedRoute} from '@angular/router';
 import {APIService} from '../API.service';
-import { MatSpinner} from '@angular/material/progress-spinner';
+import { LoginService } from '../service/login-service';
+
 
 @Component({
   selector: 'app-forum-post',
@@ -22,7 +22,7 @@ export class ForumPostComponent implements OnInit, AfterViewInit {
   isPosted: boolean = false;
   @ViewChild('comment') inputComment;
 
-  constructor(private route: ActivatedRoute, private api: APIService) { }
+  constructor(private route: ActivatedRoute, private api: APIService, private login: LoginService) { }
 
   ngAfterViewInit() {}
 
@@ -56,6 +56,8 @@ export class ForumPostComponent implements OnInit, AfterViewInit {
       const newComment = event.value.data.onCreateComment;
       this.comments = [...this.comments, newComment ];
     });
+
+    this.login.checkLogin();
   }
 
   /**
@@ -72,16 +74,16 @@ export class ForumPostComponent implements OnInit, AfterViewInit {
    */
   deleteComment(id: string) {
     this.api.DeleteComment({id}).then(r => console.log(r));
-    for( let i = 0; i < this.comments.length; i++){ 
-      if ( this.comments[i].id === id) { 
-        this.comments.splice(i, 1); 
+    for( let i = 0; i < this.comments.length; i++){
+      if ( this.comments[i].id === id) {
+        this.comments.splice(i, 1);
       }
     }
-  } 
+  }
 
   /**
    *  Clears all the text from the text fields upon clicking the "Create comment" button
-   */ 
+   */
   handleClear() {
     this.isPosted = true;
     this.inputComment.nativeElement.value = '';

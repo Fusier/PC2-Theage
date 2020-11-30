@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subcategory } from 'src/types/subcategory';
 import { Category } from '../../types/category';
 import { APIService } from '../API.service';
+import { LoginService } from '../service/login-service';
 
 @Component({
   selector: 'app-forum-management',
@@ -17,7 +18,7 @@ export class ForumManagementComponent implements OnInit {
   categories: Category[];
   subcategories: Subcategory[];
   subOptions: Subcategory[];
-  constructor(private api: APIService) { }
+  constructor(private api: APIService, private login: LoginService) { }
 
   /**
    * Fetches categories and subcategories form the backend
@@ -29,6 +30,7 @@ export class ForumManagementComponent implements OnInit {
     this.api.ListSubcategorys().then(subcategory => {
       this.subcategories = subcategory.items;
     });
+    this.login.checkLogin();
   }
 
   /**

@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import { filter } from 'rxjs-compat/operator/filter';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Subcategory } from 'src/types/subcategory';
 import { Category } from '../../types/category';
 import { APIService } from '../API.service';
+import { LoginService } from '../service/login-service';
 
 @Component({
   selector: 'app-forum-create-post',
@@ -18,7 +18,7 @@ export class ForumCreatePostComponent implements OnInit {
   @ViewChild('title') inputTitle;
   @ViewChild('content') inputContent;
 
-  constructor(private api: APIService) { }
+  constructor(private api: APIService, private login: LoginService) { }
 
   ngOnInit(): void {
     this.api.ListCategorys().then(category => {
@@ -28,6 +28,7 @@ export class ForumCreatePostComponent implements OnInit {
     this.api.ListSubcategorys().then(subcategory => {
       this.subcategories = subcategory.items;
     });
+    this.login.checkLogin();
   }
 
   onChange(id: string) {

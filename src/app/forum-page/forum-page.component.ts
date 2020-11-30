@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Category } from '../../types/category';
 import { Subcategory } from '../../types/subcategory';
 import { APIService } from '../API.service';
+import { LoginService } from '../service/login-service';
 
 @Component({
   selector: 'app-forum-page',
@@ -16,7 +17,7 @@ export class ForumComponent implements OnInit {
   categories: Category[];
   subCategories: Subcategory[];
 
-  constructor(private api: APIService) { }
+  constructor(private api: APIService, private login: LoginService) { }
 
   ngOnInit(): void {
     this.api.ListCategorys().then(category => {
@@ -25,6 +26,7 @@ export class ForumComponent implements OnInit {
     this.api.ListSubcategorys().then(subcategory => {
       this.subCategories = subcategory.items;
     });
+    this.login.checkLogin();
   }
 
 }
