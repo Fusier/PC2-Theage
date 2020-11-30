@@ -1,9 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { Post } from '../../types/post';
-import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute } from '@angular/router';
-import { Subcategory } from '../../types/subcategory';
 import { APIService } from '../API.service';
+import { LoginService } from '../service/login-service';
 
 
 @Component({
@@ -17,7 +16,7 @@ export class ForumSubPageComponent implements OnInit {
   posts: Post[];
   title: string;
 
-  constructor(private route: ActivatedRoute, private api: APIService) {}
+  constructor(private route: ActivatedRoute, private api: APIService, private login: LoginService) {}
 
   /**
    * Fetching subcategories and posts from the database
@@ -30,6 +29,7 @@ export class ForumSubPageComponent implements OnInit {
     this.api.ListPosts().then(post => {
       this.posts = post.items;
     });
+    this.login.checkLogin();
   }
 
   /**
@@ -41,7 +41,7 @@ export class ForumSubPageComponent implements OnInit {
     this.deleteComments(id);
     this.api.DeletePost({id}).then(r => console.log(r));
   }
- 
+
   /**
    * Deletes all the comments in deleted post
    * @param id parent post's id
