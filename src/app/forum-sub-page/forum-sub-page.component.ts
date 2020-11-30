@@ -19,6 +19,9 @@ export class ForumSubPageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private api: APIService) {}
 
+  /**
+   * Fetching subcategories and posts from the database
+   */
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.api.GetSubcategory(this.id).then(subcategory => {
@@ -39,6 +42,10 @@ export class ForumSubPageComponent implements OnInit {
     this.api.DeletePost({id}).then(r => console.log(r));
   }
  
+  /**
+   * Deletes all the comments in deleted post
+   * @param id parent post's id
+   */
   deleteComments(id: string) {
     this.api.ListComments().then(query => {
       query.items.forEach(comment => {
