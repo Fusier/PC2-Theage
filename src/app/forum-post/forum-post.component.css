@@ -11,7 +11,7 @@
   border-radius: 7px;
   margin: 5px;
   padding: 5px;
-  min-height: 390px;
+  min-height: 410px;
 }
 
 .post-head, .post-comment > button{
@@ -33,11 +33,15 @@
 
 .image {
   float: left;
-  height: 25vh;
-  width: 25vh;
+  min-height: 25vh;
+  min-width: 25vh;
+  max-height: 25vh;
+  max-width: 25vh;
   border-color: black;
   border-style: solid;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .post-title {
@@ -66,4 +70,8 @@ div {
 
 button {
   margin: 5px;
+}
+
+.card-body {
+  margin: 0px;
 }

@@ -17,6 +17,7 @@ export class ForumPostComponent implements OnInit, AfterViewInit {
   comments: Comment[];
   title: string;
   content: string;
+  createdAt: string;
   isLoading: boolean = true;
   isPosted: boolean = false;
   @ViewChild('comment') inputComment;
@@ -34,6 +35,7 @@ export class ForumPostComponent implements OnInit, AfterViewInit {
       this.title = post.title;
       this.content = post.content;
       this.subId = post.subID;
+      this.createdAt = post.createdAt
 
       // fetching subcategory data
       this.api.GetSubcategory(this.subId).then(sub => {
