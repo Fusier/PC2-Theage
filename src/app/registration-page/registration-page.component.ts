@@ -18,11 +18,11 @@ export class RegistrationPageComponent implements OnInit {
 
   ngOnInit() {}
 
-/*  handleClear() {
+  /* handleClear() {
     this.inputUsername.nativeElement.value = '';
     this.inputEmail.nativeElement.value = '';
     this.inputPassword.nativeElement.value = '';
-  }*/
+  } */
 
   async signUp() {
     try {

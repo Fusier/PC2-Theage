@@ -21,16 +21,16 @@
       </div>
       <form id="Login">
         <div class="form-group">
-          <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+          <input #email type="email" class="form-control" id="inputEmail" placeholder="Email Address">
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+          <input #password type="password" class="form-control" id="inputPassword" placeholder="Password">
         </div>
         <div class="forgot">
           <a>Forgot password?</a>
         </div>
-        <button type="submit" class="btn btn-primary" routerLink="/home" routerLinkActive="active">Login</button>
-        <button class="btn btn-primary marginSecondButton" routerLink="/registration-page" routerLinkActive="active">Create an account</button>
+        <button #loginbtn type="submit" class="btn btn-primary" (click)="signIn()">Login</button>
+        <button class="btn btn-primary marginSecondButton" routerLink="/registration-page">Create an account</button>
       </form>
     </div>
   </div>
