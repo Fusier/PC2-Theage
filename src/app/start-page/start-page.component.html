@@ -1,16 +1,3 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
-<!-- wtf is going on here? -->
-<html class="html">
-<head>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-</head>
-
 <div class="container">
   <!-- Site's login form -->
   <div class="login-form">
@@ -30,7 +17,7 @@
           <a>Forgot password?</a>
         </div>
         <div *ngIf="error">
-          <p class="color">incorrect username or password<p>
+          <p class="color">Incorrect username or password<p>
         </div>
         <button #loginbtn type="submit" class="btn btn-primary" (click)="signIn()">Login</button>
         <button class="btn btn-primary marginSecondButton" routerLink="/registration-page">Create an account</button>
@@ -40,5 +27,3 @@
   <!-- background image -->
 <img class="big" src="./assets/images/Red_curtain.jpg"/>
 </div>
-</html>
-
