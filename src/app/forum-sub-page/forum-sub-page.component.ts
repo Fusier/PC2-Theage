@@ -40,6 +40,11 @@ export class ForumSubPageComponent implements OnInit {
     //console.log(id)
     this.deleteComments(id);
     this.api.DeletePost({id}).then(r => console.log(r));
+    for( let i = 0; i < this.posts.length; i++){
+      if ( this.posts[i].id === id) {
+        this.posts.splice(i, 1);
+      }
+    }
   }
 
   /**
