@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth } from 'aws-amplify';
+import {LoginService} from '../service/login-service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,11 +8,21 @@ import { Auth } from 'aws-amplify';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  constructor() {}
 
   blogLink = 'https://www.theage-muenchen.de/theage-blog.html';
+  isLogged: boolean;
 
-  ngOnInit() {}
+  constructor(private login: LoginService) {}
+
+  ngOnInit() {
+    try {
+      Auth.currentAuthenticatedUser().then(info => {
+          this.isLogged = true;
+      });
+    } catch (error) {
+      this.isLogged = false;
+    }
+  }
 
   clickBlog() {
     window.location.href = this.blogLink;
