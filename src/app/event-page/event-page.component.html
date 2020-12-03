@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-4 column" *ngFor="let event of events">
-            <h5>{{event.name}}</h5>
+            <h5 routerLink="/single-event-page/{{event.id}}">{{event.name}}</h5>
             <img src="./assets/images/{{event.id}}.jpeg">
           </div>
         </div>
