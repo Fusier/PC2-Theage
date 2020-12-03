@@ -23,7 +23,8 @@
   border-style: solid;
   border-color: black;
   text-align: center;
-  min-height: 40vh;
+  min-height: 400px;
+  max-height: 400px;
   min-width: 25vh;
 }
 
