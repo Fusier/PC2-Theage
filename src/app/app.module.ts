@@ -31,17 +31,17 @@ import { ForumManagementComponent } from './forum-management/forum-management.co
 import { MatTreeModule } from '@angular/material/tree';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import {RegistrationPageComponent} from "./registration-page/registration-page.component";
-import {RegistrationConfirmComponent} from "./registration-confirm/registration-confirm.component";
+import { RegistrationPageComponent } from "./registration-page/registration-page.component";
+import { RegistrationConfirmComponent } from "./registration-confirm/registration-confirm.component";
 import {SingleEventPageComponent} from "./single-event-page/single-event-page.component";
 import { LoginService } from './service/login-service';
+import { ProfilePageComponent } from "./profile-page/profile-page.component";
 import Amplify from 'aws-amplify';
 import awsmobile from '../aws-exports';
 
 
 
-Amplify
-.configure(awsmobile);
+Amplify.configure(awsmobile);
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +66,7 @@ Amplify
     ForumManagementComponent,
     RegistrationPageComponent,
     RegistrationConfirmComponent,
+    ProfilePageComponent,
     SingleEventPageComponent
   ],
   imports: [
