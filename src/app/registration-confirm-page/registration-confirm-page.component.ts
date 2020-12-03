@@ -3,16 +3,16 @@ import { Auth } from 'aws-amplify';
 
 
 @Component({
-  selector: 'app-registration-confirm',
-  templateUrl: './registration-confirm.component.html',
-  styleUrls: ['./registration-confirm.component.css']
+  selector: 'app-registration-confirm-page',
+  templateUrl: './registration-confirm-page.component.html',
+  styleUrls: ['./registration-confirm-page.component.css']
 })
 
-export class RegistrationConfirmComponent implements OnInit {
+export class RegistrationConfirmPageComponent implements OnInit {
 
   @ViewChild('username') inputUsername;
   @ViewChild('code') inputCode;
-  error: boolean = false;
+  isError: boolean = false;
 
   constructor() {}
 
@@ -22,7 +22,7 @@ export class RegistrationConfirmComponent implements OnInit {
       try {
         await Auth.confirmSignUp(this.inputUsername.nativeElement.value, this.inputCode.nativeElement.value);
       } catch (error) {
-        this.error = true;
+        this.isError = true;
         console.log('error confirming sign up', error);
       }
     }

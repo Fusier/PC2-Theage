@@ -10,12 +10,11 @@ import { Auth } from 'aws-amplify';
 })
 
 export class StartPageComponent implements OnInit {
+
   @ViewChild('email') inputUser;
   @ViewChild('password') inputPass;
   @ViewChild('loginbtn') loginbtn;
   error: boolean = false;
-
-
 
   constructor(private router: Router) {}
 

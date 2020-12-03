@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import { Auth } from "aws-amplify";
-import {LoginService} from "../service/login-service";
+import { Auth } from 'aws-amplify';
+import { LoginService } from '../service/login-service';
 
 @Component({
   selector: 'app-profile-page',
@@ -9,9 +9,11 @@ import {LoginService} from "../service/login-service";
 })
 
 export class ProfilePageComponent implements OnInit {
+
   username: string;
   email: string;
   loading: boolean = true;
+
   constructor(private login: LoginService) {}
 
   ngOnInit() {

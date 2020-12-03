@@ -11,7 +11,7 @@ ul li a::after{
 ul li a:hover{
   transform: translate(0px, -10px);
   transition: 0.5s;
-  box-shadow: 15px 15px 15px rgb(0, 0, 0, 0.2);
+  box-shadow: 15px 15px 15px rgb(0, 0, 0);
 }
 
 .body {

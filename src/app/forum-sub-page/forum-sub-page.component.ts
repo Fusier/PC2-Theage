@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Post } from '../../types/post';
 import { ActivatedRoute } from '@angular/router';
 import { APIService } from '../API.service';
@@ -37,10 +37,9 @@ export class ForumSubPageComponent implements OnInit {
    * @param id post's id
    */
   deletePost(id): void {
-    //console.log(id)
     this.deleteComments(id);
     this.api.DeletePost({id}).then(r => console.log(r));
-    for( let i = 0; i < this.posts.length; i++){
+    for ( let i = 0; i < this.posts.length; i++) {
       if ( this.posts[i].id === id) {
         this.posts.splice(i, 1);
       }
@@ -54,8 +53,8 @@ export class ForumSubPageComponent implements OnInit {
   deleteComments(id: string) {
     this.api.ListComments().then(query => {
       query.items.forEach(comment => {
-        if(comment.postID === id) {
-          let commentID: string = comment.postID;
+        if (comment.postID === id) {
+          const commentID: string = comment.postID;
           console.log(comment.id);
           this.api.DeletePost({id: commentID}).then(e => console.log(e));
         }

@@ -1,8 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { LoginService } from '../service/login-service';
-import {APIService} from '../API.service';
-import {Comment} from '../../types/comment';
-import {ActivatedRoute} from '@angular/router';
+import { APIService } from '../API.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-single-event-page',
@@ -22,10 +21,9 @@ export class SingleEventPageComponent implements OnInit {
   endDate: string;
   time: string;
 
-  constructor(private api: APIService, private login: LoginService, private route: ActivatedRoute) {
-  }
+  constructor(private api: APIService, private login: LoginService, private route: ActivatedRoute) {}
 
-  async ngOnInit() {
+  ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.api.GetEvent(this.id).then(event => {
       this.name = event.name;
@@ -37,7 +35,7 @@ export class SingleEventPageComponent implements OnInit {
       this.endDate = event.endDate;
       this.time = event.time;
     });
-    await this.login.checkLogin();
+    this.login.checkLogin();
   }
 
 }

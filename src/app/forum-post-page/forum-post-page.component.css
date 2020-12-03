@@ -14,9 +14,6 @@
   min-height: 410px;
 }
 
-.post-head, .post-comment > button{
-  align-content: right;
-}
 
 .card {
   float: left;
@@ -71,10 +68,6 @@ div {
 
 button {
   margin: 5px;
-}
-
-.card-body {
-  margin: 0px;
 }
 
 .error {

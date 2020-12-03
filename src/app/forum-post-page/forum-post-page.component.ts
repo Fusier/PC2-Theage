@@ -1,16 +1,17 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Comment } from '../../types/comment';
-import {ActivatedRoute} from '@angular/router';
-import {APIService} from '../API.service';
+import { ActivatedRoute } from '@angular/router';
+import { APIService } from '../API.service';
 import { LoginService } from '../service/login-service';
 
 
 @Component({
-  selector: 'app-forum-post',
-  templateUrl: './forum-post.component.html',
-  styleUrls: ['./forum-post.component.css']
+  selector: 'app-forum-post-page',
+  templateUrl: './forum-post-page.component.html',
+  styleUrls: ['./forum-post-page.component.css']
 })
-export class ForumPostComponent implements OnInit, AfterViewInit {
+export class ForumPostPageComponent implements OnInit {
+
   id;
   subId;
   subName;
@@ -20,16 +21,14 @@ export class ForumPostComponent implements OnInit, AfterViewInit {
   createdAt: string;
   isLoading: boolean = true;
   isPosted: boolean = false;
-  error: string;
+  errorMessage: string;
   isError: boolean;
   @ViewChild('comment') inputComment;
 
   constructor(private route: ActivatedRoute, private api: APIService, private login: LoginService) { }
 
-  ngAfterViewInit() {}
-
   /**
-   * Fetch post, comments and subacategory name from backend when opening the page
+   * Fetch post, comments and subcategory name from backend when opening the page
    */
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -42,7 +41,6 @@ export class ForumPostComponent implements OnInit, AfterViewInit {
       // fetching subcategory data
       this.api.GetSubcategory(this.subId).then(sub => {
         this.subName = sub.name;
-        /*console.log(this.subName);*/
         this.isLoading = false;
       });
     });
@@ -68,16 +66,16 @@ export class ForumPostComponent implements OnInit, AfterViewInit {
    */
   addComment(comment: string) {
     try {
-      if (comment !== "") {
+      if (comment !== '') {
         this.isError = false;
         this.api.CreateComment({postID: this.id, content: comment}).then(r => console.log(r));
-        this.handleClear()
+        this.handleClear();
       } else {
-        throw new Error("The comment cannot be empty")
+        throw new Error('The comment cannot be empty');
       }
     } catch (error) {
       this.isPosted = false;
-      this.error = error.message;
+      this.errorMessage = error.message;
       this.isError = true;
       console.log('error signing up:', error);
     }
@@ -106,7 +104,7 @@ export class ForumPostComponent implements OnInit, AfterViewInit {
 
   get sortComments() {
     return this.comments.sort((a, b) => {
-      return <any>new Date(a.createdAt) - <any>new Date(b.createdAt);
+      return <any> new Date(a.createdAt) - <any> new Date(b.createdAt);
     });
   }
 }

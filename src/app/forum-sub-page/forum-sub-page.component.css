@@ -24,19 +24,13 @@ h4 {
   border-bottom: solid;
 }
 
-.buttonForum {
-  margin-bottom: 20px;
-  padding-right: 16px;
-  padding-left: 16px;
-}
-
-.postButton {
+.post-button {
   float: right !important;
   margin-bottom: 10px;
   margin-left: 5px !important;
 }
 
-.forumButton {
+.forum-button {
   margin-bottom: 10px;
   margin-left: 15px;
 }
@@ -50,5 +44,5 @@ h4 {
 }
 
 .padding {
-  padding-right: 0px;
+  padding-right: 0;
 }

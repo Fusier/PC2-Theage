@@ -58,11 +58,6 @@
 .forgot {
   text-align: left; margin-bottom:30px;
 }
-.botto-text {
-  color: #ffffff;
-  font-size: 14px;
-  margin: auto;
-}
 .login-form .btn.btn-primary.reset {
   background: #ff9900 none repeat scroll 0 0;
 }
@@ -82,7 +77,7 @@
   margin-top: 10%;
 }
 
-.buttonMargin {
+.button-margin {
   margin-top: 20px;
 }
 

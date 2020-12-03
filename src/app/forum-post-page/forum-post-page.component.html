@@ -11,11 +11,11 @@
       <h4 class="post-title">{{title}}</h4>
 
       <div class="card">
-            <img class="image" src="./assets/images/default.jpg">
-          <div class="card-body">
-            <p>forum post author<br>Posted on:<br>{{createdAt}}</p>
-          </div>
+        <img class="image" src="./assets/images/default.jpg">
+        <div class="card-body">
+          <p>forum post author<br>Posted on:<br>{{createdAt}}</p>
         </div>
+      </div>
 
       <div class="text">
         <p>{{content}}</p>
@@ -34,7 +34,7 @@
         </div>
 
         <div class="delete-button">
-          <button mat-raised-button align="end" color="primary" (click)="deleteComment(comment.id)">Delete comment</button>
+          <button mat-raised-button color="primary" (click)="deleteComment(comment.id)">Delete comment</button>
         </div>
 
         <div class="text">
@@ -53,8 +53,7 @@
     </div>
     <button mat-raised-button color="primary" (click)="addComment(comment.value)">Create a comment</button>
     <h3 class="posted" *ngIf="isPosted">Your comment has been posted!</h3>
-    <h3 class="error" *ngIf="isError">{{this.error}}</h3>
-    
+    <h3 class="error" *ngIf="isError">{{this.errorMessage}}</h3>
   </div>
 </div>
 

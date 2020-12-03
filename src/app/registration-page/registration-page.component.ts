@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Auth } from 'aws-amplify';
 
 @Component({
@@ -18,12 +18,6 @@ export class RegistrationPageComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-
-  /* handleClear() {
-    this.inputUsername.nativeElement.value = '';
-    this.inputEmail.nativeElement.value = '';
-    this.inputPassword.nativeElement.value = '';
-  } */
 
   async signUp() {
     try {

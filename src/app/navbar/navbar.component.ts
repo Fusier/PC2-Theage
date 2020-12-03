@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth } from 'aws-amplify';
-import {LoginService} from '../service/login-service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +11,7 @@ export class NavbarComponent implements OnInit {
   blogLink = 'https://www.theage-muenchen.de/theage-blog.html';
   isLogged: boolean;
 
-  constructor(private login: LoginService) {}
+  constructor() {}
 
   ngOnInit() {
     try {

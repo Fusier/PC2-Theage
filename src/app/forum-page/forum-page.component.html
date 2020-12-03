@@ -7,7 +7,7 @@
     <div class="content">
 
       <!-- categories section -->
-      <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 mx-auto" style="overflow:scroll;">
+      <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 mx-auto overflow-scroll">
           <h4 class="categories">Categories</h4>
         <div class="container-fluid">
         <div class="row rowEdit">
@@ -23,9 +23,9 @@
 
       </div>
       <!-- latest posts feed -->
-      <div *ngIf="apiFetchDone" class="col-lg-3 col-md-12 col-sm-12 col-xs-12 mx-auto separator overflow latestPosts">
+      <div *ngIf="apiFetchDone" class="col-lg-3 col-md-12 col-sm-12 col-xs-12 mx-auto separator overflow latest-posts">
           <h4 class="categories">Latest posts</h4>
-        <p *ngFor="let item of array" class="links" routerLink="/forum-post/{{recentPosts[item].id}}">{{recentPosts[item].title}}<br>{{recentPosts[item].createdAt}}</p>
+        <p *ngFor="let index of indexes" class="links" routerLink="/forum-post/{{recentPosts[index].id}}">{{recentPosts[index].title}}<br>{{recentPosts[index].createdAt}}</p>
       </div>
     </div>
   </div>

@@ -40,8 +40,8 @@ h1, h2, h3,.categories {
 }
 
 div {
-  font:600 18px/20px 'Open Sans',sans-serif; font-weight: normal;
-  /*height: auto;*/
+  font:600 18px/20px 'Open Sans',sans-serif;
+  font-weight: normal;
 }
 
 div > p {
@@ -58,7 +58,7 @@ div > p {
 
 .paddings {
   margin-left: 13px;
-  margin-right:13px;
+  margin-right: 13px;
   padding-top: 15px;
 }
 
@@ -76,7 +76,7 @@ button {
   padding: 5px;
 }
 
-.latestPosts {
+.latest-posts {
   overflow: scroll;
 }
 
@@ -87,5 +87,9 @@ button {
 .links:hover {
   color: red;
   cursor: pointer;
+}
+
+.overflow-scroll {
+  overflow: scroll;
 }
 

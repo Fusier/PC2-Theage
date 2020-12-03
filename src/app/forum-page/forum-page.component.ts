@@ -11,10 +11,8 @@ import { Post } from '../../types/post';
   styleUrls: ['./forum-page.component.css']
 })
 export class ForumComponent implements OnInit {
-  text: string = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit,\n' +
-    'fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?';
 
-  array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  indexes: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   categories: Category[];
   subCategories: Subcategory[];
   recentPosts: Post[];
