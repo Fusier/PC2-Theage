@@ -1,0 +1,24 @@
+<div class="container">
+
+  <div class="theage-theme">
+    <button mat-raised-button color="primary" routerLink="/event-page">Events</button>
+  </div>
+
+  <img src="./assets/images/{{this.id}}.jpeg"/>
+  <div class="theage-theme paddings">
+    <button mat-raised-button color="primary" onClick="window.location.href='https://www.theage-muenchen.de/veranstaltungen.html'">Buy tickets</button>
+  </div>
+  <h5 class="paddings">Event name:</h5>
+  <p>{{this.name}}</p>
+  <h5>Genre:</h5>
+  <p>{{this.genre}}</p>
+  <h5>Venue:</h5>
+  <p>{{this.venue}}</p>
+  <h5>Actors:</h5>
+  <p>{{this.actors}}</p>
+  <h5>Description:</h5>
+  <p>{{this.description}}</p>
+  <h5>Date and time:</h5>
+  <p>{{this.startDate}} - {{this.endDate}}, {{this.time}}</p>
+
+</div>

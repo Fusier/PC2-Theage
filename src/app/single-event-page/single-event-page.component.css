@@ -1,0 +1,11 @@
+img {
+  border-style: solid;
+  margin-top: 20px;
+  max-height: 500px;
+  max-width: 500px;
+}
+
+.paddings {
+  padding-top: 30px;
+}
+
