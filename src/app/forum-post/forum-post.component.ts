@@ -20,6 +20,8 @@ export class ForumPostComponent implements OnInit, AfterViewInit {
   createdAt: string;
   isLoading: boolean = true;
   isPosted: boolean = false;
+  error: string;
+  isError: boolean;
   @ViewChild('comment') inputComment;
 
   constructor(private route: ActivatedRoute, private api: APIService, private login: LoginService) { }
@@ -65,7 +67,20 @@ export class ForumPostComponent implements OnInit, AfterViewInit {
    * @param comment comment's content
    */
   addComment(comment: string) {
-    this.api.CreateComment({postID: this.id, content: comment}).then(r => console.log(r));
+    try {
+      if (comment !== "") {
+        this.isError = false;
+        this.api.CreateComment({postID: this.id, content: comment}).then(r => console.log(r));
+        this.handleClear()
+      } else {
+        throw new Error("The comment cannot be empty")
+      }
+    } catch (error) {
+      this.isPosted = false;
+      this.error = error.message;
+      this.isError = true;
+      console.log('error signing up:', error);
+    }
   }
 
   /**
