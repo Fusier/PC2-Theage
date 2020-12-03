@@ -15,17 +15,19 @@ export class HomeComponent implements OnInit {
   loading = true;
   posts: BlogPost[];
 
-  constructor(private postService: BlogPostService, private login: LoginService) {}
+  ticketLink: string = "https://www.theage-muenchen.de/veranstaltungen.html";
+  constructor(private login: LoginService) {}
 
+  // Check if user is logged in
   async ngOnInit() {
     this.login.checkLogin();
   }
 
-  private getElements(): void {
-    this.postService.GetPosts().subscribe(posts => {
-      this.posts = posts;
-      this.loading = false;
-    });
+  /**
+   * clickTicket redirects the user to theage's ticket section upon clicking
+   */
+  clickTicket() {
+    window.location.href = this.ticketLink;
   }
 
 }
