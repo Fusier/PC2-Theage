@@ -6,18 +6,15 @@ mutation CreateCategory(
   createCategory(input: $input, condition: $condition) {
     id
     name
-    subcategories {
-      id
-      name
-      posts {
+    subCategories {
+      items {
         id
-        title
-        content
+        catID
+        name
         createdAt
         updatedAt
       }
-      createdAt
-      updatedAt
+      nextToken
     }
     createdAt
     updatedAt
@@ -30,18 +27,15 @@ mutation UpdateCategory(
   updateCategory(input: $input, condition: $condition) {
     id
     name
-    subcategories {
-      id
-      name
-      posts {
+    subCategories {
+      items {
         id
-        title
-        content
+        catID
+        name
         createdAt
         updatedAt
       }
-      createdAt
-      updatedAt
+      nextToken
     }
     createdAt
     updatedAt
@@ -54,18 +48,15 @@ mutation DeleteCategory(
   deleteCategory(input: $input, condition: $condition) {
     id
     name
-    subcategories {
-      id
-      name
-      posts {
+    subCategories {
+      items {
         id
-        title
-        content
+        catID
+        name
         createdAt
         updatedAt
       }
-      createdAt
-      updatedAt
+      nextToken
     }
     createdAt
     updatedAt
@@ -77,6 +68,7 @@ mutation CreateComment(
 ) {
   createComment(input: $input, condition: $condition) {
     id
+    postID
     content
     createdAt
     updatedAt
@@ -88,6 +80,7 @@ mutation UpdateComment(
 ) {
   updateComment(input: $input, condition: $condition) {
     id
+    postID
     content
     createdAt
     updatedAt
@@ -99,6 +92,7 @@ mutation DeleteComment(
 ) {
   deleteComment(input: $input, condition: $condition) {
     id
+    postID
     content
     createdAt
     updatedAt
@@ -164,13 +158,18 @@ mutation CreatePost(
 ) {
   createPost(input: $input, condition: $condition) {
     id
+    subID
     title
     content
     comments {
-      id
-      content
-      createdAt
-      updatedAt
+      items {
+        id
+        postID
+        content
+        createdAt
+        updatedAt
+      }
+      nextToken
     }
     createdAt
     updatedAt
@@ -182,13 +181,18 @@ mutation UpdatePost(
 ) {
   updatePost(input: $input, condition: $condition) {
     id
+    subID
     title
     content
     comments {
-      id
-      content
-      createdAt
-      updatedAt
+      items {
+        id
+        postID
+        content
+        createdAt
+        updatedAt
+      }
+      nextToken
     }
     createdAt
     updatedAt
@@ -200,13 +204,18 @@ mutation DeletePost(
 ) {
   deletePost(input: $input, condition: $condition) {
     id
+    subID
     title
     content
     comments {
-      id
-      content
-      createdAt
-      updatedAt
+      items {
+        id
+        postID
+        content
+        createdAt
+        updatedAt
+      }
+      nextToken
     }
     createdAt
     updatedAt
@@ -218,19 +227,18 @@ mutation CreateSubcategory(
 ) {
   createSubcategory(input: $input, condition: $condition) {
     id
+    catID
     name
     posts {
-      id
-      title
-      content
-      comments {
+      items {
         id
+        subID
+        title
         content
         createdAt
         updatedAt
       }
-      createdAt
-      updatedAt
+      nextToken
     }
     createdAt
     updatedAt
@@ -242,19 +250,18 @@ mutation UpdateSubcategory(
 ) {
   updateSubcategory(input: $input, condition: $condition) {
     id
+    catID
     name
     posts {
-      id
-      title
-      content
-      comments {
+      items {
         id
+        subID
+        title
         content
         createdAt
         updatedAt
       }
-      createdAt
-      updatedAt
+      nextToken
     }
     createdAt
     updatedAt
@@ -266,19 +273,18 @@ mutation DeleteSubcategory(
 ) {
   deleteSubcategory(input: $input, condition: $condition) {
     id
+    catID
     name
     posts {
-      id
-      title
-      content
-      comments {
+      items {
         id
+        subID
+        title
         content
         createdAt
         updatedAt
       }
-      createdAt
-      updatedAt
+      nextToken
     }
     createdAt
     updatedAt

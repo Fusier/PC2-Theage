@@ -3,18 +3,15 @@ query GetCategory($id: ID!) {
   getCategory(id: $id) {
     id
     name
-    subcategories {
-      id
-      name
-      posts {
+    subCategories {
+      items {
         id
-        title
-        content
+        catID
+        name
         createdAt
         updatedAt
       }
-      createdAt
-      updatedAt
+      nextToken
     }
     createdAt
     updatedAt
@@ -29,11 +26,8 @@ query ListCategorys(
     items {
       id
       name
-      subcategories {
-        id
-        name
-        createdAt
-        updatedAt
+      subCategories {
+        nextToken
       }
       createdAt
       updatedAt
@@ -44,6 +38,7 @@ query ListCategorys(
 query GetComment($id: ID!) {
   getComment(id: $id) {
     id
+    postID
     content
     createdAt
     updatedAt
@@ -57,6 +52,7 @@ query ListComments(
   listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      postID
       content
       createdAt
       updatedAt
@@ -104,13 +100,18 @@ query ListEvents(
 query GetPost($id: ID!) {
   getPost(id: $id) {
     id
+    subID
     title
     content
     comments {
-      id
-      content
-      createdAt
-      updatedAt
+      items {
+        id
+        postID
+        content
+        createdAt
+        updatedAt
+      }
+      nextToken
     }
     createdAt
     updatedAt
@@ -124,13 +125,11 @@ query ListPosts(
   listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      subID
       title
       content
       comments {
-        id
-        content
-        createdAt
-        updatedAt
+        nextToken
       }
       createdAt
       updatedAt
@@ -141,19 +140,18 @@ query ListPosts(
 query GetSubcategory($id: ID!) {
   getSubcategory(id: $id) {
     id
+    catID
     name
     posts {
-      id
-      title
-      content
-      comments {
+      items {
         id
+        subID
+        title
         content
         createdAt
         updatedAt
       }
-      createdAt
-      updatedAt
+      nextToken
     }
     createdAt
     updatedAt
@@ -167,13 +165,10 @@ query ListSubcategorys(
   listSubcategorys(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      catID
       name
       posts {
-        id
-        title
-        content
-        createdAt
-        updatedAt
+        nextToken
       }
       createdAt
       updatedAt
