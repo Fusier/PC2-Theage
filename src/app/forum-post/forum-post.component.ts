@@ -35,7 +35,7 @@ export class ForumPostComponent implements OnInit, AfterViewInit {
       this.title = post.title;
       this.content = post.content;
       this.subId = post.subID;
-      this.createdAt = post.createdAt
+      this.createdAt = post.createdAt;
 
       // fetching subcategory data
       this.api.GetSubcategory(this.subId).then(sub => {
@@ -74,7 +74,7 @@ export class ForumPostComponent implements OnInit, AfterViewInit {
    */
   deleteComment(id: string) {
     this.api.DeleteComment({id}).then(r => console.log(r));
-    for( let i = 0; i < this.comments.length; i++){
+    for(let i = 0; i < this.comments.length; i++) {
       if ( this.comments[i].id === id) {
         this.comments.splice(i, 1);
       }

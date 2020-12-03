@@ -23,9 +23,9 @@
 
       </div>
       <!-- latest posts feed -->
-      <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 mx-auto separator overflow latestPosts">
+      <div *ngIf="apiFetchDone" class="col-lg-3 col-md-12 col-sm-12 col-xs-12 mx-auto separator overflow latestPosts">
           <h4 class="categories">Latest posts</h4>
-          <p *ngFor="let item of array">{{text}}</p>
+        <p *ngFor="let item of array" routerLink="/forum-post/{{recentPosts[item].id}}">{{recentPosts[item].title}}<br>{{recentPosts[item].createdAt}}</p>
       </div>
     </div>
   </div>
