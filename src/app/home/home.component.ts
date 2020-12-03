@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Auth } from 'aws-amplify';
 import { LoginService } from '../service/login-service';
-
-import { BlogPostService } from '../service/blog-post.service';
 import { BlogPost } from '../models/blog-post';
 
 @Component({

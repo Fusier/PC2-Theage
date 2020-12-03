@@ -11,6 +11,7 @@
       <div class="form-field selectors">
         <mat-label class="title category">Category</mat-label>
         <select #cat name="category" (click)="onChange(cat.value)" required>
+          <option>Select a Category</option>
           <option [value]="category.id" *ngFor="let category of categories">{{category.name}}</option>
         </select>
       </div>
@@ -42,7 +43,8 @@
 
     <br>
     <!-- Post creation button -->
-    <button mat-raised-button color="primary" (click)="addItem(sub.value, title.value, content.value); handleClear();">Create a post</button>
+    <button mat-raised-button color="primary" (click)="addItem(sub.value, title.value, content.value)">Create a post</button>
     <h3 class="posted" *ngIf="isPosted">Your post has been posted!</h3>
+    <h3 class="error" *ngIf="isError">{{this.error}}</h3>
   </form>
 </div>
