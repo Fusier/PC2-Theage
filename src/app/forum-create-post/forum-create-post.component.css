@@ -32,3 +32,10 @@ mat-label {
   padding-bottom: 50px;
   padding-top: 50px;
 }
+
+.error {
+  text-align: center;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  color: red;
+}

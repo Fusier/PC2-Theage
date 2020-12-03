@@ -17,6 +17,8 @@ export class ForumCreatePostComponent implements OnInit {
   subOptions: Subcategory[];
   isPosted: boolean = false;
   subID: string;
+  error: string;
+  isError: boolean;
 
   @ViewChild('title') inputTitle;
   @ViewChild('content') inputContent;
@@ -34,6 +36,10 @@ export class ForumCreatePostComponent implements OnInit {
     this.login.checkLogin();
   }
 
+  /**
+   * Changes the subcategory's select field based on the selected category
+   * @param id 
+   */
   onChange(id: string) {
     this.subOptions = [];
     for(let i = 0; i < this.subcategories.length; i++) {
@@ -43,14 +49,26 @@ export class ForumCreatePostComponent implements OnInit {
     }
 
   }
-  addItem(subID: string, title: string, content: string) {
-    this.subID = subID;
-    this.api.CreatePost({content, subID, title}).then(r => console.log(r));
-  }
 
   handleClear() {
     this.isPosted = true;
     this.router.navigate(['/forum-subs/' + this.subID]);
+  }
+
+  addItem(subID: string, title: string, content: string) {
+    try {
+      if (subID !== "" && title !== "" && content !== "") {
+        this.subID = subID;
+        this.api.CreatePost({content, subID, title}).then(r => console.log(r));
+        this.handleClear()
+      } else {
+        throw new Error("All fields must be filled before posting")
+      }
+    } catch (error) {
+      this.error = error.message;
+      this.isError = true;
+      console.log('error signing up:', error);
+    }
   }
 }
 
