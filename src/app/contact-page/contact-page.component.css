@@ -2,3 +2,11 @@ body {
   overflow: hidden;
   font:600 16px/18px 'Open Sans',sans-serif; font-weight: normal;
 }
+
+.paddings {
+  padding: 5px 20px;
+}
+
+h4 {
+  padding-bottom: 20px;
+}

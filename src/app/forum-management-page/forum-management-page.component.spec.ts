@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ForumManagementComponent } from './forum-management.component';
+import { ForumManagementPageComponent } from './forum-management-page.component';
 
 describe('ForumManagementComponent', () => {
-  let component: ForumManagementComponent;
-  let fixture: ComponentFixture<ForumManagementComponent>;
+  let component: ForumManagementPageComponent;
+  let fixture: ComponentFixture<ForumManagementPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ForumManagementComponent ]
+      declarations: [ ForumManagementPageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ForumManagementComponent);
+    fixture = TestBed.createComponent(ForumManagementPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

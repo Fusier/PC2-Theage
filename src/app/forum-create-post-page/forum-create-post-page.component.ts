@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 import { Subcategory } from 'src/types/subcategory';
 import { Category } from '../../types/category';
 import { APIService } from '../API.service';
@@ -7,15 +7,17 @@ import { LoginService } from '../service/login-service';
 
 
 @Component({
-  selector: 'app-forum-create-post',
-  templateUrl: './forum-create-post.component.html',
-  styleUrls: ['./forum-create-post.component.css']
+  selector: 'app-forum-create-post-page',
+  templateUrl: './forum-create-post-page.component.html',
+  styleUrls: ['./forum-create-post-page.component.css']
 })
-export class ForumCreatePostComponent implements OnInit {
+
+export class ForumCreatePostPageComponent implements OnInit {
+
   categories: Category[];
   subcategories: Subcategory[];
   subOptions: Subcategory[];
-  isPosted: boolean = false;
+  isPosted = false;
   subID: string;
   error: string;
   isError: boolean;
@@ -38,16 +40,15 @@ export class ForumCreatePostComponent implements OnInit {
 
   /**
    * Changes the subcategory's select field based on the selected category
-   * @param id 
+   * @param id
    */
   onChange(id: string) {
     this.subOptions = [];
-    for(let i = 0; i < this.subcategories.length; i++) {
+    for (let i = 0; i < this.subcategories.length; i++) {
       if (this.subcategories[i].catID === id) {
         this.subOptions.push(this.subcategories[i]);
       }
     }
-
   }
 
   handleClear() {
@@ -57,12 +58,12 @@ export class ForumCreatePostComponent implements OnInit {
 
   addItem(subID: string, title: string, content: string) {
     try {
-      if (subID !== "" && title !== "" && content !== "") {
+      if (subID !== '' && title !== '' && content !== '') {
         this.subID = subID;
         this.api.CreatePost({content, subID, title}).then(r => console.log(r));
-        this.handleClear()
+        this.handleClear();
       } else {
-        throw new Error("All fields must be filled before posting")
+        throw new Error('All fields must be filled before posting');
       }
     } catch (error) {
       this.error = error.message;

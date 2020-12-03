@@ -13,6 +13,7 @@ interface Item {
   templateUrl: './faq-page.component.html',
   styleUrls: ['./faq-page.component.css']
 })
+
 export class FaqComponent implements OnInit {
   constructor(private login: LoginService) {}
 
