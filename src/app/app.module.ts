@@ -33,13 +33,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {RegistrationPageComponent} from "./registration-page/registration-page.component";
 import {RegistrationConfirmComponent} from "./registration-confirm/registration-confirm.component";
+import {SingleEventPageComponent} from "./single-event-page/single-event-page.component";
 import { LoginService } from './service/login-service';
 import Amplify from 'aws-amplify';
 import awsmobile from '../aws-exports';
 
 
 
-Amplify.configure(awsmobile);
+Amplify
+.configure(awsmobile);
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +66,7 @@ Amplify.configure(awsmobile);
     ForumManagementComponent,
     RegistrationPageComponent,
     RegistrationConfirmComponent,
+    SingleEventPageComponent
   ],
   imports: [
     BrowserModule,
