@@ -3,6 +3,7 @@ import { Subcategory } from 'src/types/subcategory';
 import { Category } from '../../types/category';
 import { APIService } from '../API.service';
 import { LoginService } from '../service/login-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forum-management-page',
@@ -20,19 +21,26 @@ export class ForumManagementPageComponent implements OnInit {
   subcategories: Subcategory[];
   subOptions: Subcategory[];
 
-  constructor(private api: APIService, private login: LoginService) { }
+  constructor(private api: APIService, private login: LoginService, private router: Router) { }
 
   /**
    * Fetches categories and subcategories form the backend
    */
   ngOnInit(): void {
+    this.login.checkLogin();
+    this.login.checkAdminStatus((result) => {
+      if (result === false) {
+        this.router.navigate(['/forum']);
+      }
+    });
+
     this.api.ListCategorys().then(category => {
       this.categories = category.items;
     });
+
     this.api.ListSubcategorys().then(subcategory => {
       this.subcategories = subcategory.items;
     });
-    this.login.checkLogin();
   }
 
   /**

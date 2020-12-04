@@ -12,10 +12,11 @@ import { LoginService } from '../service/login-service';
 })
 export class ForumPostPageComponent implements OnInit {
 
+  isAdmin: boolean = false;
   id;
   subId;
   subName;
-  comments: Comment[];
+  comments: Comment[] = [];
   title: string;
   content: string;
   createdAt: string;
@@ -58,6 +59,7 @@ export class ForumPostPageComponent implements OnInit {
     });
 
     this.login.checkLogin();
+    this.login.checkAdminStatus((result) => this.isAdmin = result);
   }
 
   /**

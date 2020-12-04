@@ -17,6 +17,7 @@ export class ForumComponent implements OnInit {
   subCategories: Subcategory[];
   recentPosts: Post[];
   apiFetchDone: boolean = false;
+  isAdmin: boolean = false;
 
   constructor(private api: APIService, private login: LoginService) { }
 
@@ -33,6 +34,7 @@ export class ForumComponent implements OnInit {
       this.apiFetchDone = true;
     });
     this.login.checkLogin();
+    this.login.checkAdminStatus((result) => this.isAdmin = result);
   }
 
   get sortRecentPosts() {

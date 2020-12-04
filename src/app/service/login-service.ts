@@ -18,4 +18,14 @@ export class LoginService {
       await this.router.navigate(['/start-page']);
     }
   }
+
+  checkAdminStatus(callback: (result: boolean) => any) {
+    Auth.currentSession().then(session => {
+      try {
+        callback(session.getIdToken().decodePayload()['cognito:groups'].includes('Admin'));
+      } catch (error) {
+        callback(false);
+      }
+    });
+  }
 }

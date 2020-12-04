@@ -12,6 +12,8 @@ import { LoginService } from '../service/login-service';
 })
 
 export class ForumSubPageComponent implements OnInit {
+
+  isAdmin: boolean = false;
   id: string;
   posts: Post[];
   title: string;
@@ -30,6 +32,7 @@ export class ForumSubPageComponent implements OnInit {
       this.posts = post.items;
     });
     this.login.checkLogin();
+    this.login.checkAdminStatus((result) => this.isAdmin = result);
   }
 
   /**
