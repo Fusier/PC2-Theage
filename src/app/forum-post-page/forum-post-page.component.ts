@@ -58,6 +58,7 @@ export class ForumPostPageComponent implements OnInit {
       this.comments = [...this.comments, newComment ];
     });
 
+    // verifying login status & admin status
     this.login.checkLogin();
     this.login.checkAdminStatus((result) => this.isAdmin = result);
   }
@@ -104,6 +105,9 @@ export class ForumPostPageComponent implements OnInit {
     this.inputComment.nativeElement.value = '';
   }
 
+  /**
+   * Sorts given comments by ceatedAt attribute
+   */
   get sortComments() {
     return this.comments.sort((a, b) => {
       return <any> new Date(a.createdAt) - <any> new Date(b.createdAt);

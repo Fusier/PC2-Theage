@@ -10,6 +10,9 @@ export class LoginService {
 
   constructor(private router: Router) {}
 
+  /**
+   * Checking the login status of the user, returns the user to the start page upon failing
+   */
   async checkLogin() {
     try {
       (await Auth.currentSession()).getIdToken();
@@ -19,6 +22,9 @@ export class LoginService {
     }
   }
 
+  /**
+   * Tries to check the admin status of the user, returns false upon failing
+   */
   checkAdminStatus(callback: (result: boolean) => any) {
     Auth.currentSession().then(session => {
       try {

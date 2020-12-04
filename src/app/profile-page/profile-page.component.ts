@@ -16,6 +16,10 @@ export class ProfilePageComponent implements OnInit {
 
   constructor(private login: LoginService) {}
 
+  /**
+   * Fetching the user's info and storing it to the variables above
+   * After fetching the data verifies the login state
+   */
   ngOnInit() {
     Auth.currentUserInfo().then(info => {
       this.username = info.username;

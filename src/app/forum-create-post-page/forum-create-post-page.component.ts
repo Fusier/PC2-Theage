@@ -27,6 +27,9 @@ export class ForumCreatePostPageComponent implements OnInit {
 
   constructor(private api: APIService, private login: LoginService, private router: Router) { }
 
+  /**
+   * fetches category and subcategory data fron the database
+   */
   ngOnInit(): void {
     this.api.ListCategorys().then(category => {
       this.categories = category.items;
@@ -51,11 +54,17 @@ export class ForumCreatePostPageComponent implements OnInit {
     }
   }
 
+  /**
+   * Clears the text fields and redirects the user to the submitted subcategory's page
+   */
   handleClear() {
     this.isPosted = true;
     this.router.navigate(['/forum-subs/' + this.subID]);
   }
 
+  /**
+   * addItem tries to add a post to the database and throws an error if there are empty fields
+   */
   addItem(subID: string, title: string, content: string) {
     try {
       if (subID !== '' && title !== '' && content !== '') {

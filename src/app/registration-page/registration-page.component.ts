@@ -19,8 +19,12 @@ export class RegistrationPageComponent implements OnInit {
 
   ngOnInit() {}
 
+  /**
+   * signUp validates entered data & displays an error upon getting invalid data
+   */
   async signUp() {
     try {
+      // trying to add a user
       const { user } = await Auth.signUp({
         username: this.inputUsername.nativeElement.value,
         password: this.inputPassword.nativeElement.value,
@@ -29,6 +33,7 @@ export class RegistrationPageComponent implements OnInit {
         }
       });
       console.log(user);
+    // Cathing invalid input and returning an error message
     } catch (error) {
       this.error = true;
       console.log('error signing up:', error);

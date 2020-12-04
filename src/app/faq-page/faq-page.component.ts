@@ -17,6 +17,7 @@ interface Item {
 export class FaqComponent implements OnInit {
   constructor(private login: LoginService) {}
 
+  // used to store the faq page data
   items: Item[] = faqData;
 
   ngOnInit() {

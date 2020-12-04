@@ -18,6 +18,9 @@ export class RegistrationConfirmPageComponent implements OnInit {
 
   ngOnInit() {}
 
+  /**
+   * confirmSignUp validates entered data & displays an error upon getting invalid data
+   */
   async confirmSignUp() {
       try {
         await Auth.confirmSignUp(this.inputUsername.nativeElement.value, this.inputCode.nativeElement.value);

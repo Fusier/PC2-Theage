@@ -11,6 +11,7 @@ export class FooterComponent implements OnInit {
 
   constructor() {}
 
+  // Assaings the current year to the foorter
   ngOnInit() {
     this.year = new Date().getFullYear().toString();
   }

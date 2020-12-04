@@ -21,22 +21,33 @@ export class ForumComponent implements OnInit {
 
   constructor(private api: APIService, private login: LoginService) { }
 
+  /**
+   * Fetches all categories, subcategories and recent posts upon startup
+   * After fetching the data the site checks the login and admin status of the user
+   */
   ngOnInit(): void {
+    // Fetching categories
     this.api.ListCategorys().then(category => {
       this.categories = category.items;
     });
+    // Fetching subcategories
     this.api.ListSubcategorys().then(subcategory => {
       this.subCategories = subcategory.items;
     });
+    // Fetches the recent posts
     this.api.ListPosts().then(post => {
       this.recentPosts = post.items;
       this.recentPosts = this.sortRecentPosts;
       this.apiFetchDone = true;
     });
+    // Checking login & admin status
     this.login.checkLogin();
     this.login.checkAdminStatus((result) => this.isAdmin = result);
   }
 
+  /**
+   * Orders given posts by createdAt attribute
+   */
   get sortRecentPosts() {
     return this.recentPosts.sort((a, b) => {
       return <any>new Date(b.createdAt) - <any>new Date(a.createdAt);

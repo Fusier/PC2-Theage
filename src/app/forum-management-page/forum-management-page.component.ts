@@ -34,10 +34,12 @@ export class ForumManagementPageComponent implements OnInit {
       }
     });
 
+    // fetches a list of all categories
     this.api.ListCategorys().then(category => {
       this.categories = category.items;
     });
 
+    // fetches a list of all subcategories
     this.api.ListSubcategorys().then(subcategory => {
       this.subcategories = subcategory.items;
     });

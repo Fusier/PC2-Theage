@@ -26,6 +26,9 @@ export class HomePageComponent implements OnInit {
     window.location.href = this.ticketLink;
   }
 
+  /**
+   * clickTicket redirects the user to theage's blog upon clicking
+   */
   clickBlog() {
     window.location.href = this.blogLink;
   }

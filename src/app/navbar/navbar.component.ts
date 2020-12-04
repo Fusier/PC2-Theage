@@ -13,6 +13,9 @@ export class NavbarComponent implements OnInit {
 
   constructor() {}
 
+  /**
+   * verifying the user upon startup
+   */
   ngOnInit() {
     try {
       Auth.currentAuthenticatedUser().then(info => {
@@ -23,10 +26,16 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  /**
+   * redirecting the user to blog after clicking the link
+   */
   clickBlog() {
     window.location.href = this.blogLink;
   }
 
+  /**
+   * Signs the user out after clicking the button
+   */
   signOut() {
     Auth.signOut().then(r => console.log(r));
   }

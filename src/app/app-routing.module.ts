@@ -16,7 +16,9 @@ import { RegistrationConfirmPageComponent } from './registration-confirm-page/re
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { SingleEventPageComponent } from './single-event-page/single-event-page.component';
 
-
+/**
+ * This file conteins the routing info of the site
+ */
 const routes: Routes = [
   { path: '', redirectTo: '/start-page', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent },

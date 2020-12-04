@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import faqData from '../../assets/json/faqData.json';
 
 @Component({
   selector: 'app-about-page',
@@ -8,5 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class AboutPageComponent implements OnInit {
   constructor() {}
 
-  ngOnInit() {}
+  // used to store the about page data
+  items: Item[] = faqData;
+
+  ngOnInit() {
+
+  }
 }

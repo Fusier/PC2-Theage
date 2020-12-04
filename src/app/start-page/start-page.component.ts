@@ -20,13 +20,19 @@ export class StartPageComponent implements OnInit {
 
   ngOnInit() {}
 
+  /**
+   * Handling the validation of input fields before logging the user in
+   * Displays an error upon finding invalid data
+   */
   async signIn() {
     try {
+      // Trying to log in
       const user = await Auth.signIn(this.inputUser.nativeElement.value, this.inputPass.nativeElement.value)
         .then(r => console.log(r));
       if (user !== null) {
         this.router.navigate(['/home'], );
       }
+      // Catching invalid data and displaying an error
     } catch (error) {
       this.error = true;
       console.log('error signing in', error);

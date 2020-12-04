@@ -23,6 +23,10 @@ export class SingleEventPageComponent implements OnInit {
 
   constructor(private api: APIService, private login: LoginService, private route: ActivatedRoute) {}
 
+  /**
+   * Fetching event data and storing it in the variables above
+   * Checks the login status after fetching the data
+   */
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.api.GetEvent(this.id).then(event => {
@@ -35,6 +39,7 @@ export class SingleEventPageComponent implements OnInit {
       this.endDate = event.endDate;
       this.time = event.time;
     });
+    // Checking login status
     this.login.checkLogin();
   }
 
