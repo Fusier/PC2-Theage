@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import faqData from '../../assets/json/faqData.json';
+import aboutData from '../../assets/json/aboutUs.json';
+
+interface Item {
+  values: string[];
+}
 
 @Component({
   selector: 'app-about-page',
@@ -9,8 +13,8 @@ import faqData from '../../assets/json/faqData.json';
 export class AboutPageComponent implements OnInit {
   constructor() {}
 
-  // used to store the about page data
-  items: Item[] = faqData;
+  // used to store the about page data, fetched from .json files
+  item: Item = aboutData;
 
   ngOnInit() {
 

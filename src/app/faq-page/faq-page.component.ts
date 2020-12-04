@@ -17,7 +17,7 @@ interface Item {
 export class FaqComponent implements OnInit {
   constructor(private login: LoginService) {}
 
-  // used to store the faq page data
+  // used to store the faq page data, fetched from .json files
   items: Item[] = faqData;
 
   ngOnInit() {
