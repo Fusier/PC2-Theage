@@ -1,17 +1,3 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
-
-<html class="html">
-<head>
-
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-</head>
-
 <div class="container">
   <div class="login-form">
     <div class="main-div">
@@ -33,10 +19,9 @@
         <div *ngIf="error">
           <p class="color">Error creating account!<p>
         </div>
-        <button type="submit" (click)="signUp()" class="btn btn-primary button-margin" routerLink="/registration-confirm" routerLinkActive="active">Register</button>
+        <button type="submit" (click)="signUp()" class="btn btn-primary button-margin" [routerLink]="error ? '/registration-confirm' : null" [routerLinkActive]="error ? 'is_active' : 'is_disabled'">Register</button>
       </form>
     </div>
   </div>
 </div>
 <img class="big" src="./assets/images/Red_curtain.jpg"/>
-</html>
