@@ -23,7 +23,8 @@ export class LoginService {
   }
 
   /**
-   * Tries to check the admin status of the user, returns false upon failing
+   * Tries to check the admin status of the user, callback method called
+   * with different variable depending on result
    */
   checkAdminStatus(callback: (result: boolean) => any) {
     Auth.currentSession().then(session => {

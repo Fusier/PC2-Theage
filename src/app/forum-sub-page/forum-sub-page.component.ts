@@ -21,21 +21,24 @@ export class ForumSubPageComponent implements OnInit {
   constructor(private route: ActivatedRoute, private api: APIService, private login: LoginService) {}
 
   /**
-   * Fetching subcategories and posts from the database
-   * Checks login & admin status after fetching the data
+   * Checks login & admin status
+   * Fetches subcategories and posts from the database
    */
   ngOnInit(): void {
+    // Verifying login & admin status
+    this.login.checkLogin();
+    this.login.checkAdminStatus((result) => this.isAdmin = result);
+
     // Fetching categories
     this.id = this.route.snapshot.paramMap.get('id');
     this.api.GetSubcategory(this.id).then(subcategory => {
       this.title = subcategory.name;
     });
+
     // Fetching posts
     this.api.ListPosts().then(post => {
       this.posts = post.items;
     });
-    this.login.checkLogin();
-    this.login.checkAdminStatus((result) => this.isAdmin = result);
   }
 
   /**
@@ -46,7 +49,7 @@ export class ForumSubPageComponent implements OnInit {
     // Remove all the comments of the post and then removing the post itself
     this.deleteComments(id);
     this.api.DeletePost({id}).then(r => console.log(r));
-    // And then we remove it form the UI 
+    // And then we remove it form the UI
     for ( let i = 0; i < this.posts.length; i++) {
       if ( this.posts[i].id === id) {
         this.posts.splice(i, 1);

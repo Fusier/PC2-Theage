@@ -17,16 +17,18 @@ export class ProfilePageComponent implements OnInit {
   constructor(private login: LoginService) {}
 
   /**
+   * Verifies the login state
    * Fetching the user's info and storing it to the variables above
-   * After fetching the data verifies the login state
    */
   ngOnInit() {
+    this.login.checkLogin();
+
     Auth.currentUserInfo().then(info => {
       this.username = info.username;
       this.email = info.attributes.email;
       this.loading = false;
     });
-    this.login.checkLogin();
+
   }
 
 }
