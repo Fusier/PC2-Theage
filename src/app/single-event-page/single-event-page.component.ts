@@ -20,6 +20,7 @@ export class SingleEventPageComponent implements OnInit {
   startDate: string;
   endDate: string;
   time: string;
+  reviewsUrl: string;
 
   constructor(private api: APIService, private login: LoginService, private route: ActivatedRoute) {}
 
@@ -28,8 +29,12 @@ export class SingleEventPageComponent implements OnInit {
    * Fetching event data and storing it in the variables above
    */
   ngOnInit() {
-    // Checking login status
     this.login.checkLogin();
+
+    this.api.ListSubcategorys({name: {eq: 'Reviews'}}).then((res) => {
+      this.reviewsUrl = res.items[0].id;
+    });
+
 
     this.id = this.route.snapshot.paramMap.get('id');
     this.api.GetEvent(this.id).then(event => {
