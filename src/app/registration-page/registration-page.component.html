@@ -19,7 +19,7 @@
         <div *ngIf="error">
           <p class="color">Error creating account!<p>
         </div>
-        <button type="submit" (click)="signUp()" class="btn btn-primary button-margin" [routerLink]="error ? '/registration-confirm' : null" [routerLinkActive]="error ? 'is_active' : 'is_disabled'">Register</button>
+        <button type="submit" (click)="signUp()" class="btn btn-primary button-margin">Register</button>
       </form>
     </div>
   </div>

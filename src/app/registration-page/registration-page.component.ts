@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Auth } from 'aws-amplify';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-registration-page',
@@ -15,28 +16,34 @@ export class RegistrationPageComponent implements OnInit {
   error: boolean = false;
 
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
   /**
-   * signUp validates entered data & displays an error upon getting invalid data
+   * Reroutes upon successful login
+   */
+  reroute() {
+    this.router.navigate(['/registration-confirm']);
+  }
+
+  /**
+   * signUp validates entered data, reroutes if successful and displays an error upon getting invalid data
    */
   async signUp() {
     try {
-      // trying to add a user
-      const { user } = await Auth.signUp({
+      this.error = false;
+      const user = await Auth.signUp({
         username: this.inputUsername.nativeElement.value,
         password: this.inputPassword.nativeElement.value,
         attributes: {
           email: this.inputEmail.nativeElement.value
         }
+      }).then(() => {
+          this.reroute();
       });
-      console.log(user);
-    // Cathing invalid input and returning an error message
     } catch (error) {
       this.error = true;
-      console.log('error signing up:', error);
     }
   }
 }

@@ -13,10 +13,10 @@
         <div class="form-group">
           <input #code class="textField" type="text" class="form-control" id="inputEmail" placeholder="Verification code">
         </div>
-        <div *ngIf="isError">
+        <div *ngIf="error">
           <p class="color">Confirmation was not successful<p>
         </div>
-        <button type="submit" (click)="confirmSignUp()" class="btn btn-primary buttonMargin" routerLink="/start-page">Register</button>
+        <button type="submit" (click)="confirmSignUp()" class="btn btn-primary buttonMargin">Register</button>
       </form>
     </div>
   </div>
