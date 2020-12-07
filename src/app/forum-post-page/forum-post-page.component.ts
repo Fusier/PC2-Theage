@@ -29,9 +29,14 @@ export class ForumPostPageComponent implements OnInit {
   constructor(private route: ActivatedRoute, private api: APIService, private login: LoginService) { }
 
   /**
+   * Verifies login & admin status
    * Fetch post, comments and subcategory name from backend when opening the page
    */
   ngOnInit(): void {
+    // verifying login status & admin status
+    this.login.checkLogin();
+    this.login.checkAdminStatus((result) => this.isAdmin = result);
+
     this.id = this.route.snapshot.paramMap.get('id');
     this.api.GetPost(this.id).then(post => {
       this.title = post.title;
@@ -57,10 +62,6 @@ export class ForumPostPageComponent implements OnInit {
       const newComment = event.value.data.onCreateComment;
       this.comments = [...this.comments, newComment ];
     });
-
-    // verifying login status & admin status
-    this.login.checkLogin();
-    this.login.checkAdminStatus((result) => this.isAdmin = result);
   }
 
   /**

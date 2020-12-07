@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 
 /**
- * ForumManagementComponet is responsible for all the admin functionality
+ * ForumManagementComponent is responsible for all the admin functionality
  * relating to forum management
  */
 export class ForumManagementPageComponent implements OnInit {
@@ -100,7 +100,7 @@ export class ForumManagementPageComponent implements OnInit {
   }
 
   /**
-   * Deletes all subcategories and all the posts in it
+   * Deletes all subcategories and all the posts in them
    * @param id parent category's id
    */
   deleteSubcategories(id: string) {
@@ -134,7 +134,7 @@ export class ForumManagementPageComponent implements OnInit {
   }
 
   /**
-   * Deletes all posts that have the same id as the parent post
+   * Deletes all comments that have the same id as the parent post
    * @param id comment's parent post
    */
   deleteComments(id: string) {
