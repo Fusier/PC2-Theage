@@ -28,16 +28,17 @@ export class ForumCreatePostPageComponent implements OnInit {
   constructor(private api: APIService, private login: LoginService, private router: Router) { }
 
   /**
-   * fetches category and subcategory data fron the database
+   * Fetches category and subcategory data fron the database
    */
   ngOnInit(): void {
     this.api.ListCategorys().then(category => {
       this.categories = category.items;
     });
-
+    // Fetch a list of subcategories
     this.api.ListSubcategorys().then(subcategory => {
       this.subcategories = subcategory.items;
     });
+    // Check login status
     this.login.checkLogin();
   }
 
