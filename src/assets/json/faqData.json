@@ -9,9 +9,9 @@
             "Is my data secure?"
         ],
         "answers": [
-            "The Theatergemeinde e.V. München (TheaGe) is a non-profit audience organisation with the task of cultural education. It arranges reduced-price tickets for the entire spectrum of Munich's cultural offerings and also acts as an organiser itself. The aim of the cultural association is to facilitate access to culture for as many people as possible and to make it as inexpensive, pleasant and uncomplicated as possible in the long term.",
-            "On the platform, like-minded people from the cultural sector can exchange ideas in forums, give advice and evaluate events. The platform offers each user individual visit recommendations, discounted tickets and exciting insights from the industry. Members can also benefit from TheaGe's expertise and receive individual advice.",
-            "Every member has access to the platform via a permalink on the official TheaGe website and the individual registration data.",
+            "The Theatergemeinde e.V. München (TheaGe) is a non-profit audience organisation with the task of cultural mediation. It arranges reduced-price tickets for the entire spectrum of Munich's cultural offerings and also acts as an organiser itself. The aim of the cultural association is to facilitate access to culture for as many people as possible and to make it as inexpensive, pleasant and uncomplicated as possible in the long term.",
+            "On the platform, like-minded people from the cultural sector can exchange ideas in forums, give advice and rate events. The platform offers each user individual event recommendations, discounted tickets and exciting insights from the industry. Members can also benefit from TheaGe's expertise and receive individual consultation.",
+            "Every member has access to the platform via a permalink on the official TheaGe website and the individual registration information.",
             "All members of TheaGe can access the community platform.",
             "The platform handles members' personal data confidentially in accordance with the basic data protection regulation (Regulation (EU) 2016/679)."
         ]
@@ -22,25 +22,23 @@
             "How much does the TheaGe offer cost me?",
             "How do I register?",
             "How do I pay the contribution?",
-            "Is there a discount for pensioners and pupils/students?",
             "How can I edit my profile?",
-            "How do I log out?",
+            "How do I end my membership?",
             "How can I exchange information with other members?"
         ],
         "answers": [
             "As a member of TheaGe you get access to all offers and actions of TheaGe for an annual payment of 29€.",
             "To become a member of TheaGe and to participate in the many offers and activities you have to pay the annual fee of 29€. You can find the corresponding registration form on the website of TheaGe. With the access data received, every member can then register on the platform.",
             "The contribution can be paid conveniently and securely via Paypal or S€PA direct debit. You can also choose between monthly (2,50€) or annual (29€) payment.",
-            "No, TheaGe's membership fee is the same for all groups of people. However, a reduced ticket price can be offered by the organisers.",
-            "On the tab \"My Account\" you can update your personal data as well as profile picture, username and privacy settings.",
-            "You can cancel your membership at any time.",
+            "On the tab \"Profile\" you can update your personal data as well as profile picture, username and privacy settings and notifications.",
+            "Membership can be terminated at any time by contacting TheaGe headquarters via a contact form on the platform.",
             "In the \"Blog\" and \"Forum\" section you can exchange information with other members and discuss cultural experiences and opinions. In addition, the \"Blog\" section provides you with information about events and all the news about cultural life in and around Munich."
         ]
     },
     {
         "title" : "Events & activities",
         "questions": [
-            "On what basis are the cultural recommendations made?",
+            "On what basis are the personal recommendations made?",
             "Which events can I see?",
             "How can I specify my event preferences?",
             "How are the top 50 events selected?"
@@ -48,7 +46,7 @@
         "answers": [
             "TheaGe's platform registers the events in which the member is interested or has visited and thus develops a catalogue of recommendations with similar events.",
             "Every month, TheaGe members are recommended more than 250 events in the surrounding area and in Munich. After approval, recommendations tailored to individual cultural tastes can also be generated via a personalised record of member activity.",
-            "You can enter your preferred cultural events and preferences in your profile under \"My account\". In addition, when activated in the privacy settings, previously attended events or events you are interested in will be added to your interest profile.",
+            "You can enter your preferred cultural events and preferences in your profile under \"Profile\". In addition, when activated in the privacy settings, previously attended events or events you are interested in will be added to your interest profile.",
             "The Top 50 events are selected monthly by TheaGe employees according to the criteria of ticket demand and event size."
         ]
     },
@@ -62,7 +60,7 @@
         "answers": [
             "The palette offers all necessary information about the event. A link is used to connect the member to the selling organisation.",
             "After clicking on the link to the sales page, you will shortly receive an e-mail from the selling organisation with all ticket details. You can either save the ticket as an e-ticket or present it printed out on site.",
-            "Corona's staff is available for you until further notice from Tue-Thu from 8:30 - 12 o'clock and 13 - 17 o'clock via live chat or on the phone. You can also contact TheaGe outside opening hours at the following e-mail address: info@theage-muenchen.de"
+            "Corona's staff is available for you until further notice from Tue-Thu from 8:30 - 12 o'clock and 13 - 17 o'clock via live chat or on the phone. You can also contact TheaGe outside opening hours at the following e-mail address: info@theage-muenchen.de. The customer support can also be contacted via contact form or live chat."
         ]
     }
 ]
