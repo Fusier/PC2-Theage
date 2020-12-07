@@ -17,7 +17,7 @@ export class ForumComponent implements OnInit {
   subCategories: Subcategory[];
   recentPosts: Post[];
   apiFetchDone: boolean = false;
-  isAdmin: boolean = false;
+  isAdmin: boolean = false
 
   constructor(private api: APIService, private login: LoginService) { }
 
@@ -50,7 +50,7 @@ export class ForumComponent implements OnInit {
    */
   get sortRecentPosts() {
     return this.recentPosts.sort((a, b) => {
-      return <any>new Date(b.createdAt) - <any>new Date(a.createdAt);
+      return <any>new Date(b.createdAt) - <any>new Date(a.createdAt)
     });
   }
 
