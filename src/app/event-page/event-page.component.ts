@@ -15,10 +15,16 @@ export class EventPageComponent implements OnInit {
 
   constructor(private api: APIService, private login: LoginService) {}
 
+  /**
+   * Fetching events from the database
+   * Also checking the login status after fetching the events
+   */
   async ngOnInit() {
+    // Fetching the list of events
     this.api.ListEvents().then(event => {
       this.events = event.items;
     });
+    // Checking login status
     await this.login.checkLogin();
   }
 }

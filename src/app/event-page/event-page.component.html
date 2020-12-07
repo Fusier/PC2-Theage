@@ -7,10 +7,13 @@
     <div class="col-lg-10">
       <div class="container-fluid">
         <div class="row">
+          
+          <!-- Displaying all the events listed in the database -->
           <div class="col-lg-4 column" *ngFor="let event of events">
             <h5 routerLink="/single-event-page/{{event.id}}">{{event.name}}</h5>
             <img routerLink="/single-event-page/{{event.id}}" src="./assets/images/{{event.id}}.jpeg">
           </div>
+
         </div>
       </div>
     </div>

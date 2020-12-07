@@ -9,6 +9,9 @@ import { LoginService } from '../service/login-service';
 export class ContactPageComponent implements OnInit {
   constructor(private login: LoginService) {}
 
+  /**
+   * Checking the login status upon calling
+   */
   ngOnInit() {
     this.login.checkLogin();
   }
