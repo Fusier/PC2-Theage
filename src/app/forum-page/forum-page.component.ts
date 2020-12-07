@@ -46,7 +46,7 @@ export class ForumComponent implements OnInit {
   }
 
   /**
-   * Orders given posts by createdAt attribute
+   * Sort given posts by createdAt attribute
    */
   get sortRecentPosts() {
     return this.recentPosts.sort((a, b) => {
