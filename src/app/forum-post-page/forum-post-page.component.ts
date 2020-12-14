@@ -25,12 +25,14 @@ export class ForumPostPageComponent implements OnInit {
   errorMessage: string;
   isError: boolean;
   @ViewChild('comment') inputComment;
+  localTimezone: string;
 
   constructor(private route: ActivatedRoute, private api: APIService, private login: LoginService) { }
 
   /**
    * Verifies login & admin status
    * Fetch post, comments and subcategory name from backend when opening the page
+   * Also fretches the local timezone for date formatting
    */
   ngOnInit(): void {
     // verifying login status & admin status
@@ -49,12 +51,15 @@ export class ForumPostPageComponent implements OnInit {
         this.subName = sub.name;
         this.isLoading = false;
       });
+
+      // fetching local timezone
+      let date = new Date();
+      this.localTimezone = date.toString().split("GMT")[1];
     });
 
     // Listing comments
     this.api.ListComments().then(comment => {
       this.comments = comment.items;
-
     });
 
     // Subscribing to database updates
@@ -66,6 +71,7 @@ export class ForumPostPageComponent implements OnInit {
 
   /**
    * Sends a comment into the backend with user made content
+   * TODO: include poster's username
    * @param comment comment's content
    */
   addComment(comment: string) {

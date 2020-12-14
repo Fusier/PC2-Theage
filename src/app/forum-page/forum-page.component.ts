@@ -17,13 +17,15 @@ export class ForumComponent implements OnInit {
   subCategories: Subcategory[];
   recentPosts: Post[];
   apiFetchDone: boolean = false;
-  isAdmin: boolean = false
+  isAdmin: boolean = false;
+  localTimezone: string;
 
   constructor(private api: APIService, private login: LoginService) { }
 
   /**
    * Fetches all categories, subcategories and recent posts upon startup
    * After fetching the data the site checks the login and admin status of the user
+   * Also fretches the local timezone for date formatting
    */
   ngOnInit(): void {
     // Fetching categories
@@ -43,6 +45,10 @@ export class ForumComponent implements OnInit {
     // Checking login & admin status
     this.login.checkLogin();
     this.login.checkAdminStatus((result) => this.isAdmin = result);
+    
+    // fetching local timezone
+    let date = new Date();
+    this.localTimezone = date.toString().split("GMT")[1];
   }
 
   /**
